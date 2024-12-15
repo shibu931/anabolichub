@@ -2,32 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:where(.menu li){
+    position: unset!important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.cart-icn:hover svg{
+  stroke: #fff;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.swiper-button-prev, .swiper-button-next{
+  width: unset!important;
+  height: unset!important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.swiper-button-prev:after{
+  content: ''!important;
 }
+
+.swiper-button-next:after{
+  content: ''!important;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after{
+  width: 40px!important;
+  height: 40px!important;
+}
+
+.swiper-button-prev:after{
+  background: url('/assets/icons/left-angle.svg');
+}
+
+.swiper-button-next:after{
+  background: url('/assets/icons/right-angle.svg');
+}
+
+.swiper-pagination-bullet-active{
+  background-color:var(--fallback-p,oklch(var(--p)))!important;
+}
+
+.product-img-card img{
+  transition: all .2s ease-in-out;
+}
+
+.product-card:hover img{
+  transform: scale(110%);
+}
+
+.product-card{
+  @apply border border-gray-400 hover:border-primary p-2 !relative !block indicator col-span-1 w-full h-full
+}
+
+.data-\[state\=active\]\:shadow[data-state="active"]{
+  background: #6d0076;
+  position: relative;
+}
+
+.data-\[state\=active\]\:shadow[data-state="active"]::before{
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #6d0076; /* Controls the color of the chevron */
+  transform: rotate(0deg);
+}
+
+.article h1{
+  @apply text-3xl font-bold mb-4
+}
+
+.article h2{
+  @apply text-2xl font-semibold mb-3
+}
+.article h3{
+  @apply text-xl font-semibold mb-2
+}
+.article h4{
+  @apply text-lg font-semibold mb-3
+}
+.article h5{
+  @apply text-base font-semibold mb-2
+}
+.article h6{
+  @apply text-base font-semibold mb-2
+}
+
+.article p{
+  @apply leading-relaxed mb-2
+}
+
+.article a{
+  @apply underline text-primary
+}
+
+.article table{
+  @apply table-auto border-collapse border border-slate-300
+}
+
+.article th{
+  @apply border border-slate-300 p-2
+}
+
