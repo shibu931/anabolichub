@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 const reviewSchema = new mongoose.Schema({
     productID:{
         type:String,
-        required:[true,'Product Id Must neccessary']
+    },
+    slug:{
+        type:String
     },
     reviews:[
         {

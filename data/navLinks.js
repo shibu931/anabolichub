@@ -14,14 +14,15 @@ export const navLinks = [
         category: [
             {
                 title: 'ORALE STEROIDEN',
+                slug: 'orale-steroiden',
                 links: [
                     {
                         title: 'Dianabol (Methandienone)',
-                        slug: '/orale-steroiden/dianabol-methandienone'
+                        slug: '/orale-steroiden/methandienone-dianabol'
                     },
                     {
                         title: 'Winstrol (Stanazolol)',
-                        slug: '/orale-steroiden/winstrol-stanazolol'
+                        slug: '/orale-steroiden/stanazolol'
                     },
                     {
                         title: 'Turinabol',
@@ -29,19 +30,15 @@ export const navLinks = [
                     },
                     {
                         title: 'Anavar (Oxandrolon)',
-                        slug: '/orale-steroiden/anavar-oxandrolon'
+                        slug: '/orale-steroiden/oxandrolon'
                     },
                     {
                         title: 'Anapolon (Oxymetholone)',
-                        slug: '/orale-steroiden/anapolon-oxymetholone'
+                        slug: '/orale-steroiden/oxymetholon'
                     },
                     {
                         title: 'Clenbuterol',
                         slug: '/orale-steroiden/clenbuterol'
-                    },
-                    {
-                        title: 'Salbutamol',
-                        slug: '/orale-steroiden/salbutamol'
                     },
                     {
                         title: 'Primobolan',
@@ -51,38 +48,57 @@ export const navLinks = [
             },
             {
                 title: 'TESTOSTERON',
+                slug: 'testosteron',
                 links: [
                     {
-                        title: 'Dianabol (Methandienone)',
-                        slug: '/testosteron/dianabol-methandienone'
+                        title: 'Testosteron 400',
+                        slug: '/testosteron/testosterone-400'
+                    },
+                    {
+                        title: 'Testosteron Cypionat',
+                        slug: '/testosteron/testosterone-cypionate'
+                    },
+                    {
+                        title: 'Testosteron Enantat',
+                        slug: '/testosteron/testosteron-enantat'
+                    },
+                    {
+                        title: 'Testosteron Mix (Sustanon)',
+                        slug: '/testosteron/testosterone-mix'
+                    },
+                    {
+                        title: 'Testosteron Propionat',
+                        slug: '/testosteron/testosteron-propionat'
                     },
                 ]
             },
             {
-                title: 'INJIZIERVARE STEROIDE',
+                title: 'INJIZIERBARE STEROIDE',
+                slug: 'injizierbare-steroide',
                 links: [
                     {
                         title: 'Boldenon Undecylenate',
-                        slug: '/injizierbare-steroide/boldenon-undecylenate'
+                        slug: '/injizierbare-steroide/boldenone-undecylenate'
                     },
-                ]
-            },
-            {
-                title: 'BESTIMMUNG',
-                links: [
                     {
-                        title: 'Steride fur Muskelmasse',
-                        slug: '/bestimmung/steride-fur-muskelmasse'
+                        title: 'Drostanolone Enanthate',
+                        slug: '/injizierbare-steroide/drostanolone-enanthate'
+                    },
+                    {
+                        title: 'Nandrolon Propionat (NPP)',
+                        slug: '/injizierbare-steroide/nandrolone-phenylpropionate'
+                    },
+                    {
+                        title: 'Nandrolon Decanoate (Deca Durabolin)',
+                        slug: '/injizierbare-steroide/nandrolone-decanoate'
+                    },
+                    {
+                        title: 'Trenbolone Enanthate',
+                        slug: '/injizierbare-steroide/trenbolone-enanthate'
                     },
                 ]
-            },
+            }
         ]
-    },
-    {
-        icon: HGHIcon,
-        isSubCategory: false,
-        title: 'HGH',
-        slug: '/hgh'
     },
     {
         icon: CycleIcon,
@@ -90,35 +106,221 @@ export const navLinks = [
         title: 'PCT',
         category: [
             {
-                title: 'POST CYCLE THERAPY',
+                title: 'Post Cycle Theropy',
+                slug: 'pct',
                 links: [
                     {
                         title: 'Exemestan (Aromasin)',
-                        slug: '/pct/exemestan-aromasin'
+                        slug: '/product/exemestan-(aromasin)'
                     },
                     {
                         title: 'Nolvadex (Tamoxifen)',
-                        slug: '/pct/nolvadex-tamoxifen'
+                        slug: '/product/nolvadex-(tamoxifen)'
                     },
                     {
                         title: 'Clomid (Clomiphen)',
-                        slug: '/pct/clomid-clomiphen'
+                        slug: '/product/clomid-(clomiphen)-50-mg'
                     },
                     {
                         title: 'Dostinex (Cabaser)',
-                        slug: '/pct/dostinex-cabaser'
+                        slug: '/product/dostinex-(cabergolin)'
                     },
                     {
                         title: 'Pregnyl 5000 i.u. HCG',
-                        slug: '/pct/pregnyl-5000-iu-hcg'
+                        slug: '/product/pregnyl-5000-i.u.-hcg'
                     },
                     {
-                        title: 'Arimidex (Anastrazol)',
-                        slug: '/pct/arimidex-anastrazol'
+                        title: 'Arimidex (Anastrozol)',
+                        slug: '/product/arimidex-(anastrozol)'
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        icon: CycleIcon,
+        isSubCategory: true,
+        title: 'PEPTIDE',
+        category: [
+            {
+                title: 'BEST SELLING PEPTIDE',
+                slug: 'peptide',
+                links: [
+                    {
+                        title: 'BPC-157',
+                        slug: '/peptide/bpc-157'
                     },
                     {
-                        title: 'Proviron (Masterlone)',
-                        slug: '/pct/proviron-masterlone'
+                        title: 'Bromantan',
+                        slug: '/peptide/bromantan'
+                    },
+                    {
+                        title: 'CJC-1295 DAC',
+                        slug: '/peptide/cjc-1295-dac'
+                    },
+                    {
+                        title: 'CJC-1295 NO DAC',
+                        slug: '/peptide/cjc-1295-no-dac'
+                    },
+                    {
+                        title: 'Epithalon',
+                        slug: '/peptide/epithalon'
+                    },
+                    {
+                        title: 'GHK-Cu',
+                        slug: '/peptide/ghk-cu'
+                    },
+                    {
+                        title: 'GHRP-2',
+                        slug: '/peptide/ghrp-2'
+                    },
+                    {
+                        title: 'GHRP-6',
+                        slug: '/peptide/ghrp-6'
+                    },
+                    {
+                        title: 'HGH Fragment 176-191',
+                        slug: '/peptide/hgh-fragment'
+                    },
+                ]
+            },
+            {
+                title: 'PEPTIDE',
+                slug:"peptide",
+                links: [
+                    {
+                        title: 'IGF-1 LR3 (Oxymedin)',
+                        slug: '/peptide/igf-1-lr3'
+                    },
+                    {
+                        title: 'Ipamorelin',
+                        slug: '/peptide/ipamorelin'
+                    },
+                    {
+                        title: 'Kisspeptin',
+                        slug: '/peptide/kisspeptin'
+                    },
+                    {
+                        title: 'Melanotan-2 (MT-2)',
+                        slug: '/peptide/melanotan-2-mt-2'
+                    },
+                    {
+                        title: 'Oxytocin',
+                        slug: '/peptide/oxytocin'
+                    },
+                    {
+                        title: 'PT-141',
+                        slug: '/peptide/pt-141'
+                    },
+                    {
+                        title: 'Selank',
+                        slug: '/peptide/selank'
+                    },
+                    {
+                        title: 'Semax',
+                        slug: '/peptide/semax'
+                    },
+                    {
+                        title: 'TB-500',
+                        slug: '/peptide/tb-500'
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        icon: CycleIcon,
+        isSubCategory: true,
+        title: "SARM's",
+        category: [
+            {
+                title: "SARM's",
+                slug: 'sarm-s',
+                links: [
+                    {
+                        title: 'Cardarine (GW-501516)',
+                        slug: '/sarm-s/cardarine-gw-501516'
+                    },
+                    {
+                        title: 'Ligandrol (LGD-4033)',
+                        slug: '/sarm-s/ligandrol-lgd-4033'
+                    },
+                    {
+                        title: 'MK-677 (Ibutamoren)',
+                        slug: '/sarm-s/mk-677'
+                    },
+                    {
+                        title: 'Ostarine (MK-2866)',
+                        slug: '/sarm-s/ostarin'
+                    },
+                    {
+                        title: 'Rad-140 (Testolone)',
+                        slug: '/sarm-s/rad-140'
+                    },
+                    {
+                        title: 'S-23',
+                        slug: '/sarm-s/s-23'
+                    },
+                    {
+                        title: 'S4 (Andarine)',
+                        slug: '/sarm-s/s4-andarine'
+                    },
+                    {
+                        title: 'SR-9009 (Stenabolic)',
+                        slug: '/sarm-s/sr-9009-stenabolic'
+                    },
+                    {
+                        title: 'YK-11',
+                        slug: '/sarm-s/yk-11'
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        icon: CycleIcon,
+        isSubCategory: true,
+        title: 'Fatburner',
+        category: [
+            {
+                title: 'Fatburner',
+                slug:"fatburner",
+                links: [
+                    {
+                        title: "Sibutramin 100 Tabletten 20mg/tab",
+                        slug: "/product/sibutramin-100-tabletten-20mg",
+                    },
+                    {
+                        title: "Tiromel T3 100 Tabletten 25mcg/tab",
+                        slug: "/product/tiromel-t3-100-tabletten-25mc",
+                    },
+                    {
+                        title: "5-Amino-1MQ 50mg 30 Tabletten",
+                        slug: "/product/5-amino-1mq-50-mg-30-tabletten",
+                    },
+                    {
+                        title: "Yohimbine HCL Endogenic",
+                        slug: "/product/endogenic-yohimbine-hcl",
+                    },
+                    {
+                        title: "Yohimbin Endogenic in Kapseln",
+                        slug: "/product/yohimbin-endogenic-in-kapseln",
+                    },
+                    {
+                        title: "Semaglutid BioAmino Labs",
+                        slug: "/product/semaglutid-(ozempic)-ohne-rezept",
+                    },
+                    {
+                        title: "Swiss Pharma Sibutramine 25mg 30 Tab",
+                        slug: "/product/swiss-pharma-sibutramine-25-mg-30-tab",
+                    },
+                    {
+                        title: "Semaglutid 4mg BioAmino Labs",
+                        slug: "/product/semaglutid-4-mg",
+                    },
+                    {
+                        title: "Sema-G 2mg",
+                        slug: "/product/sema-g-2-mg",
                     },
                 ]
             },
@@ -127,8 +329,8 @@ export const navLinks = [
     {
         icon: SexIcon,
         isSubCategory: false,
-        title: 'SEX',
-        slug: '/sex'
+        title: 'REVIEWS',
+        slug: '/reviews'
     },
     {
         icon: BlogIcon,

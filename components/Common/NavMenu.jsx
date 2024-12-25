@@ -33,15 +33,15 @@ const NavMenu = () => {
                 <li key={index}>
                     <details >
                         <summary><navLink.icon className='w-5'/> {navLink.title}</summary>
-                        <ul className="flex border-2 z-10">
+                        <ul className="lg:flex lg:border-2 z-10 ms-0 ps-0 lg:ms-2 lg:ps-2">
                             {
                                 navLink.category.map((subCategory,index)=>(
                                     <li key={index}>
-                                    <Link className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.title.toLowerCase().replaceAll(" ","-")}`}><h4 className='text-lg text-accent-content font-bold'>{subCategory.title}</h4></Link>
-                                    <ul className='before:opacity-20 text-accent-content'>
+                                    {subCategory.title && <Link className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.slug}`}><h4 className='text-lg text-base-100 lg:text-accent-content font-bold'>{subCategory.title}</h4></Link>}
+                                    <ul className='before:opacity-20 before:bg-base-200 lg:before:bg-success-content text-white lg:text-accent-content'>
                                         {
                                             subCategory.links.map((link)=>(
-                                                <li key={link.title}><Link href={link.slug}>{link.title}</Link></li>
+                                                <li key={link.title}><Link href={link.slug} className='focus:text-primary'>{link.title}</Link></li>
                                             ))
                                         }
                                     </ul>
@@ -52,7 +52,7 @@ const NavMenu = () => {
                     </details>
                 </li>
                 :
-                <li key={index}><Link href={navLink.slug}><navLink.icon className='w-5'/> {navLink.title}</Link></li>
+                <li key={index}><Link href={navLink.slug} className='focus:text-primary'><navLink.icon className='w-5'/> {navLink.title}</Link></li>
         ))
     )
 };

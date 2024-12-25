@@ -90,6 +90,37 @@ const steroidLinks = {
     ]
 }
 
+{/* <select class="form-control form-control-select js-country" name="id_country" required="">
+            <option value="" disabled="" selected="" _msttexthash="272051" _msthash="61">-- please select --</option>
+                          <option value="2" _msttexthash="95693" _msthash="62">Austria</option>
+                          <option value="3" _msttexthash="91897" _msthash="63">Belgium</option>
+                          <option value="236" _msttexthash="111254" _msthash="64">Bulgaria</option>
+                          <option value="74" selected="" _msttexthash="92911" _msthash="65">Croatia</option>
+                          <option value="76" _msttexthash="81276" _msthash="66">Cyprus</option>
+                          <option value="16" _msttexthash="224679" _msthash="67">Czech Republic</option>
+                          <option value="20" _msttexthash="93470" _msthash="68">Denmark</option>
+                          <option value="1" _msttexthash="178477" _msthash="69">Germany</option>
+                          <option value="86" _msttexthash="94744" _msthash="70">Estonia</option>
+                          <option value="7" _msttexthash="92131" _msthash="71">Finland</option>
+                          <option value="8" _msttexthash="73788" _msthash="72">France</option>
+                          <option value="9" _msttexthash="73177" _msthash="73">Greece</option>
+                          <option value="143" _msttexthash="97084" _msthash="74">Hungary</option>
+                          <option value="26" _msttexthash="92287" _msthash="75">Ireland</option>
+                          <option value="10" _msttexthash="61399" _msthash="76">Italy</option>
+                          <option value="125" _msttexthash="76063" _msthash="77">Latvia</option>
+                          <option value="131" _msttexthash="133406" _msthash="78">Lithuania</option>
+                          <option value="12" _msttexthash="137735" _msthash="79">Luxembourg</option>
+                          <option value="139" _msttexthash="58682" _msthash="80">Malta</option>
+                          <option value="13" _msttexthash="175539" _msthash="81">Netherlands</option>
+                          <option value="14" _msttexthash="75400" _msthash="82">Poland</option>
+                          <option value="15" _msttexthash="116090" _msthash="83">Portugal</option>
+                          <option value="36" _msttexthash="92872" _msthash="84">Romania</option>
+                          <option value="37" _msttexthash="113074" _msthash="85">Slovakia</option>
+                          <option value="193" _msttexthash="114114" _msthash="86">Slovenia</option>
+                          <option value="6" _msttexthash="94211" _msthash="87">Spain</option>
+                          <option value="18" _msttexthash="76349" _msthash="88">Sweden</option>
+                      </select> */}
+
 // https://steroidskaufen.com/de/tb-500/120-tb-500-endogenic.html
 // https://steroidskaufen.com/de/melanotan-2-mt-2/122-mt-2-endogenic.html
 // https://steroidskaufen.com/de/bpc-157/217-bpc-157-kapseln-endogenic.html

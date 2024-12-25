@@ -105,3 +105,67 @@
   @apply border border-slate-300 p-2
 }
 
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cl-internal-nfscg9{
+  margin-right: 15px;
+}
+
+.cl-userButtonOuterIdentifier {
+  color: #fff;
+}
+
+.cl-internal-1j7ahlv{
+  border: 1px solid #ffffff80;
+}
+
+.input-field{
+  @apply input input-bordered w-full rounded-none max-w-xs hover:border-primary/25 hover:outline-primary/25
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust width as needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Adjust track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a0aec0; /* Adjust thumb color (gray-400 equivalent) */
+  border-radius: 4px; /* Adjust border radius */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #718096; /* Adjust hover thumb color (gray-600 equivalent) */
+}
+
+/* For Firefox (more limited styling options) */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #a0aec0 #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
+@media screen and (max-width:580px) {
+  .swiper-button-prev{
+    display: none!important;
+  }
+  .swiper-button-next{
+    display: none!important;
+  }
+}

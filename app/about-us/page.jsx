@@ -1,8 +1,14 @@
 import React from 'react'
+import ArticlePage from '@/components/Common/ArticlePage'
 
-const page = () => {
+const page = async () => {
+  const data = await fetch(`${process.env.DOMAIN_URL}/api/article?slug=about-us`)
+  const {article} = await data.json()
+  
   return (
-    <div>page</div>
+    <main className='container mx-auto mt-5'>
+      <ArticlePage content={article.content}/>
+    </main>
   )
 }
 

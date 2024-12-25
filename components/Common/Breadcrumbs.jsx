@@ -3,17 +3,27 @@ import Link from "next/link"
 import { usePathname } from 'next/navigation';
 import generateBreadcrumbsFromSlug from '../../utils/generateBreadCrumb'
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({slug,endSlug}) => {
     const pathname = usePathname();
-    const breadcrumb =  generateBreadcrumbsFromSlug(pathname) 
+    let breadcrumb;
+    if(!slug){
+        breadcrumb =  generateBreadcrumbsFromSlug(pathname)
+    }else{
+        breadcrumb =slug
+    }
     return (
         <div className="breadcrumbs text-sm">
             <ul>
                 <li className="text-black font-medium"><Link href="/">Home</Link></li>
                 {
                     breadcrumb.map((link,index)=>(
-                        <li key={index} className="text-black font-medium"><Link href={link.href}>{link.label}</Link></li>
+                        <li key={index} className="text-black font-medium"><Link href={`/${link.href}`}>{link.label ? link.label : link.title}</Link></li>
                     ))
+                }
+                {
+                    endSlug && (
+                        <li className="text-black font-medium">{endSlug}</li>
+                    )
                 }
             </ul>
         </div>

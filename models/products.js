@@ -28,6 +28,9 @@ const ProductSchema = new mongoose.Schema({
     ],
     validate: [arrayLimit, '{PATH} exceeds the limit of 5'], 
   },
+  shortDescription:{
+    type:String,
+  },
   productPrice: {
     type: String, 
     required: true,
@@ -88,6 +91,12 @@ const ProductSchema = new mongoose.Schema({
     default: "",
     trim: true,
   },
+  description:{
+    type:String,
+  },
+  sales:{
+    type:Number
+  }
 }, {
   timestamps: true, 
 });
@@ -96,4 +105,4 @@ function arrayLimit(val) {
   return val.length <= 10; 
 }
 
-module.exports = mongoose.model('Product', ProductSchema);
+export default mongoose.models.Product || mongoose.model('Product',ProductSchema)

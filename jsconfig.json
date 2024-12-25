@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/api/webhooks/clerk/route.js"  ],
   "exclude": [
     "node_modules"
   ],

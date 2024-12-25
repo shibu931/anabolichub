@@ -5,47 +5,62 @@ import Link from "next/link";
 const uspData = [
   {
     icon: QualityIcon,
-    title: "High-Quality Products",
-    description: "We source our products from trusted manufacturers and conduct rigorous quality checks to ensure purity, potency, and safety."
+    title: "Hochwertige Produkte",
+    description: "Wir beziehen unsere Produkte von vertrauenswürdigen Herstellern und führen strenge Qualitätskontrollen durch, um Reinheit, Wirksamkeit und Sicherheit zu gewährleisten."
   },
   {
     icon: VarietyIcon,
-    title: "Extensive Selection",
-    description: "From injectable steroids to post-cycle therapy (PCT) solutions, our catalog is curated to meet the diverse needs of our customers."
+    title: "Umfangreiche Auswahl",
+    description: "Von injizierbaren Steroiden bis hin zu Post-Cycle-Therapie-Lösungen (PCT) ist unser Katalog darauf ausgerichtet, die vielfältigen Bedürfnisse unserer Kunden zu erfüllen."
   },
   {
     icon: SupportIcon,
-    title: "Expert Support",
-    description: "Our team is always available to answer your questions and guide you toward the products that best suit your goals."
+    title: "Experten-Support",
+    description: "Unser Team steht Ihnen jederzeit zur Verfügung, um Ihre Fragen zu beantworten und Sie zu den Produkten zu führen, die am besten zu Ihren Zielen passen."
   },
   {
     icon: ConfidentialityIcon,
-    title: "Confidentiality and Discretion",
-    description: "Your privacy is our priority. All orders are shipped discreetly to ensure your confidentiality."
+    title: "Vertraulichkeit und Diskretion",
+    description: "Ihre Privatsphäre ist unsere Priorität. Alle Bestellungen werden diskret versandt, um Ihre Vertraulichkeit zu gewährleisten."
   },
   {
     icon: PricingIcon,
-    title: "Competitive Pricing",
-    description: "We believe that superior health and performance should be accessible. That’s why we offer top-notch products at affordable prices."
+    title: "Wettbewerbsfähige Preise",
+    description: "Wir glauben, dass überlegene Gesundheit und Leistung zugänglich sein sollten. Deshalb bieten wir erstklassige Produkte zu erschwinglichen Preisen an."
   }
 ];
 
-export default function Home() {
+export default async function Home() {
+
+  const latestProducts = await fetch('http://localhost:3000/api/products?type=latest&limit=5');
+  const bestSellingProducts = await fetch('http://localhost:3000/api/products?type=best-selling&limit=5');
+  const oralSteroids = await fetch('http://localhost:3000/api/products?type=category&category=orale-steroiden&limit=4');
+  const Peptide = await fetch('http://localhost:3000/api/products?type=category&category=peptide&limit=5');
+  const injectibleSteroids = await fetch('http://localhost:3000/api/products?type=category&category=injizierbare-steroide&limit=4');
+
+  const data = {
+    latestProducts: await latestProducts.json(),
+    bestSellingProducts: await bestSellingProducts.json(),
+    oralSteroids: await oralSteroids.json(),
+    Peptide: await Peptide.json(),
+    injectibleSteroids: await injectibleSteroids.json(),
+  }
+
+
   return (
     <main className="container mx-auto mt-5">
-      <HomePage />
+      <HomePage data={data} />
 
-      <section className="article mt-8">
-        <h1 className="h1  md:py-2 p-1">Welcome to AnabolicHub.com - Your Trusted Source for Performance and Wellness Solutions</h1>
-        <p>At <Link href="/">AnabolicHub.com</Link>, we understand that achieving your fitness and wellness goals is a journey that requires dedication, discipline, and the right tools. That’s why we are committed to providing you with a comprehensive range of premium products designed to support your health, performance, and recovery. Whether you’re a seasoned athlete, a fitness enthusiast, or someone embarking on a transformative journey, we have everything you need to unlock your potential and achieve excellence.</p>
-
-        <h2 className="!mb-4">Why Choose AnabolicHub.com</h2>
+      <section className="article mt-8 px-5 lg:px-0">
+        <h1 class="h1 md:py-2 p-1">Willkommen bei AnabolicHub.com - Ihre vertrauenswürdige Quelle für Leistungs- und Wellnesslösungen</h1>
+        <p>Bei <Link href="/">AnabolicHub.com</Link> wissen wir, dass das Erreichen Ihrer Fitness- und Wellnessziele eine Reise ist, die Engagement, Disziplin und die richtigen Hilfsmittel erfordert. Deshalb haben wir uns zum Ziel gesetzt, Ihnen ein umfassendes Sortiment an Premiumprodukten anzubieten, die Ihre Gesundheit, Leistung und Regeneration unterstützen. Egal, ob Sie ein erfahrener Athlet, ein Fitnessenthusiast oder jemand sind, der sich auf eine transformative Reise begibt, wir haben alles, was Sie brauchen, um Ihr Potenzial zu entfalten und Spitzenleistungen zu erzielen.</p>
+        <h2 className="!mb-4">Warum Sie sich für AnabolicHub.com entscheiden sollten</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {
             uspData.map((item, index) => (
               <div className="col-span-1 w-full h-full" key={index}>
                 <div className="flex items-start bg-white border h-full border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full">
-                  <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+                  <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                     <item.icon className={"w-10"} />
                   </div>
                   <div>
@@ -63,7 +78,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 sm:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <InjectableSteroidsIcon className={'w-10'} />
               </div>
               <div>
@@ -86,7 +101,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <OralSteroidsIcon className={'w-10'} />
               </div>
               <div>
@@ -106,7 +121,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <FatBurnerIcon className={'w-10'} />
               </div>
               <div>
@@ -125,7 +140,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <SexIcon className={'w-10'} />
               </div>
               <div>
@@ -144,7 +159,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <GrowthIcon className={'w-10'} />
               </div>
               <div>
@@ -164,7 +179,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <SARMSIcon className={'w-10'} />
               </div>
               <div>
@@ -184,7 +199,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <EnergyIcon className={'w-10'} />
               </div>
               <div>
@@ -203,7 +218,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <HealthIcon className={'w-10'} />
               </div>
               <div>
@@ -223,7 +238,7 @@ export default function Home() {
 
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 p-2 h-10 bg-primary text-white rounded-md mr-5">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <PCTIcon className={'w-10'} />
               </div>
               <div>
@@ -264,20 +279,20 @@ export default function Home() {
 
         <h3>Take the First Step Today</h3>
         <p>Your journey to peak performance and unparalleled wellness begins here. Browse our catalog, find the products that align with your goals, and let us support you every step of the way. Together, we can unlock your potential and achieve greatness.</p>
-        <h4>Explore, Commit, Transform – Welcome to AnabolicHub.com!</h4>
+        <h4 className="!mb-6">Explore, Commit, Transform – Welcome to AnabolicHub.com!</h4>
 
         <h2>FAQ</h2>
         <h3>1. What is AnabolicHub.com?</h3>
         <p>AnabolicHub.com is a trusted online platform providing reliable information, resources, and high-quality products for bodybuilding, fitness, and health enthusiasts. We specialize in anabolic supplements, workout tips, and expert advice to help you achieve your fitness goals safely and effectively.</p>
-        <h3>Are the products on AnabolicHub.com safe to use?</h3>
+        <h3>2. Are the products on AnabolicHub.com safe to use?</h3>
         <p>Yes, all products offered on AnabolicHub.com are sourced from reputable manufacturers and undergo strict quality control to ensure safety and efficacy. We also provide detailed usage guidelines and encourage consulting a healthcare professional before starting any new supplement regimen.</p>
-        <h3>Do you offer worldwide shipping?</h3>
+        <h3>3. Do you offer worldwide shipping?</h3>
         <p>Yes, AnabolicHub.com provides worldwide shipping. Whether you're in the U.S., Europe, Asia, or elsewhere, we aim to deliver your products quickly and securely. Check our shipping policy for estimated delivery times and any regional restrictions.</p>
-        <h3>Can beginners use the supplements available on AnabolicHub.com?</h3>
+        <h3>4. Can beginners use the supplements available on AnabolicHub.com?</h3>
         <p>Absolutely. We offer a range of products suitable for all experience levels, including beginners. Each product comes with clear instructions, and our support team is available to help you choose the right supplements for your fitness journey.</p>
-        <h3>How can I track my order?</h3>
+        <h3>5. How can I track my order?</h3>
         <p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your package's progress through our website or the courier's tracking system.</p>
-        <h3>Does AnabolicHub.com offer a return policy?</h3>
+        <h3>6. Does AnabolicHub.com offer a return policy?</h3>
         <p>Yes, we have a customer-friendly return policy. If you're unsatisfied with your purchase or received a damaged product, contact our support team within 30 days of delivery for a hassle-free resolution. Check our Returns and Refunds page for more details.</p>
 
       </section>

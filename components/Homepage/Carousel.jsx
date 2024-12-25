@@ -29,8 +29,6 @@ export const HomeCarousel = () => {
       loop={true}
       navigation
       pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
     >
       {
         sliderImage.map((item, index) => (
@@ -40,7 +38,7 @@ export const HomeCarousel = () => {
               height="400"
               width="1200"
               alt="Kraftzonal"
-              className="w-full"
+              className="w-full h-[220px] object-fill sm:h-auto"
             />
           </SwiperSlide>
         ))
