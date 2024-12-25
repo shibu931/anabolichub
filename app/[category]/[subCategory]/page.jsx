@@ -4,7 +4,7 @@ import Breadcrumbs from '../../../components/Common/Breadcrumbs'
 async function MyComponent({params}) {
   const {subCategory} = await params
   const data = await fetch(`http://localhost:3000/api/products/${subCategory}?type=sub-category`)
-  const articleData = await fetch(`${process.env.DOMAIN_URL}/api/article?slug=${category}`)
+  const articleData = await fetch(`${process.env.DOMAIN_URL}/api/article?slug=${subCategory}`)
   const {article} = await articleData.json()
   const {product} = await data.json()
   return (
