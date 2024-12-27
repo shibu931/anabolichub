@@ -48,11 +48,11 @@ export default async function Home() {
 
 
   return (
-    <main className="container mx-auto mt-5">
+    <main className="container xl:w-[1280px] mx-auto mt-5">
       <HomePage data={data} />
 
       <section className="article mt-8 px-5 lg:px-0">
-        <h1 class="h1 md:py-2 p-1">Willkommen bei AnabolicHub.com - Ihre vertrauenswürdige Quelle für Leistungs- und Wellnesslösungen</h1>
+        <h1 className="h1 md:py-2 p-1">Willkommen bei AnabolicHub.com - Ihre vertrauenswürdige Quelle für Leistungs- und Wellnesslösungen</h1>
         <p>Bei <Link href="/">AnabolicHub.com</Link> wissen wir, dass das Erreichen Ihrer Fitness- und Wellnessziele eine Reise ist, die Engagement, Disziplin und die richtigen Hilfsmittel erfordert. Deshalb haben wir uns zum Ziel gesetzt, Ihnen ein umfassendes Sortiment an Premiumprodukten anzubieten, die Ihre Gesundheit, Leistung und Regeneration unterstützen. Egal, ob Sie ein erfahrener Athlet, ein Fitnessenthusiast oder jemand sind, der sich auf eine transformative Reise begibt, wir haben alles, was Sie brauchen, um Ihr Potenzial zu entfalten und Spitzenleistungen zu erzielen.</p>
         <h2 className="!mb-4">Warum Sie sich für AnabolicHub.com entscheiden sollten</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -73,7 +73,7 @@ export default async function Home() {
           }
         </div>
 
-        <h2 className="!mb-4">Explore Our Product Categories</h2>
+        <h2 className="!mb-4">Entdecken Sie unsere Produktkategorien</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
 
           <div className="col-span-1 w-full">
@@ -82,19 +82,17 @@ export default async function Home() {
                 <InjectableSteroidsIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Injectable Steroids</h3>
-                <p className="text-gray-600 text-sm">Injectable steroids are a popular choice for individuals seeking significant muscle growth, enhanced strength, and improved athletic performance. At AnabolicHub.com, we offer a wide variety of injectable options, including:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Injizierbare Steroide</h3>
+                <p className="text-gray-600 text-sm">Injizierbare Steroide sind eine beliebte Wahl für Personen, die nach signifikantem Muskelaufbau, gesteigerter Kraft und verbesserter sportlicher Leistung streben. Auf AnabolicHub.com bieten wir eine breite Palette an injizierbaren Optionen an, darunter:</p>
                 <ul className="text-sm mb-2 list-disc ps-5">
-                  <li><strong>Testosterone Variants</strong>  (e.g., Testosterone Enanthate, Testosterone Cypionate, Testosterone Propionate)</li>
-                  <li><strong>Nandrolone Derivatives</strong> (e.g., Deca-Durabolin, Nandrolone Phenylpropionate)
-                  </li>
-                  <li><strong>Boldenone Undecylenate (Equipoise)</strong></li>
-                  <li><strong>Trenbolone Acetate and Trenbolone Enanthate</strong></li>
-                  <li><strong>Drostanolone (Masteron)</strong></li>
-                  <li><strong>Primobolan (Methenolone Enanthate)</strong></li>
+                  <li><strong>Testosteron-Varianten</strong> (z. B. Testosteron Enanthate, Testosteron Cypionate, Testosteron Propionat)</li>
+                  <li><strong>Nandrolon-Derivate</strong> (z. B. Deca-Durabolin, Nandrolon Phenylpropionat)</li>
+                  <li><strong>Boldenon Undecylenat (Equipoise)</strong></li>
+                  <li><strong>Trenbolonacetat und Trenbolonenanthate</strong></li>
+                  <li><strong>Drostanolon (Masteron)</strong></li>
+                  <li><strong>Primobolan (Methenolon Enanthate)</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products are ideal for bodybuilders and athletes looking to increase lean muscle mass, reduce recovery time, and achieve peak performance.
-                </p>
+                <p className="text-gray-600 text-sm">Diese Produkte sind ideal für Bodybuilder und Sportler, die ihre fettfreie Muskelmasse erhöhen, die Erholungszeit verkürzen und Spitzenleistungen erzielen möchten.</p>
               </div>
             </div>
           </div>
@@ -105,16 +103,36 @@ export default async function Home() {
                 <OralSteroidsIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Oral Steroids</h3>
-                <p className="text-gray-600 text-sm">Oral steroids offer convenience and effectiveness, making them an excellent choice for those who prefer not to use injections. Our selection includes:</p>
-                <ul className="list-disc text-sm ps-4">
-                  <li><strong>Dianabol (Methandienone)</strong></li>
-                  <li><strong>Anavar (Oxandrolone)</strong></li>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Orale Steroide</h3>
+                <p className="text-gray-600 text-sm">Orale Steroide bieten Bequemlichkeit und Wirksamkeit und sind somit eine ausgezeichnete Wahl für diejenigen, die Injektionen vermeiden möchten. Unsere Auswahl umfasst:</p>
+                <ul className="list-disc text-sm">
+                  <li><strong>Dianabol (Methandienon)</strong></li>
+                  <li><strong>Anavar (Oxandrolon)</strong></li>
                   <li><strong>Winstrol (Stanozolol)</strong></li>
-                  <li><strong>Anadrol (Oxymetholone)</strong></li>
-                  <li><strong>Turinabol (Chlorodehydromethyltestosterone)</strong></li>
+                  <li><strong>Anadrol (Oxymetholon)</strong></li>
+                  <li><strong>Turinabol (Chlordehydromethyltestosteron)</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These compounds are known for their ability to enhance muscle growth, boost endurance, and improve overall strength.</p>
+                <p className="text-gray-600 text-sm">Diese Verbindungen sind bekannt für ihre Fähigkeit, das Muskelwachstum zu fördern, die Ausdauer zu steigern und die allgemeine Kraft zu verbessern.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-1 w-full">
+            <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
+              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
+                <OralSteroidsIcon className={'w-10'} />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Peptide</h3>
+                <p className="text-gray-600 text-sm">Peptide sind kurze Ketten von Aminosäuren, die entscheidende Rollen in verschiedenen Körperfunktionen spielen. Sie werden für eine Vielzahl von Zwecken eingesetzt, darunter:</p>
+                <ul className="list-disc text-sm">
+                  <li><strong>Muskelwachstum und Regeneration:</strong> Peptide wie Wachstumshormon-Releasing-Hormone (GHRHs) und Wachstumshormon-Releasing-Peptide (GHRPs) stimulieren die Freisetzung von Wachstumshormonen, was das Muskelwachstum, den Fettabbau und eine schnellere Erholung fördert.</li>
+                  <li><strong>Fettabbau:</strong> Einige Peptide, wie z. B. AOD-9604, sind speziell auf den Fettabbau ausgerichtet, indem sie die fettverbrennenden Effekte von Wachstumshormonen nachahmen.</li>
+                  <li><strong>Verbesserter Schlaf:</strong> Peptide wie das Delta-Schlaf-induzierende Peptid (DSIP) können die Schlafqualität verbessern und einen erholsamen Schlaf fördern.</li>
+                  <li><strong>Verbesserte Hautgesundheit:</strong> Kollagenpeptide und andere Peptide können die Hautelastizität verbessern, Falten reduzieren und ein jugendliches Aussehen fördern.</li>
+                  <li><strong>Gesteigerte Libido:</strong> Bestimmte Peptide können dazu beitragen, die sexuelle Funktion und die Libido zu verbessern.</li>
+                </ul>
+                <p className="text-gray-600 text-sm">Auf AnabolicHub.com bieten wir eine vielfältige Auswahl an hochwertigen Peptiden zur Unterstützung Ihrer Gesundheits- und Fitnessziele.</p>
               </div>
             </div>
           </div>
@@ -125,15 +143,15 @@ export default async function Home() {
                 <FatBurnerIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Fat Burners</h3>
-                <p className="text-gray-600 text-sm">Our range of fat burners is designed to help you shed excess weight and achieve a lean, sculpted physique. Popular options include:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Fettverbrenner</h3>
+                <p className="text-gray-600 text-sm">Unsere Auswahl an Fettverbrennern wurde entwickelt, um Ihnen beim Abbau von Übergewicht und der Erreichung eines schlanken, definierten Körpers zu helfen. Beliebte Optionen sind:</p>
                 <ul className="text-sm ps-4 list-disc">
                   <li><strong>Clenbuterol</strong></li>
                   <li><strong>Cytomel (T3)</strong></li>
-                  <li><strong>Ephedrine</strong></li>
-                  <li><strong>Thermogenic Blends</strong></li>
+                  <li><strong>Ephedrin</strong></li>
+                  <li><strong>Thermogene Mischungen</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products work by increasing your metabolic rate, suppressing appetite, and enhancing energy levels, making them an excellent addition to any weight loss regimen.</p>
+                <p className="text-gray-600 text-sm">Diese Produkte wirken, indem sie Ihren Stoffwechsel ankurbeln, den Appetit unterdrücken und das Energieniveau steigern. Dadurch sind sie eine hervorragende Ergänzung für jede Gewichtsabnahme.</p>
               </div>
             </div>
           </div>
@@ -144,15 +162,15 @@ export default async function Home() {
                 <SexIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sex Support Supplements</h3>
-                <p className="text-gray-600 text-sm">Maintaining a healthy and active lifestyle includes addressing sexual health. Our collection of sex support supplements includes:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Nahrungsergänzungsmittel zur Unterstützung der sexuellen Gesundheit</h3>
+                <p className="text-gray-600 text-sm">Ein gesunder und aktiver Lebensstil beinhaltet auch die Berücksichtigung der sexuellen Gesundheit. Unsere Kollektion an Nahrungsergänzungsmitteln zur Unterstützung der sexuellen Gesundheit umfasst:</p>
                 <ul className="text-sm ps-4 list-disc">
                   <li><strong>Viagra (Sildenafil)</strong></li>
                   <li><strong>Cialis (Tadalafil)</strong></li>
-                  <li><strong>Herbal Libido Boosters</strong></li>
-                  <li><strong>Prohormone-Based Products</strong></li>
+                  <li><strong>Pflanzliche Libido-Booster</strong></li>
+                  <li><strong>Produkte auf Prohormonbasis</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These supplements are formulated to enhance libido, improve stamina, and support overall sexual wellness.</p>
+                <p className="text-gray-600 text-sm">Diese Nahrungsergänzungsmittel sind formuliert, um die Libido zu steigern, die Ausdauer zu verbessern und das allgemeine sexuelle Wohlbefinden zu unterstützen.</p>
               </div>
             </div>
           </div>
@@ -163,16 +181,16 @@ export default async function Home() {
                 <GrowthIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Human Growth Hormone (HGH) and Peptides</h3>
-                <p className="text-gray-600 text-sm">HGH and peptides are powerful tools for anti-aging, muscle growth, and recovery. We offer a wide range of these products, including:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Humanes Wachstumshormon (HGH) und Peptide</h3>
+                <p className="text-gray-600 text-sm">HGH und Peptide sind wirkungsvolle Mittel zur Anti-Aging, für Muskelwachstum und Regeneration. Wir bieten eine breite Palette dieser Produkte an, darunter:</p>
                 <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Somatropin (Human Growth Hormone)</strong></li>
+                  <li><strong>Somatropin (Humanes Wachstumshormon)</strong></li>
                   <li><strong>Ipamorelin</strong></li>
                   <li><strong>Sermorelin</strong></li>
                   <li><strong>BPC-157</strong></li>
                   <li><strong>TB-500</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products are trusted by athletes and fitness enthusiasts to promote tissue repair, enhance skin elasticity, and boost overall vitality.</p>
+                <p className="text-gray-600 text-sm">Diese Produkte werden von Sportlern und Fitnessbegeisterten geschätzt, um die Gewebereparatur zu fördern, die Hautelastizität zu verbessern und die allgemeine Vitalität zu steigern.</p>
               </div>
             </div>
           </div>
@@ -183,16 +201,16 @@ export default async function Home() {
                 <SARMSIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Sarms (Selective Androgen Receptor Modulators)</h3>
-                <p className="text-gray-600 text-sm">SARMs are a cutting-edge solution for those looking to maximize their gains without the side effects commonly associated with steroids. Our collection includes:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">SARMs (Selektive Androgenrezeptor-Modulatoren)</h3>
+                <p className="text-gray-600 text-sm">SARMs sind eine hochmoderne Lösung für diejenigen, die ihre Zuwächse maximieren möchten, ohne die Nebenwirkungen, die üblicherweise mit Steroiden verbunden sind. Unsere Kollektion umfasst:</p>
                 <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Ostarine (MK-2866)</strong></li>
+                  <li><strong>Ostarin (MK-2866)</strong></li>
                   <li><strong>Ligandrol (LGD-4033)</strong></li>
-                  <li><strong>Andarine (S4)</strong></li>
-                  <li><strong>Cardarine (GW-501516)</strong></li>
+                  <li><strong>Andarin (S4)</strong></li>
+                  <li><strong>Cardarin (GW-501516)</strong></li>
                   <li><strong>Ibutamoren (MK-677)</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products are highly effective for increasing lean muscle mass, improving endurance, and accelerating fat loss.</p>
+                <p className="text-gray-600 text-sm">Diese Produkte sind hochwirksam zur Steigerung der fettfreien Muskelmasse, zur Verbesserung der Ausdauer und zur Beschleunigung des Fettabbaus.</p>
               </div>
             </div>
           </div>
@@ -203,15 +221,15 @@ export default async function Home() {
                 <EnergyIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Energy Supplements</h3>
-                <p className="text-gray-600 text-sm">Stay energized and perform at your best with our range of energy-boosting supplements. Popular choices include:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Energiesupplemente</h3>
+                <p className="text-gray-600 text-sm">Bleiben Sie energiegeladen und erbringen Sie Höchstleistungen mit unserer Auswahl an energiesteigernden Supplementen. Beliebte Optionen sind:</p>
                 <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Pre-Workout Formulas</strong></li>
-                  <li><strong>Caffeine-Based Boosters</strong></li>
-                  <li><strong>B-Vitamin Complexes</strong></li>
-                  <li><strong>Creatine Blends</strong></li>
+                  <li><strong>Pre-Workout-Formeln</strong></li>
+                  <li><strong>Booster auf Koffeinbasis</strong></li>
+                  <li><strong>B-Vitaminkomplexe</strong></li>
+                  <li><strong>Kreatinmischungen</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products are designed to enhance focus, stamina, and overall performance during intense training sessions.</p>
+                <p className="text-gray-600 text-sm">Diese Produkte wurden entwickelt, um Fokus, Ausdauer und die allgemeine Leistungsfähigkeit während intensiver Trainingseinheiten zu verbessern.</p>
               </div>
             </div>
           </div>
@@ -222,16 +240,16 @@ export default async function Home() {
                 <HealthIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Health Products</h3>
-                <p className="text-gray-600 text-sm">Your health is our top priority. Our health product range includes options to support liver function, heart health, joint care, and more:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Gesundheitsprodukte</h3>
+                <p className="text-gray-600 text-sm">Ihre Gesundheit hat für uns oberste Priorität. Unser Sortiment an Gesundheitsprodukten umfasst Optionen zur Unterstützung der Leberfunktion, der Herzgesundheit, der Gelenkpflege und mehr:</p>
                 <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Milk Thistle (Liver Support)</strong></li>
-                  <li><strong>Omega-3 Fatty Acids</strong></li>
-                  <li><strong>Glucosamine and Chondroitin</strong></li>
-                  <li><strong>Multivitamins</strong></li>
-                  <li><strong>Antioxidant Blends</strong></li>
+                  <li><strong>Mariendistel (Leberunterstützung)</strong></li>
+                  <li><strong>Omega-3-Fettsäuren</strong></li>
+                  <li><strong>Glucosamin und Chondroitin</strong></li>
+                  <li><strong>Multivitamine</strong></li>
+                  <li><strong>Antioxidantien-Mischungen</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These supplements are essential for maintaining overall wellness and ensuring your body performs at its best.</p>
+                <p className="text-gray-600 text-sm">Diese Nahrungsergänzungsmittel sind unerlässlich für die Erhaltung des allgemeinen Wohlbefindens und stellen sicher, dass Ihr Körper Höchstleistungen erbringt.</p>
               </div>
             </div>
           </div>
@@ -242,59 +260,63 @@ export default async function Home() {
                 <PCTIcon className={'w-10'} />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Post Cycle Therapy (PCT)</h3>
-                <p className="text-gray-600 text-sm">PCT is crucial for restoring hormonal balance after a cycle of steroids or SARMs. Our PCT solutions include:</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Post-Cycle-Therapie (PCT)</h3>
+                <p className="text-gray-600 text-sm">Die PCT ist entscheidend für die Wiederherstellung des Hormonhaushalts nach einem Steroid- oder SARM-Zyklus. Unsere PCT-Lösungen umfassen:</p>
                 <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Clomid (Clomiphene Citrate)</strong></li>
-                  <li><strong>Nolvadex (Tamoxifen Citrate)</strong></li>
-                  <li><strong>HCG (Human Chorionic Gonadotropin)</strong></li>
-                  <li><strong>Natural Testosterone Boosters</strong></li>
+                  <li><strong>Clomid (Clomiphencitrat)</strong></li>
+                  <li><strong>Nolvadex (Tamoxifencitrat)</strong></li>
+                  <li><strong>HCG (Humanes Choriongonadotropin)</strong></li>
+                  <li><strong>Natürliche Testosteron-Booster</strong></li>
                 </ul>
-                <p className="text-gray-600 text-sm">These products help minimize side effects, protect your gains, and ensure a smooth recovery process.</p>
+                <p className="text-gray-600 text-sm">Diese Produkte helfen, Nebenwirkungen zu minimieren, Ihre Gewinne zu schützen und einen reibungslosen Erholungsprozess zu gewährleisten.</p>
               </div>
             </div>
           </div>
 
         </div>
 
-        <h2>Our Commitment to Your Success</h2>
-        <p>At AnabolicHub.com, we’re more than just a supplier; we’re your partner in achieving your health and fitness goals. We prioritize:
-        </p>
+        <h2>Unser Versprechen an Ihren Erfolg</h2>
+        <p>Auf AnabolicHub.com sind wir mehr als nur ein Lieferant. Wir sind Ihr Partner beim Erreichen Ihrer Gesundheits- und Fitnessziele. Folgendes hat für uns Priorität:</p>
         <ul className="list-disc ps-4 mb-4">
-          <li><strong>Education:</strong> Our blog and resources section provide in-depth information to help you make informed decisions about your health and performance.</li>
-          <li><strong>Customer Satisfaction: </strong>Your feedback drives us to improve and expand our offerings.</li>
-          <li><strong>Innovation: </strong>We continually update our inventory to include the latest advancements in performance-enhancing products.</li>
+          <li><strong>Bildung:</strong> Unser Blog und unser Ressourcenbereich bieten ausführliche Informationen, damit Sie fundierte Entscheidungen über Ihre Gesundheit und Leistung treffen können.</li>
+          <li><strong>Kundenzufriedenheit:</strong> Ihr Feedback treibt uns an, unsere Angebote zu verbessern und zu erweitern.</li>
+          <li><strong>Innovation:</strong> Wir aktualisieren unser Sortiment kontinuierlich, um die neuesten Fortschritte bei leistungssteigernden Produkten aufzunehmen.</li>
         </ul>
 
-        <h3>Shop with Confidence</h3>
-        <p>When you choose AnabolicHub.com, you’re choosing a trusted source for:</p>
+        <h3>Kaufen Sie mit Vertrauen</h3>
+        <p>Wenn Sie sich für AnabolicHub.com entscheiden, wählen Sie eine vertrauenswürdige Quelle für:</p>
         <ul className="list-disc ps-4 mb-4">
-          <li>Genuine, high-quality products</li>
-          <li>Secure payment options</li>
-          <li>Fast and discreet shipping</li>
-          <li>Exceptional customer support</li>
+          <li><strong>Hochwertige Originalprodukte</strong></li>
+          <li><strong>Sichere Zahlungsoptionen</strong></li>
+          <li><strong>Schneller und diskreter Versand</strong></li>
+          <li><strong>Hervorragenden Kundenservice</strong></li>
         </ul>
 
-        <p>Take the first step toward your goals today. Browse our extensive catalog and discover why countless customers trust AnabolicHub.com for their performance and wellness needs.</p>
+        <p>Machen Sie noch heute den ersten Schritt in Richtung Ihrer Ziele. Stöbern Sie in unserem umfangreichen Katalog und entdecken Sie, warum unzählige Kunden AnabolicHub.com für ihre Leistungs- und Wellnessbedürfnisse vertrauen.</p>
 
-        <h3>Take the First Step Today</h3>
-        <p>Your journey to peak performance and unparalleled wellness begins here. Browse our catalog, find the products that align with your goals, and let us support you every step of the way. Together, we can unlock your potential and achieve greatness.</p>
-        <h4 className="!mb-6">Explore, Commit, Transform – Welcome to AnabolicHub.com!</h4>
+        <h3>Machen Sie noch heute den ersten Schritt</h3>
+        <p>Ihre Reise zu Spitzenleistungen und unvergleichlichem Wohlbefinden beginnt hier. Durchstöbern Sie unseren Katalog, finden Sie die Produkte, die Ihren Zielen entsprechen, und lassen Sie sich von uns auf jedem Schritt begleiten. Gemeinsam können wir Ihr Potenzial freisetzen und Großartiges erreichen.</p>
+        <h4>Entdecken, engagieren, transformieren – Willkommen bei AnabolicHub.com!</h4>
 
-        <h2>FAQ</h2>
-        <h3>1. What is AnabolicHub.com?</h3>
-        <p>AnabolicHub.com is a trusted online platform providing reliable information, resources, and high-quality products for bodybuilding, fitness, and health enthusiasts. We specialize in anabolic supplements, workout tips, and expert advice to help you achieve your fitness goals safely and effectively.</p>
-        <h3>2. Are the products on AnabolicHub.com safe to use?</h3>
-        <p>Yes, all products offered on AnabolicHub.com are sourced from reputable manufacturers and undergo strict quality control to ensure safety and efficacy. We also provide detailed usage guidelines and encourage consulting a healthcare professional before starting any new supplement regimen.</p>
-        <h3>3. Do you offer worldwide shipping?</h3>
-        <p>Yes, AnabolicHub.com provides worldwide shipping. Whether you're in the U.S., Europe, Asia, or elsewhere, we aim to deliver your products quickly and securely. Check our shipping policy for estimated delivery times and any regional restrictions.</p>
-        <h3>4. Can beginners use the supplements available on AnabolicHub.com?</h3>
-        <p>Absolutely. We offer a range of products suitable for all experience levels, including beginners. Each product comes with clear instructions, and our support team is available to help you choose the right supplements for your fitness journey.</p>
-        <h3>5. How can I track my order?</h3>
-        <p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your package's progress through our website or the courier's tracking system.</p>
-        <h3>6. Does AnabolicHub.com offer a return policy?</h3>
-        <p>Yes, we have a customer-friendly return policy. If you're unsatisfied with your purchase or received a damaged product, contact our support team within 30 days of delivery for a hassle-free resolution. Check our Returns and Refunds page for more details.</p>
+        <h2>Häufig gestellte Fragen (FAQ)</h2>
 
+        <h3>1. Was ist AnabolicHub.com?</h3>
+        <p>AnabolicHub.com ist eine vertrauenswürdige Online-Plattform, die Bodybuilding-, Fitness- und Gesundheitsbegeisterten zuverlässige Informationen, Ressourcen und hochwertige Produkte anbietet. Wir haben uns auf anabole Nahrungsergänzungsmittel, Trainingstipps und fachkundige Beratung spezialisiert, um Ihnen dabei zu helfen, Ihre Fitnessziele sicher und effektiv zu erreichen.</p>
+
+        <h3>2. Sind die Produkte auf AnabolicHub.com sicher in der Anwendung?</h3>
+        <p>Ja, alle auf AnabolicHub.com angebotenen Produkte stammen von renommierten Herstellern und unterliegen strengen Qualitätskontrollen, um Sicherheit und Wirksamkeit zu gewährleisten. Wir bieten außerdem detaillierte Nutzungsrichtlinien an und empfehlen Ihnen, vor Beginn einer neuen Nahrungsergänzungsmittelkur einen Arzt zu konsultieren.</p>
+
+        <h3>3. Bieten Sie weltweiten Versand an?</h3>
+        <p>Ja, AnabolicHub.com bietet weltweiten Versand an. Ob Sie in den USA, Europa, Asien oder anderswo sind, wir bemühen uns, Ihre Produkte schnell und sicher zu liefern. Informieren Sie sich in unseren Versandbedingungen über die geschätzten Lieferzeiten und eventuelle regionale Beschränkungen.</p>
+
+        <h3>4. Können Anfänger die auf AnabolicHub.com verfügbaren Nahrungsergänzungsmittel verwenden?</h3>
+        <p>Absolut. Wir bieten eine Reihe von Produkten an, die für alle Erfahrungsstufen geeignet sind, einschließlich Anfänger. Jedes Produkt wird mit einer klaren Anleitung geliefert, und unser Support-Team hilft Ihnen gerne bei der Auswahl der richtigen Nahrungsergänzungsmittel für Ihre Fitnessreise.</p>
+
+        <h3>5. Wie kann ich meine Bestellung verfolgen?</h3>
+        <p>Sobald Ihre Bestellung versandt wurde, erhalten Sie per E-Mail eine Trackingnummer. Mit dieser Nummer können Sie den Fortschritt Ihres Pakets über unsere Website oder das Tracking-System des Spediteurs verfolgen.</p>
+
+        <h3>6. Bietet AnabolicHub.com ein Rückgaberecht an?</h3>
+        <p>Ja, wir haben ein kundenfreundliches Rückgaberecht. Wenn Sie mit Ihrem Kauf nicht zufrieden sind oder ein beschädigtes Produkt erhalten haben, wenden Sie sich innerhalb von 30 Tagen nach Lieferung an unser Support-Team, um eine problemlose Lösung zu finden. Weitere Informationen finden Sie auf unserer Seite zu Rückgaben und Rückerstattungen.</p>
       </section>
     </main>
   );

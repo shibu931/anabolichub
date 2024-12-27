@@ -17,7 +17,7 @@ const HomePage = ({ data }) => {
   return (
     <>
       {/* Notification Bar */}
-      <InformationBar icon='bank' text='Good news! Our bank transfer option is back up and running.' className='bg-primary text-xs px-2' />
+      <InformationBar icon='bank' text='Good news! Our bank transfer option is back up and running.' className='bg-primary text-xs md:text-base px-2' />
 
       <HomeCarousel />
 
@@ -25,7 +25,7 @@ const HomePage = ({ data }) => {
       <section className="mt-5 px-5 lg:px-0">
         <Tabs defaultValue="new_products" className="w-full">
           <TabsList className="w-full">
-            <TabsTrigger className="w-full py-2 bg-neutral text-white focus:ring-0 rounded-none" value="new_products">New Products</TabsTrigger>
+            <TabsTrigger className="w-full py-2 bg-neutral text-white focus:ring-0 rounded-none" value="new_products">Neue Produkte</TabsTrigger>
             <TabsTrigger className="w-full py-2 bg-neutral text-white focus:ring-0 rounded-none" value="best_sellers">Best Sellers</TabsTrigger>
           </TabsList>
           <TabsContent value="new_products">

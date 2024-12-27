@@ -28,7 +28,11 @@ const Editor = ({ contentData, setContentData }) => {
       Underline,
       Strike,
       Link,
-      Heading,
+      Heading.configure({
+        HTMLAttributes: {
+          class: 'mt-4',
+        },
+      }),
       BulletList,
       OrderedList,
       Blockquote,
