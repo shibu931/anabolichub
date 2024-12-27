@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <Suspense>
       <div className="flex h-screen bg-gray-100">
         <Sidebar />
-        <main className="flex-1 p-6"> {/* Added margin, padding, and overflow */}
+        <main className="flex-1 p-6 overflow-y-auto"> {/* Added margin, padding, and overflow */}
           {children}
         </main>
       </div>

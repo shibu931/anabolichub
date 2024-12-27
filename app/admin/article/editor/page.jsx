@@ -1,13 +1,15 @@
 'use client';
 import { useState, useEffect, Suspense } from 'react';
-import {  useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Editor from '@/components/Common/Editor'
+import Editor from '@/components/Common/Editor';
+import { handleImageUpload } from '@/lib/utils';
 
 const ContentEditor = ({ params }) => {
     const searchParams = useSearchParams();
-    const id = searchParams.get('articleId'); 
-    const slug = searchParams.get('slug'); 
+    const router = useRouter();
+    const id = searchParams.get('articleId');
+    const slug = searchParams.get('slug');
     const [contentData, setContentData] = useState({
         title: '',
         slug: '',
@@ -17,13 +19,13 @@ const ContentEditor = ({ params }) => {
         keywords: '',
         ogImage: '',
     });
-    const [loading, setLoading] = useState(false); // Start with loading false
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const isNew = !id; // Determine if it's a new article
+    const isNew = !id;
 
     useEffect(() => {
         const fetchContent = async () => {
-            if (isNew) return; // Don't fetch for new articles
+            if (isNew) return;
 
             setLoading(true);
             try {
@@ -33,7 +35,6 @@ const ContentEditor = ({ params }) => {
                     throw new Error(errorData.error || `HTTP error! status: ${res.status}`);
                 }
                 const data = await res.json();
-                
                 setContentData(data.article);
             } catch (err) {
                 console.error("Error fetching content:", err);
@@ -51,7 +52,7 @@ const ContentEditor = ({ params }) => {
         try {
             const method = isNew ? 'POST' : 'PUT';
             const url = isNew ? '/api/article' : `/api/article?Id=${id}`;
-            
+
             const res = await fetch(url, {
                 method,
                 headers: { 'Content-Type': 'application/json' },
@@ -72,6 +73,11 @@ const ContentEditor = ({ params }) => {
             setLoading(false);
         }
     };
+
+    async function handleImageChange(e){
+        const link = await handleImageUpload((e.target).files?.[0]);
+        setContentData({...contentData,ogImage:link})
+    }
 
     const handleDelete = async () => {
         if (isNew) {
@@ -95,22 +101,28 @@ const ContentEditor = ({ params }) => {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    if (error) return <div className="text-red-500 text-center my-10">Error: {error}</div>;
 
     return (
-            <div className='container mx-auto py-10'>
-            <h1 className='text-3xl font-bold mb-4'>{isNew ? 'New Article' : `Edit ${contentData?.title}`}</h1>
-            <input
-                type="text"
-                className="rounded-none input input-bordered w-full mb-4"
-                value={contentData?.title}
-                onChange={(e) => setContentData({ ...contentData, title: e.target.value })}
-                placeholder="Title"
-            />
-            <Editor contentData={contentData} setContentData={setContentData} />
+        <div className="container mx-auto p-10 bg-base-100 min-h-screen">
+            <h1 className="text-4xl font-bold mb-6 text-center">{isNew ? 'New Article' : `Edit ${contentData?.title}`}</h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
+            <div className="mb-6">
+                <input
+                    type="text"
+                    className="rounded-none input input-bordered w-full"
+                    value={contentData?.title}
+                    onChange={(e) => setContentData({ ...contentData, title: e.target.value })}
+                    placeholder="Title"
+                />
+            </div>
+
+            <div className="mb-6">
+                <Editor contentData={contentData} setContentData={setContentData} />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <input
                         type="text"
@@ -120,7 +132,7 @@ const ContentEditor = ({ params }) => {
                         placeholder="Meta Title"
                     />
                     <textarea
-                        className="textarea textarea-bordered w-full mb-4"
+                        className="textarea textarea-bordered w-full h-32 mb-4"
                         value={contentData?.metaDescription}
                         onChange={(e) => setContentData({ ...contentData, metaDescription: e.target.value })}
                         placeholder="Meta Description"
@@ -133,18 +145,40 @@ const ContentEditor = ({ params }) => {
                         placeholder="Keywords (comma separated)"
                     />
                     <input
-                        type="text"
+                        type="file"
                         className="rounded-none input input-bordered w-full mb-4"
-                        value={contentData?.ogImage}
-                        onChange={(e) => setContentData({ ...contentData, ogImage: e.target.value })}
-                        placeholder="OG Image URL"
+                        onChange={(e)=>{handleImageChange(e)}}
                     />
-                    {contentData?.ogImage && <Image src={contentData?.ogImage} width={200} height={100} alt={contentData?.title} />}
+                    {contentData?.ogImage && (
+                        <div className="mt-2">
+                            <Image src={contentData?.ogImage} width={200} height={100} alt={contentData?.title} className="rounded" />
+                        </div>
+                    )}
                 </div>
                 <div>
                     <input
                         type="text"
-                        className="rounded-none input input-bordered w-full mb-4"
+                        className="
+                        file:mr-4
+                        file:py-2
+                        file:px-4
+                        file:rounded-md
+                        file:border-0
+                        file:text-sm
+                        file:font-semibold
+                        file:bg-blue-50
+                        file:text-blue-700
+                        hover:file:bg-blue-100
+                    
+                        rounded-none 
+                        input 
+                        input-bordered 
+                        w-full 
+                        mb-4
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-blue-500
+                      "
                         value={contentData?.slug}
                         onChange={(e) => setContentData({ ...contentData, slug: e.target.value })}
                         placeholder="Slug"
@@ -152,7 +186,7 @@ const ContentEditor = ({ params }) => {
                 </div>
             </div>
 
-            <div className='flex justify-end gap-4'>
+            <div className="mt-6 flex justify-end gap-4">
                 {!isNew && <button className="btn btn-error rounded-none" onClick={handleDelete}>Delete</button>}
                 <button className="btn btn-primary rounded-none" onClick={handleSave}>{isNew ? 'Create' : 'Save'}</button>
             </div>

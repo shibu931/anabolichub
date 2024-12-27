@@ -10,16 +10,12 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
   const [productTotal,setProductTotal] = useState(0);
-
   // Fetch cart from the server
   const fetchAndSyncCart = async (userId) => {
     try {
       const response = await axios.get(`/api/cart?userId=${userId}`);
-
       const serverCart = response.data && response.data.cart;
-
       const localCart = JSON.parse(localStorage.getItem("cart")) || null;
-
       let finalCart = null;
 
       if (!serverCart && localCart) {
@@ -99,9 +95,12 @@ export const CartProvider = ({ children }) => {
 
   // Add item to cart
   const addToCart = (item) => {
+    const currentTime = new Date().toISOString();
+
     if (!cart) {
       const newCart = {
         item: [{ ...item, quantity: item.quantity || 1 }],
+        modifiedTime: currentTime,
       };
       setCart(newCart);
       localStorage.setItem("cart", JSON.stringify(newCart));
@@ -126,12 +125,14 @@ export const CartProvider = ({ children }) => {
             }
             : cartItem
         ),
+        modifiedTime: currentTime,
       };
     } else {
       // Add a new product to the cart
       updatedCart = {
         ...cart,
         item: [...cart.item, { ...item, quantity: item.quantity || 1 }],
+        modifiedTime: currentTime,
       };
     }
 
@@ -198,6 +199,8 @@ export const CartProvider = ({ children }) => {
 
   // Effect to sync cart on initial load
   useEffect(() => {
+    console.log("User ID ",userId);
+    
     if (isLoaded) {
       fetchAndSyncCart(userId);
     }

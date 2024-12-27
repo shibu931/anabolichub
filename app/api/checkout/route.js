@@ -76,7 +76,10 @@ export async function POST(req) {
         });
 
         await newOrder.save();
-        await Cart.findOneAndDelete({ userId: userId });
+        await Cart.findOneAndUpdate(
+            { userId: userId },
+            { $set: { item: [] } }
+          );
         return NextResponse.json({ message: 'Order created successfully', order: newOrder }, { status: 201 });
     } catch (error) {
         console.error('Error creating order:', error);

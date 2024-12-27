@@ -14,8 +14,10 @@ import Blockquote from '@tiptap/extension-blockquote';
 import CodeBlock from '@tiptap/extension-code-block';
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 import Image from '@tiptap/extension-image'
+import ImageResize from 'tiptap-extension-resize-image';
 import TextAlign from '@tiptap/extension-text-align'
 import * as LucideReact from 'lucide-react';
+import { handleImageUpload } from '@/lib/utils';
 
 const Editor = ({ contentData, setContentData }) => {
 
@@ -33,6 +35,7 @@ const Editor = ({ contentData, setContentData }) => {
       CodeBlock,
       HorizontalRule,
       Image,
+      ImageResize,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
@@ -43,7 +46,7 @@ const Editor = ({ contentData, setContentData }) => {
     },
     editorProps: {
       attributes: {
-        class: 'border border-gray-300 bg-white rounded-none focus:border-gray-400 rounded focus:outline-none p-2 min-h-[100px] w-full prose prose-sm focus:ring-2 focus:ring-gray-500'
+        class: 'border article border-gray-300 bg-white rounded-none focus:border-gray-400 rounded focus:outline-none p-2 min-h-[100px] w-full prose prose-sm focus:ring-2 focus:ring-gray-500'
       }
     }
   });
@@ -68,14 +71,26 @@ const Editor = ({ contentData, setContentData }) => {
     { name: 'Align Left', action: () => editor.chain().focus().setTextAlign('left').run(), icon: 'AlignLeft', showLabel: false },
     { name: 'Align Center', action: () => editor.chain().focus().setTextAlign('center').run(), icon: 'AlignCenter', showLabel: false },
     { name: 'Align Right', action: () => editor.chain().focus().setTextAlign('right').run(), icon: 'AlignRight', showLabel: false },
-
     {
-      name: 'Image', action: () => {
-        const url = prompt('Enter image URL');
-        if (url) {
-          editor.chain().focus().setImage({ src: url }).run();
-        }
-      }, icon: 'ImageIcon', showLabel: false
+      name: 'Image',
+      action: async () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = async (event) => {
+          const file = (event.target).files?.[0];
+          if (file) {
+            const imageUrl = await handleImageUpload(file);
+            if (imageUrl) {
+              const altText = prompt('Enter alt text for the image:'); // Prompt for alt text
+              editor.chain().focus().setImage({ src: imageUrl, alt: altText || '' }).run(); // Set alt attribute
+            }
+          }
+        };
+        input.click();
+      },
+      icon: 'ImageIcon',
+      showLabel: false,
     },
   ];
 

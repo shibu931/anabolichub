@@ -17,7 +17,7 @@ import { useCart } from "@/context/CartContext";
 const Cart = () => {
     const { cart, productTotal } = useCart();
     const [disableCheckout, setDisableCheckout] = useState(cart?.item ? false : true)
-    
+
     useEffect(() => {
         if (!cart || !cart.item || cart.item.length === 0) {
             setDisableCheckout(true);
@@ -61,9 +61,9 @@ const Cart = () => {
                         </p>
                         <p className='flex border-t border-gray-200 justify-between mb-4 pt-1'>
                             <strong className='text-sm'>Total: </strong>
-                            <span className='text-sm'>{productTotal+17}€</span>
+                            <span className='text-sm'>{productTotal + 17}€</span>
                         </p>
-                        <button className='btn btn-primary w-full rounded-none text-white' type='button' disabled={disableCheckout}><Link href="/checkout">Checkout</Link></button>
+                        <Link className={`btn rounded-none btn-block text-white ${disableCheckout ? 'btn-disabled':'btn-primary'}`} href={disableCheckout ? '#' :'/checkout'}>Checkout</Link>
                     </div>
                 </div>
             </SheetContent>
