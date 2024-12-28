@@ -44,7 +44,7 @@ export async function POST(req) {
       "svix-id": svix_id,
       "svix-timestamp": svix_timestamp,
       "svix-signature": svix_signature,
-    }) ;
+    });
   } catch (err) {
     console.error("Error verifying webhook:", err);
     return new Response("Error occured", {
@@ -69,18 +69,34 @@ export async function POST(req) {
       photo: image_url,
     };
 
-    const newUser = await createUser(user);
+    try {
+      const newUser = await createUser(user);
 
-    // Set public metadata
-    if (newUser) {
-      await clerkClient.users.updateUserMetadata(id, {
-        publicMetadata: {
-          userId: newUser._id,
-        },
-      });
+      if (newUser) {
+        const defaultRole = "user";
+
+        await clerkClient.users.updateUserMetadata(id, {
+          publicMetadata: {
+            userId: newUser._id,
+            role: defaultRole,
+          },
+        });
+
+        return NextResponse.json({ message: "OK", user: newUser, role: defaultRole }); 
+      } else {
+        console.error("Failed to create user in database.");
+        return NextResponse.json({ message: "Error creating user", error: "Database error" }, { status: 500 });
+      }
+    } catch (error) {
+      console.error("Error handling user.created event:", error);
+      try {
+        await clerkClient.users.deleteUser(id);
+        console.log("Clerk user deleted due to database error.");
+      } catch (clerkDeleteError) {
+        console.error("Failed to delete Clerk user:", clerkDeleteError);
+      }
+      return NextResponse.json({ message: "Error", error: error.message }, { status: 500 });
     }
-
-    return NextResponse.json({ message: "OK", user: newUser });
   }
 
   // UPDATE

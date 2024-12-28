@@ -25,7 +25,13 @@ const UserSchema = new Schema({
     },
     lastName: {
         type: String,
-    }
+    },
+    role: {
+        type: String,
+        enum: ['user', 'editor', 'admin', 'superadmin'], 
+        default: 'user', 
+        required: true,
+    },
 });
 
 const User = models?.User || model("User", UserSchema);

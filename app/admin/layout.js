@@ -1,7 +1,17 @@
 import Sidebar from '@/components/Dashboard/Sidebar';
 import { Suspense } from 'react';
+import { auth } from '@clerk/nextjs/server'
+import { getUserRole } from '@/lib/actions/user.actions';
+import { redirect } from 'next/navigation';
 
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
+  const {userId} = await auth();
+  console.log(userId);
+  const role = await getUserRole(userId);
+  console.log(role);
+  
+  if(role != 'admin' && role !='editor') redirect('/')
+  
   return (
     <Suspense>
       <div className="flex h-screen bg-gray-100">

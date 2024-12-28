@@ -8,8 +8,8 @@ const Topbar = () => {
     <div className='bg-neutral py-2 w-full'>
       <div className="max-w-7xl flex mx-auto justify-between px-2">
         <div className="hidden lg:flex">
-          <Link href='/about-us' className='text-base-100 flex text-sm my-auto me-4'><AboutIcon className="w-5 me-2" />About Us</Link>
-          <Link href='/contact-us' className='text-base-100 flex text-sm my-auto'><MailIcon className="w-5 me-2" />Contact Us</Link>
+          <Link href='/about-us' className='text-base-100 flex text-sm my-auto me-4'><AboutIcon className="w-5 me-2" />Über uns</Link>
+          <Link href='/contact-us' className='text-base-100 flex text-sm my-auto'><MailIcon className="w-5 me-2" />Kontakt</Link>
         </div>
         <div className="flex">
           <SignedIn>

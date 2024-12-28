@@ -3,15 +3,14 @@ import Link from 'next/link';
 import { redirect, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import InformationBar from '@/components/Common/InformationBar'
-import { useAuth } from '@clerk/nextjs'
+import { useUser } from '@clerk/nextjs'
 import { useCart } from '@/context/CartContext';
 
 
 export default function ViewOrderDetails() {
-    const { userId, sessionId } = useAuth()
-    console.log(userId, " ",sessionId);
+    const { isSignedIn } = useUser()
     
-    if(!userId && !sessionId) redirect('/login')
+    if(!isSignedIn) redirect('/login')
     const {clearCart} = useCart()
     const searchParams = useSearchParams();
     const orderId = searchParams.get('orderId');

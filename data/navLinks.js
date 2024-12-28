@@ -4,13 +4,13 @@ export const navLinks = [
     {
         icon: HomeIcon,
         isSubCategory: false,
-        title: 'Home',
+        title: 'Startseite',
         slug: '/'
     },
     {
         icon: NeedleIcon,
         isSubCategory: true,
-        title: 'Steroids',
+        title: 'Steroide',
         category: [
             {
                 title: 'ORALE STEROIDEN',
@@ -143,7 +143,7 @@ export const navLinks = [
         title: 'PEPTIDE',
         category: [
             {
-                title: 'BEST SELLING PEPTIDE',
+                title: 'Bestseller Peptide',
                 slug: 'peptide',
                 links: [
                     {
@@ -329,7 +329,7 @@ export const navLinks = [
     {
         icon: SexIcon,
         isSubCategory: false,
-        title: 'REVIEWS',
+        title: 'BEWERTUNGEN',
         slug: '/reviews'
     },
     {

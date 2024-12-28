@@ -26,6 +26,11 @@ const Sidebar = ({isActive}) => {
             </Link>
           </li>
           <li>
+            <Link href="/admin/orders" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
+              Orders
+            </Link>
+          </li>
+          <li>
             <Link href="/admin/article" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
               Articles
             </Link>

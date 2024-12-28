@@ -3,7 +3,7 @@ import React from 'react'
 
 const footerLinks = [
     {
-        title: 'Recommendend Steroids',
+        title: 'Empfohlene Steroide',
         navLinks: [
             {
                 title: 'Dianabol',
@@ -18,7 +18,7 @@ const footerLinks = [
                 href: '/orale-steroiden/clenbuterol'
             },
             {
-                title: 'Winstrol (Stanazolo)',
+                title: 'Winstrol (Stanazolol)',
                 href: '/orale-steroiden/stanazolol'
             },
             {
@@ -28,59 +28,59 @@ const footerLinks = [
         ]
     },
     {
-        title: 'Testosterone',
+        title: 'Testosteron',
         navLinks: [
             {
-                title: 'Testosterone Enanthate',
+                title: 'Testosteron Enantat',
                 href: '/testosteron/testosteron-enantat'
             },
             {
-                title: 'Testosterone Propionate',
+                title: 'Testosteron Propionat',
                 href: '/testosteron/testosteron-propionat'
             },
             {
-                title: 'Testosterone 400',
+                title: 'Testosteron 400',
                 href: '/testosteron/testosterone-400'
             },
             {
-                title: 'Testosterone Cypionate',
+                title: 'Testosteron Cypionat',
                 href: '/testosteron/testosterone-cypionate'
             },
             {
-                title: 'Testosterone Mix',
+                title: 'Testosteron Mix',
                 href: '/testosteron/testosterone-mix'
             },
         ]
     },
     {
-        title: 'Quick Links',
+        title: 'Schnelllinks',
         navLinks: [
             {
-                title: 'Deliver',
-                href: '/delivery-details'
+                title: 'Lieferdetails',
+                href: '/content/delivery-details'
             },
             {
-                title: 'Legal Information',
-                href: '/legal-information'
+                title: 'Rechtliche Informationen',
+                href: '/content/legal-information'
             },
             {
-                title: 'Terms & Conditions',
-                href: '/terms-and-conditions'
+                title: 'Allgemeine Geschäftsbedingungen',
+                href: '/content/terms-and-conditions'
             },
             {
-                title: 'Secure Payment',
-                href: '/secure-payment'
+                title: 'Sichere Zahlung',
+                href: '/content/secure-payment'
             },
             {
                 title: 'FAQs',
-                href: '/faqs'
+                href: '/content/faqs'
             },
             {
-                title: 'How do I make an international transfer?',
+                title: 'Wie tätige ich eine internationale Überweisung?',
                 href: '/blog/how-do-i-make-international-transfer'
             },
             {
-                title: 'Contact',
+                title: 'Kontakt',
                 href: '/contact-us'
             },
             {
@@ -89,8 +89,7 @@ const footerLinks = [
             },
         ]
     }
-]
-
+];
 const Footer = () => {
     return (
         <footer className="bg-success-content text-base-100 pt-10 mt-10 px-5">
@@ -98,7 +97,7 @@ const Footer = () => {
                 <aside>
                     <h2 className='text-3xl font-extrabold italic'>Anaboic<span className='text-primary text-4xl'>Hub</span></h2>                    
                     <p>
-                        Providing reliable steroids since 1992
+                    Zuverlässige Steroide seit 2010
                     </p>
                 </aside>
                 {
@@ -114,7 +113,7 @@ const Footer = () => {
             </div>
             <hr className='border-primary'/>
             <aside className='text-center py-5'>
-                <p className='mb-0'>Copyright © {new Date().getFullYear()} - All right reserved by <Link href={'/'}>AnabolicHub</Link> Ltd</p>
+            <p className='mb-0'>Copyright © {new Date().getFullYear()} - Alle Rechte vorbehalten von <Link href={'/'}>AnabolicHub</Link> Ltd</p>
             </aside>
         </footer>
     )
