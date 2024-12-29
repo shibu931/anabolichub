@@ -288,11 +288,11 @@ export const navLinks = [
                 links: [
                     {
                         title: "Sibutramin 100 Tabletten 20mg/tab",
-                        slug: "/product/sibutramin-100-tabletten-20mg",
+                        slug: "/product/sibutramin-(meridia)-20-mg",
                     },
                     {
                         title: "Tiromel T3 100 Tabletten 25mcg/tab",
-                        slug: "/product/tiromel-t3-100-tabletten-25mc",
+                        slug: "/product/tiromel-t3-25-mcg",
                     },
                     {
                         title: "5-Amino-1MQ 50mg 30 Tabletten",

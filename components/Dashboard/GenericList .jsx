@@ -16,7 +16,8 @@ function GenericList({ data, itemName, editPath, handleDelete }) {
                 params.append('slug', item.slug);
                 break;
             case 'order':
-                params.append('id', item.orderId || item.id); // Use orderId if available, otherwise fallback to id
+                params.append('orderId', `${item.orderId}` || item.id); // Use orderId if available, otherwise fallback to id
+                params.append('isNew', 'false'); // Use orderId if available, otherwise fallback to id
                 break;
             default:
                 params.append('id', item.id); // Default to id for other item types
@@ -32,9 +33,9 @@ function GenericList({ data, itemName, editPath, handleDelete }) {
         <div>
             <div className="flex justify-between mb-4">
                 <h2 className="text-2xl font-bold">{itemName}s</h2>
-                <Link href={editPath} className="btn btn-primary rounded-none">
+                {itemName === 'Order' ? '':<Link href={editPath} className="btn btn-primary rounded-none">
                     Add New {itemName}
-                </Link>
+                </Link>}
             </div>
             {data.length === 0 ? (
                 <p>No {itemName.toLowerCase()}s found.</p>
@@ -44,8 +45,9 @@ function GenericList({ data, itemName, editPath, handleDelete }) {
                         <li key={item.id} className="border rounded p-4 shadow-sm bg-white">
                             <div className="flex justify-between items-center">
                                 <div>
-                                    <h3 className="text-lg font-semibold">{item.title || item.prodcutName || item.orderId}</h3>
+                                    <h3 className="text-lg font-semibold">{itemName === 'Order' && 'Order Id: '}{item.title || item.prodcutName || item.orderId}</h3>
                                     {item.slug && <p className="text-gray-600">Slug: {item.slug}</p>}
+                                    {item.createdAt && <p className="text-gray-600">Ordered At: {item.createdAt}</p>}
                                 </div>
                                 <div className="flex gap-2">
                                     <Link

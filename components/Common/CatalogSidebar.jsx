@@ -22,11 +22,6 @@ const CatalogSidebar = () => {
   }
 
   const { parent, current, siblings } = categoryInfo;
-  console.log('parent ',parent);
-  console.log('siblings ',siblings);
-  console.log('current ',current);
-  
-
   return (
     <aside className="catalog-sidebar p-3 border-r bg-gray-100 sticky top-10"> {/* Tailwind classes */}
       <h3 className="text-lg font-bold mb-2 text-center">{parent.title}</h3>

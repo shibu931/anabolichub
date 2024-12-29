@@ -11,7 +11,7 @@ const Sidebar = ({isActive}) => {
       <nav>
         <ul className="space-y-2">
           <li>
-            <Link href="/admin/dashboard" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
+            <Link href="/admin" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
               Dashboard
             </Link>
           </li>
@@ -33,6 +33,11 @@ const Sidebar = ({isActive}) => {
           <li>
             <Link href="/admin/article" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
               Articles
+            </Link>
+          </li>
+          <li>
+            <Link href="/admin/reviews" className={`block p-2 rounded hover:bg-gray-700 transition duration-300 `}>
+              Reviews
             </Link>
           </li>
         </ul>

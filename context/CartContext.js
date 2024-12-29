@@ -188,7 +188,6 @@ export const CartProvider = ({ children }) => {
       const price = convertPriceToNumber(item.price);
       return total + price * item.quantity;;
     }, 0);
-    console.log("Total ",total);
     
     setProductTotal(total)
   };
@@ -198,9 +197,7 @@ export const CartProvider = ({ children }) => {
   },[cart])
 
   // Effect to sync cart on initial load
-  useEffect(() => {
-    console.log("User ID ",userId);
-    
+  useEffect(() => {    
     if (isLoaded) {
       fetchAndSyncCart(userId);
     }

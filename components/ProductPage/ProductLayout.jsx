@@ -1,21 +1,26 @@
-"use client"
-import Breadcrumbs from '@/components/Common/Breadcrumbs'
+'use client'
+import React, { useEffect } from 'react'
 import { CommerceIcon, CourierIcon } from '@/components/Icons/Icons'
 import { useCart } from '@/context/CartContext'
-import axios from 'axios'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useToast } from "@/hooks/use-toast"
 
-const page = ({ params }) => {
+const productLayout = ({product}) => {
     const { toast } = useToast()
     const { addToCart} = useCart();
-    const {productId} = React.use(params)
-    const [product, setProduct] = useState()
     const [quantity, setQuantity] = useState(1)
     const [mainImage, setMainImage] = useState(null)
+
+    const changeQuantity = (type) => {
+        if (type === 'increase') {
+            setQuantity(quantity + 1);
+        } else {
+            setQuantity(quantity - 1)
+        }
+    }
     function handleAddToCart(){
         if(quantity >= 1){
           const item= {
@@ -38,29 +43,12 @@ const page = ({ params }) => {
             description: "Product adding to cart failed"
           })
         }
-      }
-    async function fetchData() {
-        const data = await fetch(`/api/products/${productId}`)
-        const { product } = await data.json();
-        setProduct(product)
-
+    }
+    useEffect(()=>{
         setMainImage(product?.productImage[0].large)
-    }
-
-    const changeQuantity = (type) => {
-        if (type === 'increase') {
-            setQuantity(quantity + 1);
-        } else {
-            setQuantity(quantity - 1)
-        }
-    }
-    useEffect(() => {
-        fetchData()
-    }, [])
+    },[])
     return (
-        <main className='container mx-auto mt-5 px-4 lg:px-10'>
-            <Breadcrumbs slug={product?.subCategory} endSlug={product?.productName} />
-
+        <div>
             <div className="grid lg:grid-cols-2 gap-10 mt-5">
                 <div className='p-5 border'>
                     {
@@ -94,7 +82,7 @@ const page = ({ params }) => {
                             <button type='button' onClick={() => changeQuantity('increase')} className='text-white bg-gray-800 hover:bg-primary hover:cursor-pointer'><ChevronUp /></button>
                             <button type='button' onClick={() => changeQuantity('decrease')} disabled={quantity <= 1} className='text-white bg-gray-800 hover:bg-primary disabled:bg-neutral/75 hover:cursor-pointer'><ChevronDown /></button>
                         </div>
-                        <button type='button' onClick={()=>handleAddToCart()} className='btn btn-primary rounded-none font-extrabold ms-2'>ADD TO CART</button>
+                        <button type='button' onClick={() => handleAddToCart()} className='btn btn-primary rounded-none font-extrabold ms-2'>ADD TO CART</button>
                     </div>
 
                     <div className='flex mt-6 items-center'>
@@ -125,8 +113,8 @@ const page = ({ params }) => {
 
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 
-export default page
+export default productLayout

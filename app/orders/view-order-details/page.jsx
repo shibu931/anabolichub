@@ -3,19 +3,26 @@ import Link from 'next/link';
 import { redirect, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import InformationBar from '@/components/Common/InformationBar'
-import { useUser } from '@clerk/nextjs'
+import { useAuth } from '@clerk/nextjs'
 import { useCart } from '@/context/CartContext';
 
 
 export default function ViewOrderDetails() {
-    const { isSignedIn } = useUser()
+    const { isLoaded, userId } = useAuth()
+    if(!userId && isLoaded) redirect('/login')
     
-    if(!isSignedIn) redirect('/login')
     const {clearCart} = useCart()
     const searchParams = useSearchParams();
     const orderId = searchParams.get('orderId');
-    const checkout = searchParams.get('checkout');
-    if(checkout) clearCart()
+    const checkout = searchParams.get('checkout') || null;
+    useEffect(() => {
+        if (checkout) {
+            clearCart();
+            const newSearchParams = new URLSearchParams(searchParams);
+            newSearchParams.delete('checkout');
+            replace(pathname + '?' + newSearchParams.toString());
+        }
+    }, [checkout, clearCart]);
     
     const [orderDetails, setOrderDetails] = useState(null);
     const [loading, setLoading] = useState(true);

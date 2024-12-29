@@ -11,7 +11,7 @@ const ArticleList = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const res = await fetch('/api/article/getAllArticles');
+        const res = await fetch('/api/article/get-all-articles');
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
