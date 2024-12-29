@@ -1,13 +1,21 @@
 'use client';
 import Link from 'next/link';
 import { redirect, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import InformationBar from '@/components/Common/InformationBar'
 import { useAuth } from '@clerk/nextjs'
 import { useCart } from '@/context/CartContext';
 
 
-export default function ViewOrderDetails() {
+export default function page(){
+    return(
+        <Suspense>
+            <ViewOrderDetails/>
+        </Suspense>
+    )
+}
+
+export function ViewOrderDetails() {
     const { isLoaded, userId } = useAuth()
     if(!userId && isLoaded) redirect('/login')
     
