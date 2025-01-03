@@ -9,9 +9,9 @@ const FileInput = ({ handleImageChange }) => {
     const file = e.target.files[0];
     if (file) {
       setFileName(file.name);
-      handleImageChange(e); // Call the parent's onChange
+      handleImageChange(e); 
     } else {
-      setFileName(''); // Clear filename if no file selected
+      setFileName(''); 
     }
   };
 

@@ -6,9 +6,7 @@ import { redirect } from 'next/navigation';
 
 export default async function Layout({ children }) {
   const {userId} = await auth();
-  console.log(userId);
   const role = await getUserRole(userId);
-  console.log(role);
   
   if(role != 'admin' && role !='editor') redirect('/')
   

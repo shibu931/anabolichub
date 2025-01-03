@@ -9,7 +9,6 @@ export const AboutIcon = ({className,...rest}) => (
     {...rest}
     className={`h-auto ${className}`}
   >
-    <title>{"about"}</title>
     <path
       fill="#fff"
       fillRule="evenodd"

@@ -149,7 +149,8 @@ export default async function Home() {
                   <li><strong>Clenbuterol</strong></li>
                   <li><strong>Cytomel (T3)</strong></li>
                   <li><strong>Ephedrin</strong></li>
-                  <li><strong>Thermogene Mischungen</strong></li>
+                  <li><strong>Sibutramin</strong></li>
+                  <li><strong>Abnehmenspritze</strong></li>
                 </ul>
                 <p className="text-gray-600 text-sm">Diese Produkte wirken, indem sie Ihren Stoffwechsel ankurbeln, den Appetit unterdrücken und das Energieniveau steigern. Dadurch sind sie eine hervorragende Ergänzung für jede Gewichtsabnahme.</p>
               </div>
@@ -218,45 +219,6 @@ export default async function Home() {
           <div className="col-span-1 w-full">
             <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
               <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
-                <EnergyIcon className={'w-10'} />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Energiesupplemente</h3>
-                <p className="text-gray-600 text-sm">Bleiben Sie energiegeladen und erbringen Sie Höchstleistungen mit unserer Auswahl an energiesteigernden Supplementen. Beliebte Optionen sind:</p>
-                <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Pre-Workout-Formeln</strong></li>
-                  <li><strong>Booster auf Koffeinbasis</strong></li>
-                  <li><strong>B-Vitaminkomplexe</strong></li>
-                  <li><strong>Kreatinmischungen</strong></li>
-                </ul>
-                <p className="text-gray-600 text-sm">Diese Produkte wurden entwickelt, um Fokus, Ausdauer und die allgemeine Leistungsfähigkeit während intensiver Trainingseinheiten zu verbessern.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-1 w-full">
-            <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
-                <HealthIcon className={'w-10'} />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Gesundheitsprodukte</h3>
-                <p className="text-gray-600 text-sm">Ihre Gesundheit hat für uns oberste Priorität. Unser Sortiment an Gesundheitsprodukten umfasst Optionen zur Unterstützung der Leberfunktion, der Herzgesundheit, der Gelenkpflege und mehr:</p>
-                <ul className="text-sm ps-4 list-disc">
-                  <li><strong>Mariendistel (Leberunterstützung)</strong></li>
-                  <li><strong>Omega-3-Fettsäuren</strong></li>
-                  <li><strong>Glucosamin und Chondroitin</strong></li>
-                  <li><strong>Multivitamine</strong></li>
-                  <li><strong>Antioxidantien-Mischungen</strong></li>
-                </ul>
-                <p className="text-gray-600 text-sm">Diese Nahrungsergänzungsmittel sind unerlässlich für die Erhaltung des allgemeinen Wohlbefindens und stellen sicher, dass Ihr Körper Höchstleistungen erbringt.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-1 w-full">
-            <div className="flex items-start bg-white border border-gray-200 rounded-lg shadow-md p-2 lg:p-3 w-full h-full">
-              <div className="flex items-center justify-center w-10 ms-1 mt-1 p-2 h-10 bg-primary text-white rounded-md mr-5">
                 <PCTIcon className={'w-10'} />
               </div>
               <div>
@@ -307,7 +269,7 @@ export default async function Home() {
         <p>Ja, alle auf AnabolicHub.com angebotenen Produkte stammen von renommierten Herstellern und unterliegen strengen Qualitätskontrollen, um Sicherheit und Wirksamkeit zu gewährleisten. Wir bieten außerdem detaillierte Nutzungsrichtlinien an und empfehlen Ihnen, vor Beginn einer neuen Nahrungsergänzungsmittelkur einen Arzt zu konsultieren.</p>
 
         <h3>3. Bieten Sie weltweiten Versand an?</h3>
-        <p>Ja, AnabolicHub.com bietet weltweiten Versand an. Ob Sie in den USA, Europa, Asien oder anderswo sind, wir bemühen uns, Ihre Produkte schnell und sicher zu liefern. Informieren Sie sich in unseren Versandbedingungen über die geschätzten Lieferzeiten und eventuelle regionale Beschränkungen.</p>
+        <p>Ja, AnabolicHub.com bietet den Versand in jedes Land der Europäischen Union an. Wir bemühen uns, Ihre Produkte schnell und sicher zu liefern. Überprüfen Sie unsere Versandbedingungen für die geschätzten Lieferzeiten und alle regionalen Einschränkungen.</p>
 
         <h3>4. Können Anfänger die auf AnabolicHub.com verfügbaren Nahrungsergänzungsmittel verwenden?</h3>
         <p>Absolut. Wir bieten eine Reihe von Produkten an, die für alle Erfahrungsstufen geeignet sind, einschließlich Anfänger. Jedes Produkt wird mit einer klaren Anleitung geliefert, und unser Support-Team hilft Ihnen gerne bei der Auswahl der richtigen Nahrungsergänzungsmittel für Ihre Fitnessreise.</p>

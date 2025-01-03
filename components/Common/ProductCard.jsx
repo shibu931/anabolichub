@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
       <hr className='my-1 border-gray-300 lg:my-2' />
       <h6 className='text-center text-sm font-bold text-nowrap overflow-hidden overflow-ellipsis px-2'><Link href={`/product/${product?.slug}`}>{product?.productName}</Link></h6>
       <hr className='my-1 border-gray-300 lg:my-2' />
-      <span className="block text-xs italic text-center font-medium text-green-700">{product?.productPrice}€ <small className='line-through text-red-700'>{product?.productPricePerMg}</small></span>
+      <span className="block text-xs italic text-center font-medium text-green-700">{product?.productPrice} <small className='line-through text-red-700'>{product?.productPricePerMg}</small></span>
       <hr className='my-1 border-gray-300 lg:my-2' />
       <div className="flex justify-center my-3">
         <div className="border flex border-neutral rounded-badge overflow-hidden">

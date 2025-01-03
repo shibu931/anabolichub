@@ -19,7 +19,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import * as LucideReact from 'lucide-react';
 import { handleImageUpload } from '@/lib/utils';
 
-const Editor = ({ contentData, setContentData }) => {
+const Editor = ({ data, setData, contentKey = 'content' }) => {
 
   const editor = useEditor({
     extensions: [StarterKit,
@@ -44,13 +44,13 @@ const Editor = ({ contentData, setContentData }) => {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: contentData?.content || '',
+    content: data?.[contentKey] || '',
     onUpdate: ({ editor }) => {
-      setContentData({ ...contentData, content: editor.getHTML() });
+        setData(prev => ({ ...prev, [contentKey]: editor.getHTML() }));
     },
     editorProps: {
       attributes: {
-        class: 'border article border-gray-300 bg-white rounded-none focus:border-gray-400 rounded focus:outline-none p-2 min-h-[100px] w-full prose prose-sm focus:ring-2 focus:ring-gray-500'
+        class: 'border article border-gray-200 bg-white rounded-none focus:border-gray-300 rounded focus:outline-none p-2 min-h-[100px] w-full prose prose-sm focus:ring-2 focus:ring-gray-300'
       }
     }
   });
@@ -109,7 +109,7 @@ const Editor = ({ contentData, setContentData }) => {
 
   return (
     <div>
-      <div className=" p-2 border border-gray-200 bg-base-100 flex space-x-2">
+      <div className=" p-2 border border-gray-200 bg-base-100 flex flex-wrap space-x-2 space-y-2">
         {tools.map((tool) => {
           const Icon = LucideReact[tool.icon]; // Dynamically get the icon component
 

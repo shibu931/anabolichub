@@ -17,7 +17,7 @@ const HomePage = ({ data }) => {
   return (
     <>
       {/* Notification Bar */}
-      <InformationBar icon='bank' text='Good news! Our bank transfer option is back up and running.' className='bg-primary text-xs md:text-base px-2' />
+      <InformationBar icon='order' text='Kostenloser Versand ab 500€' className='bg-primary text-xs md:text-base px-2' />
 
       <HomeCarousel />
 

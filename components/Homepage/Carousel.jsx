@@ -18,7 +18,6 @@ export const HomeCarousel = () => {
   ]
   return (
     <Swiper
-      // install Swiper modules
       modules={[Autoplay, Navigation, Pagination]}
       spaceBetween={50}
       slidesPerView={1}

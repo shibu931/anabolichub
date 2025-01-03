@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect} from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Editor from '@/components/Common/Editor';
 import { handleImageUpload } from '@/lib/utils';
 
-const ContentEditor = ({ params }) => {
+const ContentEditor = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const id = searchParams.get('articleId');
@@ -119,7 +119,7 @@ const ContentEditor = ({ params }) => {
             </div>
 
             <div className="mb-6">
-                <Editor contentData={contentData} setContentData={setContentData} />
+                <Editor data={contentData} setData={setContentData} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
