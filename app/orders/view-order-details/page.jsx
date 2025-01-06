@@ -80,7 +80,7 @@ export function ViewOrderDetails() {
     }
 
     return (
-        <div className="container mx-auto mt-5 px-4 lg:px-0">
+        <div className="container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-0">
 
             {
                 orderDetails.paymentStatus === 'pending' ? <InformationBar className={'bg-primary'} text={'Our customer advisor will send you bank details for payment within 2 hours of placing order. Your order will only confirm after successfull payment.'} /> : ''

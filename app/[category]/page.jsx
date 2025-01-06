@@ -65,12 +65,12 @@ const page = async ({ params }) => {
   const { product } = await getProducts(params.category)
 
   return (
-    <div className='container mx-auto mt-4 px-4 lg:px-0'>
+    <main className='container xl:w-[1280px] mx-auto mt-4 px-4 lg:px-0'>
       <Breadcrumbs />
 
       <CatalogPage product={product} article={article} />
 
-    </div>
+    </main>
   )
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <main className='container mx-auto px-4 lg:px-0'>
+    <main className='container xl:w-[1280px] mx-auto px-4 lg:px-0'>
       <Breadcrumbs className='my-4' />
       <div className="grid grid-cols-6 w-full">
         <div className="col-span-6 sm:col-span-3 lg:col-span-6 mx-auto">

@@ -66,7 +66,7 @@ const productLayout = ({product}) => {
                     <p className='font-semibold text-2xl mt-4'>Price: <span className='text-2xl text-green-700 font-extrabold'>{product?.productPrice}</span></p>
                     <hr className='my-4' />
                     <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Description</p>
-                    {product?.shortDescription && <p className='my-4 mb-5' dangerouslySetInnerHTML={product?.shortDescription}></p>}
+                    {product?.shortDescription && <p className='my-4 mb-5' dangerouslySetInnerHTML={{__html:product?.shortDescription}}></p>}
                     <div className="my-2"></div>
                     <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Information</p>
                     <ul className='mt-3 mb-5'>

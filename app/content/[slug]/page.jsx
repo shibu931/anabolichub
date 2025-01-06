@@ -77,7 +77,7 @@ export async function generateMetadata({ params }) {
 const page = async ({ params }) => {
   const { article } = await getData(params.slug)
   return (
-    <main className='container mx-auto mt-5 px-4 lg:px-0'>
+    <main className='container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-0'>
       {article?.content ? <ArticlePage content={article.content} /> : <p className='my-16 text-2xl font-bold text-center'>No Article Found</p>}
     </main>
   )

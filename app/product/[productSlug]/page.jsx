@@ -1,17 +1,53 @@
 import ArticlePage from '@/components/Common/ArticlePage'
 import Breadcrumbs from '@/components/Common/Breadcrumbs'
 import ProductLayout from '@/components/ProductPage/ProductLayout'
+import Head from 'next/head'
 
-async function getProduct(productSlug){
+async function getProduct(productSlug) {
     const productData = await fetch(`${process.env.DOMAIN_URL}/api/products/${productSlug}`)
     return productData.json()
 }
 
-export async function generateMetadata({params}){
+export async function generateMetadata({ params }) {
     const { product } = await getProduct(params.productSlug);
     const title = `${product.productName} - ${product.brandName}`;
     const description = product.shortDescription;
-    const imageUrl = product.productImage[0]?.large || product.productImage[0]?.thumb || '/default-og-image.jpg'; 
+    const imageUrl = product.productImage[0]?.large || product.productImage[0]?.thumb || '/default-og-image.jpg';
+    return {
+        title: title,
+        description: description,
+        openGraph: {
+            title: title,
+            description: description,
+            images: [
+                {
+                    url: imageUrl,
+                    alt: product.productName,
+                },
+            ],
+            type: 'website',
+            url: new URL(`/products/${product.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
+            'product:availability': "In Stock",
+            'product:price:amount': product.productPrice.replace(/[$,]/g, ''),
+            'product:price:currency': product.productPrice.replace(/[^$]/g, ''),
+            'product:brand': product.brandName,
+            'product:category': product.category.title,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: title,
+            description: description,
+            images: [imageUrl],
+        },
+        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+        alternates: {
+            canonical: `/product/${product.slug}`,
+        }
+    };
+}
+
+const page = async ({ params }) => {
+    const { product } = await getProduct(params.productSlug);
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -31,60 +67,48 @@ export async function generateMetadata({params}){
             availability: "https://schema.org/InStock",
         }
     };
-    return {
-        title: title,
-        description: description,
-        openGraph: {
-            title: title,
-            description: description,
-            images: [
-                {
-                    url: imageUrl,
-                    alt: product.productName,
-                },
-            ],
-            type: 'website',
-            url: new URL(`/products/${product.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
-            'product:availability': "In Stock",
-            'product:price:amount': product.productPrice.replace(/[$,]/g, ''),
-            'product:price:currency': product.productPrice.replace(/[^$]/g, ''), 
-            'product:brand': product.brandName,
-            'product:category': product.category.title,
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product?.productName,
+        description: product?.shortDescription,
+        image: product.productImage[0]?.large,
+        brand: {
+            "@type": "Brand",
+            "name": "AnabolicHub"
         },
-        twitter: {
-            card: 'summary_large_image',
-            title: title,
-            description: description,
-            images: [imageUrl],
-        },
-        metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
-        alternates: {
-            canonical: `/product/${product.slug}`,
-        },
-        other: {
-            'script': [
-                {
-                    type: 'application/ld+json',
-                    children: JSON.stringify(productSchema),
-                },
-            ],
-        },
+        aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            bestRating: "5",
+            worstRating: "1",
+            ratingCount: "5000"
+        }
     };
-}
 
-const page = async ({ params }) => {
-    const { product } = await getProduct(params.productSlug);
     return (
-        <main className='container mx-auto mt-5 px-4 lg:px-10'>
-            <Breadcrumbs slug={product?.subCategory} endSlug={product?.productName} />
+        <>
+            <Head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+                />
+            </Head>
+            <main className='container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-10'>
+                <Breadcrumbs slug={product?.subCategory} endSlug={product?.productName} />
 
-            <ProductLayout product={product}/>
-            <div className="mt-5">
-                {
-                    product?.description && <ArticlePage article={product?.description}/>
-                }
-            </div>
-        </main>
+                <ProductLayout product={product} />
+                <div className="mt-5">
+                    {
+                        product?.description && <ArticlePage article={product?.description} />
+                    }
+                </div>
+            </main>
+        </>
     )
 }
 

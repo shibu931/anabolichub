@@ -13,7 +13,7 @@ const page = async () => {
     const orders = await getOrders(userId);
 
     return (
-        <main className="container mx-auto mt-4 px-4 lg:px-0">
+        <main className="container xl:w-[1280px] mx-auto mt-4 px-4 lg:px-0">
             <Breadcrumbs />
 
             <div className="mt-5">

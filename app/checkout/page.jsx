@@ -10,7 +10,7 @@ async function CheckoutPage() {
     if (!userId) return redirect(`${process.env.DOMAIN_URL}/login?redirect_url=${process.env.DOMAIN_URL}/checkout`)
     const address = await fetchUserAddress(userId)
     return (
-        <div className="container mx-auto pt-5 px-2 lg:px-0">
+        <div className="container xl:w-[1280px] mx-auto pt-5 px-2 lg:px-0">
             <Breadcrumbs />
             <h1 className="text-3xl text-center uppercase font-bold mt-4">Checkout</h1>
             <hr className='my-4' />
