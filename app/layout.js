@@ -35,8 +35,19 @@ export const metadata = {
     description: 'Explore premium anabolic steroids in Germany. Buy online with confidence, top quality guaranteed, and fast shipping across Europe. Achieve your fitness goals today!',
     creator: 'Admin', 
   },
-  robots: 'index, follow',
-  viewport: 'width=device-width, initial-scale=1.0',
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
