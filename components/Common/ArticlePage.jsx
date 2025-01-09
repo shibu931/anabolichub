@@ -1,7 +1,6 @@
-'use client'; // This is crucial!
-
+'use client'; 
 import { useEffect, useState } from 'react';
-import DOMPurify from 'dompurify'; // Correct import for DOMPurify
+import DOMPurify from 'dompurify'; 
 
 const ArticlePage = ({ content }) => {
   const [sanitizedHTML, setSanitizedHTML] = useState('');
@@ -10,9 +9,17 @@ const ArticlePage = ({ content }) => {
       const cleanHTML = DOMPurify.sanitize(content);
       setSanitizedHTML(cleanHTML);
     }
-  }, [content]); // Add 'content' as a dependency to ensure updates when it changes
+  }, [content]);
 
-  return <div className='article' dangerouslySetInnerHTML={{ __html: content }}></div>;
+  useEffect(()=>{
+    const headings = document.querySelectorAll('h2, h3, h4, h5');
+    headings.forEach(heading => {
+      const id = heading.id || heading.textContent.toLowerCase().replace(/\s+/g, '-');
+      heading.id = id;
+    });
+  },[sanitizedHTML])
+
+  return <div className='article' dangerouslySetInnerHTML={{ __html: sanitizedHTML }}></div>;
 };
 
 export default ArticlePage;

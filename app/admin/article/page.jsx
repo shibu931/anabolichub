@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import GenericList from '@/components/Dashboard/GenericList';
 
 const ArticleList = () => {
-  const [articles, setArticles] = useState([]);
+  const [articleList, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
@@ -28,9 +28,10 @@ const ArticleList = () => {
         setArticles([])
         setTotalPages(0)
       } else {
-        const { articles, totalPages, currentPage } = data;        
+        const { articles, totalPages, currentPage } = data;      
         setArticles(articles);
         setTotalPages(totalPages);
+        setPage(currentPage)
       }
     } catch (err) {
       setError(err);
@@ -69,7 +70,7 @@ const ArticleList = () => {
   return (
     <>
       <GenericList
-        data={articles}
+        data={articleList}
         loading={loading}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}

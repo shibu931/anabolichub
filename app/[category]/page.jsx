@@ -1,4 +1,3 @@
-import { title } from 'process'
 import Breadcrumbs from '../../components/Common/Breadcrumbs'
 import CatalogPage from '../../components/Common/CatalogPage'
 
@@ -15,8 +14,7 @@ async function getArticle(category) {
 export async function generateMetadata({ params }) {
   const { article } = await getArticle(params.category)
   const productData = await getProducts(params.category)
-  const keywordsArray = article.keywords.split(',').map(keyword => keyword.trim());
-  if (!productData || !productData.product || productData.product.length === 0) {
+  if (!productData || !productData.product || productData.product.length === 0 ) {
     return {
       title: 'Products Not Found',
       description: 'No products found in this category.',
@@ -27,6 +25,9 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  if(!article) return
+
+  const keywordsArray = article.keywords.split(',').map(keyword => keyword.trim());
   return {
     title:article.metaTitle,
     description: article.metaDescription,

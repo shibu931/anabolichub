@@ -5,9 +5,11 @@ import Article from '@/models/article';
 connectToDB();
 
 export async function GET(req) {
-  const urlParams = new URLSearchParams(req.url.slice(1));
+  const url = req.url;
+  const urlParams = new URL(url).searchParams;
 
-  const page = parseInt(urlParams.get('page') || 1); 
+  const page = parseInt(urlParams.get('page') || 1);
+  const type = urlParams.get('type');
   const limit = parseInt(urlParams.get('limit') || 10);
   const searchQuery = urlParams.get('search');
 
@@ -15,13 +17,17 @@ export async function GET(req) {
     const query = {};
 
     if (searchQuery) {
-      query.$text = { $search: searchQuery };
+      query.$or = [
+        { title: { $regex: searchQuery, $options: 'i' } },
+        { slug: { $regex: searchQuery, $options: 'i' } },
+      ];
     }
 
+    if(type) query['type'] = type
     const skip = (page - 1) * limit;
 
-    const articles = await Article.find(query, 'title slug _id')
-      .sort({ createdAt: -1 }) 
+    const articles = await Article.find(query, 'title ogImage metaDescription slug _id')
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
@@ -36,13 +42,17 @@ export async function GET(req) {
       id: article._id.toString(),
       title: article.title,
       slug: article.slug,
+      ogImage:article.ogImage,
+      metaDescription:article.metaDescription
     }));
+    console.log(formattedArticles);
+
 
     return NextResponse.json({
       success: true,
       articles: formattedArticles,
       totalPages,
-      currentPage:page
+      currentPage: page
     }, { status: 200 });
   } catch (error) {
     console.error("Error fetching articles:", error);

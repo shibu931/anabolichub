@@ -14,7 +14,6 @@ async function getArticle(subCategory) {
 export async function generateMetadata({ params }) {
   const { article } = await getArticle(params.subCategory)
   const productData = await getProducts(params.subCategory)
-  const keywordsArray = article.keywords.split(',').map(keyword => keyword.trim());
   if (!productData || !productData.product || productData.product.length === 0) {
     return {
       title: 'Products Not Found',
@@ -25,7 +24,10 @@ export async function generateMetadata({ params }) {
       },
     };
   }
-
+  
+  if(!article) return
+  
+  const keywordsArray = article.keywords.split(',').map(keyword => keyword.trim());
   return {
     title:article.metaTitle,
     description: article.metaDescription,

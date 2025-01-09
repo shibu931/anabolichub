@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const articleSchema = new mongoose.Schema({
+  type:{
+    type:String,
+    enum:["article","blog"],
+    default:"blog"
+  },
   slug: {
     type: String,
     required: true,

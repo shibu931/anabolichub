@@ -5,7 +5,8 @@ import { format } from 'date-fns';
 
 connectToDB()
 export async function GET(req) {
-    const urlParams = new URLSearchParams(req.url.slice(1)); 
+    const url = req.url;
+    const urlParams = new URL(url).searchParams;
     const page = parseInt(urlParams.get('page') || 1); 
     const limit = parseInt(urlParams.get('limit') || 10); 
     const searchQuery = urlParams.get('search'); 
@@ -13,7 +14,9 @@ export async function GET(req) {
     try {
         const query = {};
         if (searchQuery) {
-            query.$text = { $search: searchQuery };
+            query.$or = [
+                { orderId: { $regex: searchQuery, $options: 'i' } },
+            ];
         }
 
         const skip = (page - 1) * limit; 

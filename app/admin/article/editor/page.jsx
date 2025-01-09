@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Editor from '@/components/Common/Editor';
@@ -12,6 +12,7 @@ const ContentEditor = () => {
     const slug = searchParams.get('slug');
     const [contentData, setContentData] = useState({
         title: '',
+        type: '',
         slug: '',
         content: '',
         metaTitle: '',
@@ -74,9 +75,9 @@ const ContentEditor = () => {
         }
     };
 
-    async function handleImageChange(e){
+    async function handleImageChange(e) {
         const link = await handleImageUpload((e.target).files?.[0]);
-        setContentData({...contentData,ogImage:link})
+        setContentData({ ...contentData, ogImage: link })
     }
 
     const handleDelete = async () => {
@@ -106,7 +107,17 @@ const ContentEditor = () => {
 
     return (
         <div className="container mx-auto p-10 bg-base-100 min-h-screen">
-            <h1 className="text-4xl font-bold mb-6 text-center">{isNew ? 'New Article' : `Edit ${contentData?.title}`}</h1>
+            <h1 className="text-4xl font-bold mb-6 text-center">{isNew ? 'New Article' : `Edit: ${contentData?.title}`}</h1>
+
+            <label className="form-control w-full max-w-xs mb-6">
+                <div className="label">
+                    <span className="label-text">Select Content Type</span>
+                </div>
+                <select name="contentType" value={contentData?.type} onChange={(e) => setContentData({ ...contentData, type: e.target.value })} className="select select-bordered rounded-none" required>
+                    <option value="article">Article</option>
+                    <option value="blog" >Blog</option>
+                </select>
+            </label>
 
             <div className="mb-6">
                 <input
@@ -147,7 +158,7 @@ const ContentEditor = () => {
                     <input
                         type="file"
                         className="rounded-none input input-bordered w-full mb-4"
-                        onChange={(e)=>{handleImageChange(e)}}
+                        onChange={(e) => { handleImageChange(e) }}
                     />
                     {contentData?.ogImage && (
                         <div className="mt-2">
