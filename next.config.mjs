@@ -12,6 +12,10 @@ const nextConfig = {
             protocol: "https",
             hostname: "steroidskaufen.com", 
           },
+          {
+            protocol: "https",
+            hostname: "anabolichub.com", 
+          },
         ],
       },
 };

@@ -8,7 +8,6 @@ async function getArticles(){
 
 const page = async () => {
   const {articles} = await getArticles();
-  console.log(articles);
   
   return (
     <div className='container xl:w-[1280px] mx-auto mt-4'>
