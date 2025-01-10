@@ -12,38 +12,35 @@ export async function POST(req) {
     }
 
     if (!(image instanceof File)) {
-        return NextResponse.json({ message: 'Invalid file provided' }, { status: 400 });
+      return NextResponse.json({ message: 'Invalid file provided' }, { status: 400 });
     }
 
     const buffer = await image.arrayBuffer();
     const bytes = new Uint8Array(buffer);
 
-    // Generate a unique filename
     const timestamp = Date.now();
     const random = Math.random().toString(36).substring(2, 8);
     const filename = `${timestamp}-${random}-${image.name}`;
 
-    // Define the upload directory. Make sure this directory exists!
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads'); // Store in public/uploads
+    const uploadDir = path.join('/var/www/uploads');
 
     try {
-        await fs.mkdir(uploadDir, { recursive: true }); // Ensure directory exists
+      await fs.mkdir(uploadDir, { recursive: true });
     } catch (mkdirError) {
-        console.error("Error creating directory:", mkdirError);
-        return NextResponse.json({ message: 'Error creating upload directory' }, { status: 500 });
+      console.error("Error creating directory:", mkdirError);
+      return NextResponse.json({ message: 'Error creating upload directory' }, { status: 500 });
     }
-
 
     const filePath = path.join(uploadDir, filename);
 
     try {
-        await fs.writeFile(filePath, Buffer.from(bytes));
+      await fs.writeFile(filePath, Buffer.from(bytes));
     } catch (writeFileError) {
-        console.error("Error writing file:", writeFileError);
-        return NextResponse.json({ message: 'Error saving file' }, { status: 500 });
+      console.error("Error writing file:", writeFileError);
+      return NextResponse.json({ message: 'Error saving file' }, { status: 500 });
     }
 
-    const publicPath = `/uploads/${filename}`; // Public URL
+    const publicPath = process.env.DOMAIN_URL ? `${process.env.DOMAIN_URL}/uploads/${filename}` : null;
 
     return NextResponse.json({ message: 'File uploaded successfully', url: publicPath }, { status: 200 });
 
