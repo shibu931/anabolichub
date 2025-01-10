@@ -12,8 +12,9 @@ async function getArticle(subCategory) {
 }
 
 export async function generateMetadata({ params }) {
-  const { article } = await getArticle(params.subCategory)
-  const productData = await getProducts(params.subCategory)
+  const {subCategory} = await params
+  const { article } = await getArticle(subCategory)
+  const productData = await getProducts(subCategory)
   if (!productData || !productData.product || productData.product.length === 0) {
     return {
       title: 'Products Not Found',
@@ -62,8 +63,9 @@ export async function generateMetadata({ params }) {
 }
 
 async function MyComponent({params}) {
-  const { article } = await getArticle(params.subCategory)
-  const { product } = await getProducts(params.subCategory)
+  const {subCategory} = await params
+  const { article } = await getArticle(subCategory)
+  const {product} = await getProducts(subCategory)
   return (
     <main className='container xl:w-[1280px] mx-auto mt-4 px-4 lg:px-0'>
       <Breadcrumbs/>

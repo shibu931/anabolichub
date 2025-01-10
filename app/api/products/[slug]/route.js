@@ -12,7 +12,7 @@ export async function GET(req,{params}){
     try {
         let product
         if(type==='category'){
-            query["category.href"] = slug
+            query["subCategory"] = { $elemMatch: { href: slug } };
             product = await Product.find(query)
         }else if(type === 'sub-category'){
             query["subCategory"] = { $elemMatch: { href: slug } };

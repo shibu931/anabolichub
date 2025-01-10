@@ -41,14 +41,14 @@ const TableOfContent = ({ content }) => {
         }, 0);
     }, [content]);
     return (
-        <div className="table-of-contents">
-            <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1" className="border px-2" open>
+        <div className="table-of-contents lg:sticky top-5 ">
+            <Accordion type="single" defaultValue='item-1' collapsible className="w-full">
+                <AccordionItem value="item-1" className="border px-1">
                     <AccordionTrigger className="hover:no-underline">
                         <h2 className="text-xl font-bold uppercase">Table of Contents</h2>
                     </AccordionTrigger>
                     <AccordionContent>
-                        <ul className="list-disc">
+                        <ul className="list-decimal ms-5 me-2" >
                             {tocData.map((item) => (
                                 <li key={item.id} className='text-base mb-3 font-semibold'>
                                     <a href={`#${item.id}`} className="hover:underline">

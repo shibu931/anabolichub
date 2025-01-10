@@ -18,7 +18,7 @@ const CatalogSidebar = () => {
   const categoryInfo = getCurrentCategoryAndParent(slug, navLinks);
 
   if (!categoryInfo) {
-    return <div>Page not found</div>
+    return <div></div>
   }
 
   const { parent, current, siblings } = categoryInfo;

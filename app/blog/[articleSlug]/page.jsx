@@ -7,7 +7,8 @@ async function getData(slug) {
 }
 
 export async function generateMetadata({ params }) {
-    const { article } = await getData(params.articleSlug)
+    const {articleSlug} = await params
+    const { article } = await getData(articleSlug)
     if (!article) {
         return {
             title: 'Article Not Found',
@@ -76,11 +77,12 @@ export async function generateMetadata({ params }) {
 }
 
 const page = async ({ params }) => {
-    const { article } = await getData(params.articleSlug)
+    const {articleSlug} = await params
+    const { article } = await getData(articleSlug)
     return (
         <div className='container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-0'>
             <div className="grid grid-cols-1 lg:grid-cols-8 gap-4 lg:gap-8">
-                <aside className='col-span-2'>
+                <aside className='col-span-2 h-auto relative'>
                     <TableOfContent content={article?.content}/>
                 </aside>  
                 <main className="col-span-6">
