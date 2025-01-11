@@ -5,7 +5,7 @@ import { BlogIcon, CycleIcon, HGHIcon, NeedleIcon, SexIcon } from '../Icons/Icon
 import { HomeIcon } from 'lucide-react';
 import {navLinks} from '../../data/navLinks'
 
-const NavMenu = () => {
+const NavMenu = ({open=null, setOpen}) => {
     useEffect(() => {
         const handleDetailsToggle = (event) => {
             const currentDetails = event.currentTarget;
@@ -37,11 +37,11 @@ const NavMenu = () => {
                             {
                                 navLink.category.map((subCategory,index)=>(
                                     <li key={index}>
-                                    {subCategory.title && <Link className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.slug}`}><h4 className='text-lg text-base-100 lg:text-accent-content font-bold'>{subCategory.title}</h4></Link>}
+                                    {subCategory.title && <Link onClick={open ? ()=>setOpen(!open) : null} className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.slug}`}><h4 className='text-lg text-base-100 lg:text-accent-content font-bold'>{subCategory.title}</h4></Link>}
                                     <ul className='before:opacity-20 before:bg-base-200 lg:before:bg-success-content text-white lg:text-accent-content'>
                                         {
                                             subCategory.links.map((link)=>(
-                                                <li key={link.title}><Link href={link.slug} className='focus:text-primary'>{link.title}</Link></li>
+                                                <li key={link.title}><Link  onClick={open ? ()=>setOpen(!open) : null} href={link.slug} className='focus:text-primary'>{link.title}</Link></li>
                                             ))
                                         }
                                     </ul>
@@ -52,7 +52,7 @@ const NavMenu = () => {
                     </details>
                 </li>
                 :
-                <li key={index}><Link href={navLink.slug} className='focus:text-primary'><navLink.icon className='w-5'/> {navLink.title}</Link></li>
+                <li key={index}><Link onClick={open ? ()=>setOpen(!open) : null} href={navLink.slug} className='focus:text-primary'><navLink.icon className='w-5'/> {navLink.title}</Link></li>
         ))
     )
 };

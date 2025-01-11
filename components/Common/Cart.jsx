@@ -4,8 +4,10 @@ import { CartIcon, } from '../Icons/Icons'
 import Image from 'next/image'
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetDescription,
+    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
@@ -63,7 +65,11 @@ const Cart = () => {
                             <strong className='text-sm'>Total: </strong>
                             <span className='text-sm'>{productTotal + 17}€</span>
                         </p>
-                        <Link className={`btn rounded-none btn-block text-white ${disableCheckout ? 'btn-disabled':'btn-primary'}`} href={disableCheckout ? '#' :'/checkout'}>Checkout</Link>
+                        <SheetFooter>
+                            <SheetClose asChild>
+                                <Link className={`btn rounded-none btn-block text-white ${disableCheckout ? 'btn-disabled' : 'btn-primary'}`} href={disableCheckout ? '#' : '/checkout'}>Checkout</Link>
+                            </SheetClose>
+                        </SheetFooter>
                     </div>
                 </div>
             </SheetContent>

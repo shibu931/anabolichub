@@ -16,6 +16,7 @@ const Navbar = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [open,setOpen] = useState(false)
 
     useEffect(() => {
         const searchProducts = async () => {
@@ -31,7 +32,6 @@ const Navbar = () => {
                     throw new Error(`API returned an error: ${res.status}`);
                 }
                 const data = await res.json();
-
                 setResults(data.products);
             } catch (error) {
                 console.error('Error searching:', error);
@@ -40,7 +40,6 @@ const Navbar = () => {
                 setLoading(false);
             }
         };
-
         const debounceFn = setTimeout(() => {
             searchProducts();
         }, 500);
@@ -153,14 +152,14 @@ const Navbar = () => {
                 <ul className="hidden lg:flex menu lg:menu-horizontal !py-1 container text-base-100">
                     <NavMenu />
                 </ul>
-                <Sheet className="block lg:hidden">
+                <Sheet className="block lg:hidden" open={open} onOpenChange={setOpen}>
                     <SheetTrigger>
                         <div className='btn btn-primary btn-sm me-2 lg:hidden flex items-center' title="menu"><AlignRight className='text-white' /></div>
                     </SheetTrigger>
                     <SheetContent className="bg-success-content ps-2 overflow-y-auto">
                         <SheetTitle></SheetTitle>
                         <ul className="block menu lg:menu-horizontal container text-base-100">
-                            <NavMenu />
+                            <NavMenu setOpen={setOpen} open={open}/>
                         </ul>
                     </SheetContent>
                 </Sheet>

@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { redirect, useSearchParams } from 'next/navigation';
+import { redirect, usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import InformationBar from '@/components/Common/InformationBar'
 import { useAuth } from '@clerk/nextjs'
@@ -18,9 +18,10 @@ export default function page(){
 export function ViewOrderDetails() {
     const { isLoaded, userId } = useAuth()
     if(!userId && isLoaded) redirect('/login')
-    
+        const pathname = usePathname();
     const {clearCart} = useCart()
     const searchParams = useSearchParams();
+    const router = useRouter();
     const orderId = searchParams.get('orderId');
     const checkout = searchParams.get('checkout') || null;
     useEffect(() => {
@@ -28,7 +29,7 @@ export function ViewOrderDetails() {
             clearCart();
             const newSearchParams = new URLSearchParams(searchParams);
             newSearchParams.delete('checkout');
-            replace(pathname + '?' + newSearchParams.toString());
+            router.replace(pathname + '?' + newSearchParams.toString());
         }
     }, [checkout, clearCart]);
     
@@ -126,7 +127,7 @@ export function ViewOrderDetails() {
                                 {orderDetails.products.map((product) => (
                                     <tr key={product._id} className="border-b border-gray-300">
                                         <td className="px-4 py-3 text-gray-700 border border-gray-300">
-                                            <Link href={`/products/${product.slug}`} className="hover:underline text-blue-500">
+                                            <Link href={`/product/${product.slug}`} className="hover:underline text-blue-500">
                                                 {product.productName}
                                             </Link>
                                         </td>
