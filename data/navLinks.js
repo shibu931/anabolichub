@@ -69,7 +69,7 @@ export const navLinks = [
                     {
                         title: 'Testosteron Propionat',
                         slug: '/testosteron/testosteron-propionat'
-                    },
+                    }
                 ]
             },
             {
@@ -85,6 +85,10 @@ export const navLinks = [
                         slug: '/injizierbare-steroide/drostanolone-enanthate'
                     },
                     {
+                        title: 'Drostanolone Propionate (Masteron)',
+                        slug: '/injizierbare-steroide/drostanolone-propionate'
+                    },
+                    {
                         title: 'Nandrolon Propionat (NPP)',
                         slug: '/injizierbare-steroide/nandrolone-phenylpropionate'
                     },
@@ -93,9 +97,17 @@ export const navLinks = [
                         slug: '/injizierbare-steroide/nandrolone-decanoate'
                     },
                     {
+                        title: 'Methenolone (Primobolone)',
+                        slug: '/injizierbare-steroide/methenolone'
+                    },
+                    {
                         title: 'Trenbolone Enanthate',
                         slug: '/injizierbare-steroide/trenbolone-enanthate'
                     },
+                    {
+                        title: "Trenbolon Acetat",
+                        slug: "/injizierbare-steroide/trenbolone-acetate"
+                    }
                 ]
             }
         ]
@@ -186,7 +198,7 @@ export const navLinks = [
             },
             {
                 title: 'PEPTIDE',
-                slug:"peptide",
+                slug: "peptide",
                 links: [
                     {
                         title: 'IGF-1 LR3 (Oxymedin)',
@@ -284,7 +296,7 @@ export const navLinks = [
         category: [
             {
                 title: 'Fatburner',
-                slug:"fatburner",
+                slug: "fatburner",
                 links: [
                     {
                         title: "Sibutramin 100 Tabletten 20mg/tab",

@@ -6,8 +6,8 @@ const ArticlePage = ({ content }) => {
   const [sanitizedHTML, setSanitizedHTML] = useState('');
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const cleanHTML = DOMPurify.sanitize(content);
-      setSanitizedHTML(cleanHTML);
+      // const cleanHTML = DOMPurify.sanitize(content);
+      setSanitizedHTML(content);
     }
   }, [content]);
 
@@ -19,7 +19,7 @@ const ArticlePage = ({ content }) => {
     });
   },[sanitizedHTML])
 
-  return <div className='article' dangerouslySetInnerHTML={{ __html: sanitizedHTML }}></div>;
+  return <div className='article' dangerouslySetInnerHTML={{ __html: content }}></div>;
 };
 
 export default ArticlePage;
