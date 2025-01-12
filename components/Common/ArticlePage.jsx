@@ -19,7 +19,7 @@ const ArticlePage = ({ content }) => {
     });
   },[sanitizedHTML])
 
-  return <div className='article' dangerouslySetInnerHTML={{ __html: content }}></div>;
+  return <div className='article' dangerouslySetInnerHTML={{ __html: sanitizedHTML }}></div>;
 };
 
 export default ArticlePage;
