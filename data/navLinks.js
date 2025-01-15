@@ -1,4 +1,4 @@
-import { BlogIcon, CycleIcon, HGHIcon, NeedleIcon, SexIcon } from '../components/Icons/Icons';
+import { BlogIcon, CycleIcon, FatBurnerIcon, HGHIcon, NeedleIcon, PCTIcon, SARMSIcon, SexIcon } from '../components/Icons/Icons';
 import { HomeIcon } from 'lucide-react';
 export const navLinks = [
     {
@@ -113,7 +113,13 @@ export const navLinks = [
         ]
     },
     {
-        icon: CycleIcon,
+        icon: HGHIcon,
+        isSubCategory:false,
+        title:'HGH',
+        slug:'/wachstumshormone'
+    },
+    {
+        icon: PCTIcon,
         isSubCategory: true,
         title: 'PCT',
         category: [
@@ -241,7 +247,7 @@ export const navLinks = [
         ]
     },
     {
-        icon: CycleIcon,
+        icon: SARMSIcon,
         isSubCategory: true,
         title: "SARM's",
         category: [
@@ -290,7 +296,7 @@ export const navLinks = [
         ]
     },
     {
-        icon: CycleIcon,
+        icon: FatBurnerIcon,
         isSubCategory: true,
         title: 'Fatburner',
         category: [
