@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Bold from '@tiptap/extension-bold';
@@ -20,7 +20,20 @@ import * as LucideReact from 'lucide-react';
 import { handleImageUpload } from '@/lib/utils';
 
 const Editor = ({ data, setData, contentKey = 'content' }) => {
+  const [isSticky, setIsSticky] = useState(false); // State to track sticky behavior
+  const toolbarRef = useRef(null);
+  useEffect(() => {
+    const onScroll = () => {
+      const windowScrollY = window.scrollY;
+      const toolbarHeight = toolbarRef.current?.offsetHeight || 0; // Handle potential null ref
 
+      setIsSticky(windowScrollY > toolbarHeight); // Update state based on scroll position
+    };
+
+    window.addEventListener('scroll', onScroll); // Add scroll event listener
+
+    return () => window.removeEventListener('scroll', onScroll); // Cleanup function on unmount
+  }, []);
   const editor = useEditor({
     extensions: [StarterKit,
       Bold,
@@ -108,8 +121,13 @@ const Editor = ({ data, setData, contentKey = 'content' }) => {
   };
 
   return (
-    <div>
-      <div className=" p-2 border border-gray-200 bg-base-100 flex flex-wrap space-x-2 space-y-2">
+<div className='relative'>
+      <div
+        className={`p-2 border border-gray-200 bg-base-100 flex flex-wrap space-x-2 space-y-2 ${
+          isSticky ? 'fixed top-0 left-0 right-0 z-10' : ''
+        }`}
+        ref={toolbarRef} // Assign ref to toolbar element
+      >
         {tools.map((tool) => {
           const Icon = LucideReact[tool.icon]; // Dynamically get the icon component
 
