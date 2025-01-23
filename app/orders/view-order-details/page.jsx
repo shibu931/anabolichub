@@ -16,9 +16,7 @@ export default function page(){
 }
 
 export function ViewOrderDetails() {
-    const { isLoaded, userId } = useAuth()
-    if(!userId && isLoaded) redirect('/login')
-        const pathname = usePathname();
+    const pathname = usePathname();
     const {clearCart} = useCart()
     const searchParams = useSearchParams();
     const router = useRouter();

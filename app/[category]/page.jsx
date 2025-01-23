@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: new URL(`/${article.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
+      url: new URL(`/${category}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
       type: 'article',
       article: {
         publishedTime: article.createdAt,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
     alternates: {
-      canonical: `/${article.slug}`,
+      canonical: `/${category}`,
     },
   }
 }

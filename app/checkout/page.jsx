@@ -2,18 +2,20 @@ import Breadcrumbs from '@/components/Common/Breadcrumbs';
 import AddressForm from '../../components/Common/AddressForm'
 import CheckoutOrderSummary from '../../components/CheckoutPage/CheckoutOrderSummary'
 import { auth } from '@clerk/nextjs/server'
-import { redirect } from "next/navigation";
 import {fetchUserAddress} from '@/lib/actions/address.actions'
+import Link from 'next/link';
 
 async function CheckoutPage() {
     const { userId } = await auth();
-    if (!userId) return redirect(`${process.env.DOMAIN_URL}/login?redirect_url=${process.env.DOMAIN_URL}/checkout`)
-    const address = await fetchUserAddress(userId)
+    let address = null;
+    if(!userId) address = await fetchUserAddress(userId)
+    
     return (
         <div className="container xl:w-[1280px] mx-auto pt-5 px-2 lg:px-0">
             <Breadcrumbs />
             <h1 className="text-3xl text-center uppercase font-bold mt-4">Checkout</h1>
             <hr className='my-4' />
+            {!userId && <p className='mb-4 font-medium'>Already Have a Account? <Link className='link' href="/login">Log In</Link> </p>}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="col-span-1">
                     <h2 className='text-xl font-semibold uppercase mb-4'>Shipping Address</h2>

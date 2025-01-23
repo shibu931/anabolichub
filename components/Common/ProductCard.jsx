@@ -76,7 +76,7 @@ const ProductCard = ({ product }) => {
       )}
       <Link title={product?.productName} href={`/product/${product?.slug}`} className='mt-1 text-center text-base-content block text-xs '>{product?.category.title}</Link>
       <hr className='my-1 border-gray-300 lg:my-2' />
-      <h6 className='text-center text-sm font-bold text-nowrap overflow-hidden overflow-ellipsis px-2'><Link href={`/product/${product?.slug}`}>{product?.productName}</Link></h6>
+      <p className='text-center text-sm font-bold text-nowrap overflow-hidden overflow-ellipsis px-2'><Link href={`/product/${product?.slug}`}>{product?.productName}</Link></p>
       <hr className='my-1 border-gray-300 lg:my-2' />
       <span className="block text-xs italic text-center font-medium text-green-700">{product?.productPrice} <small className='line-through text-red-700'>{product?.productPricePerMg}</small></span>
       <hr className='my-1 border-gray-300 lg:my-2' />
@@ -95,14 +95,14 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="bg-neutral hover:bg-primary px-2 py-1">
             <button type='button' className='text-xs font-semibold text-white  h-full' aria-label='Add to cart' onClick={() => handleAddToCart()}>
-              Add To Cart
+            In den Warenkorb
             </button>
           </div>
         </div>
       </div>
       <hr className='my-1 border-gray-300 lg:my-2' />
       <div className="flex flex-wrap justify-between">
-        <button type='button' aria-label="Checkout" onClick={()=>quickCheckout()} className='text-[0.65rem] text-left hover:text-primary flex font-semibold mb-1'><CheckoutIcon className={'w-4 me-1'} /> Quick Checkout</button>
+        <button type='button' aria-label="Checkout" onClick={()=>quickCheckout()} className='text-[0.65rem] text-left hover:text-primary flex font-semibold mb-1'><CheckoutIcon className={'w-4 me-1'} /> Schnellkasse</button>
         <DialogBox />
       </div>
     </div>

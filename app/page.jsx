@@ -262,22 +262,22 @@ export default async function Home() {
 
         <h2>Häufig gestellte Fragen (FAQ)</h2>
 
-        <h3>1. Was ist AnabolicHub.com?</h3>
+        <p className="font-bold !mb-1 text-xl">1. Was ist AnabolicHub.com?</p>
         <p>AnabolicHub.com ist eine vertrauenswürdige Online-Plattform, die Bodybuilding-, Fitness- und Gesundheitsbegeisterten zuverlässige Informationen, Ressourcen und hochwertige Produkte anbietet. Wir haben uns auf anabole Nahrungsergänzungsmittel, Trainingstipps und fachkundige Beratung spezialisiert, um Ihnen dabei zu helfen, Ihre Fitnessziele sicher und effektiv zu erreichen.</p>
 
-        <h3>2. Sind die Produkte auf AnabolicHub.com sicher in der Anwendung?</h3>
+        <p className="font-bold !mb-1 text-xl">2. Sind die Produkte auf AnabolicHub.com sicher in der Anwendung?</p>
         <p>Ja, alle auf AnabolicHub.com angebotenen Produkte stammen von renommierten Herstellern und unterliegen strengen Qualitätskontrollen, um Sicherheit und Wirksamkeit zu gewährleisten. Wir bieten außerdem detaillierte Nutzungsrichtlinien an und empfehlen Ihnen, vor Beginn einer neuen Nahrungsergänzungsmittelkur einen Arzt zu konsultieren.</p>
 
-        <h3>3. Bieten Sie weltweiten Versand an?</h3>
+        <p className="font-bold !mb-1 text-xl">3. Bieten Sie weltweiten Versand an?</p>
         <p>Ja, AnabolicHub.com bietet den Versand in jedes Land der Europäischen Union an. Wir bemühen uns, Ihre Produkte schnell und sicher zu liefern. Überprüfen Sie unsere Versandbedingungen für die geschätzten Lieferzeiten und alle regionalen Einschränkungen.</p>
 
-        <h3>4. Können Anfänger die auf AnabolicHub.com verfügbaren Nahrungsergänzungsmittel verwenden?</h3>
+        <p className="font-bold !mb-1 text-xl">4. Können Anfänger die auf AnabolicHub.com verfügbaren Nahrungsergänzungsmittel verwenden?</p>
         <p>Absolut. Wir bieten eine Reihe von Produkten an, die für alle Erfahrungsstufen geeignet sind, einschließlich Anfänger. Jedes Produkt wird mit einer klaren Anleitung geliefert, und unser Support-Team hilft Ihnen gerne bei der Auswahl der richtigen Nahrungsergänzungsmittel für Ihre Fitnessreise.</p>
 
-        <h3>5. Wie kann ich meine Bestellung verfolgen?</h3>
+        <p className="font-bold !mb-1 text-xl">5. Wie kann ich meine Bestellung verfolgen?</p>
         <p>Sobald Ihre Bestellung versandt wurde, erhalten Sie per E-Mail eine Trackingnummer. Mit dieser Nummer können Sie den Fortschritt Ihres Pakets über unsere Website oder das Tracking-System des Spediteurs verfolgen.</p>
 
-        <h3>6. Bietet AnabolicHub.com ein Rückgaberecht an?</h3>
+        <p className="font-bold !mb-1 text-xl">6. Bietet AnabolicHub.com ein Rückgaberecht an?</p>
         <p>Ja, wir haben ein kundenfreundliches Rückgaberecht. Wenn Sie mit Ihrem Kauf nicht zufrieden sind oder ein beschädigtes Produkt erhalten haben, wenden Sie sich innerhalb von 30 Tagen nach Lieferung an unser Support-Team, um eine problemlose Lösung zu finden. Weitere Informationen finden Sie auf unserer Seite zu Rückgaben und Rückerstattungen.</p>
       </section>
     </main>

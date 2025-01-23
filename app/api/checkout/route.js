@@ -8,30 +8,35 @@ import { generateOrderId } from "@/lib/utils";
 connectToDB();
 export async function POST(req) {
     try {
-        const { userId, addressData } = await req.json();
+        const { userId, addressData ,cart } = await req.json();
 
         if (!userId || !addressData) {
             return NextResponse.json({ message: 'User ID and address data are required' }, { status: 400 });
         }
+        console.log(addressData);
+        
         let address;
-        const existingAddress = await Address.findOne({ userId: userId });
+        let existingAddress = null;
+        if(userId !== 'guest') existingAddress  = await Address.findOne({ userId: userId });
 
         if (existingAddress) {
             Object.assign(existingAddress, addressData);
             await existingAddress.save();
             address = existingAddress;
-        } else {
+        } else if(userId !== 'guest') {
             addressData.userId = userId;
             const newAddress = new Address(addressData);
             await newAddress.save();
             address = newAddress;
+        }else{
+            address = addressData
         }
 
-        const cart = await Cart.findOne({ userId: userId }).populate('item.product');
+        // const cart = await Cart.findOne({ userId: userId }).populate('item.product');
 
-        if (!cart || cart.item.length === 0) {
-            return NextResponse.json({ message: 'Cart is empty' }, { status: 400 });
-        }
+        // if (!cart || cart.item.length === 0) {
+        //     return NextResponse.json({ message: 'Cart is empty' }, { status: 400 });
+        // }
 
         let totalAmount = 0;
         const products = cart.item.map(item => {

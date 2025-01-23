@@ -37,7 +37,7 @@ const NavMenu = ({open=null, setOpen}) => {
                             {
                                 navLink.category.map((subCategory,index)=>(
                                     <li key={index}>
-                                    {subCategory.title && <Link onClick={open ? ()=>setOpen(!open) : null} className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.slug}`}><h4 className='text-lg text-base-100 lg:text-accent-content font-bold'>{subCategory.title}</h4></Link>}
+                                    {subCategory.title && <Link onClick={open ? ()=>setOpen(!open) : null} className='hover:cursor-pointer hover:bg-white' href={`/${subCategory.slug}`}><p className='text-lg text-base-100 lg:text-accent-content font-bold'>{subCategory.title}</p></Link>}
                                     <ul className='before:opacity-20 before:bg-base-200 lg:before:bg-success-content text-white lg:text-accent-content'>
                                         {
                                             subCategory.links.map((link)=>(

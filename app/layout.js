@@ -11,14 +11,14 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Buy Anabolic Steroids Online in Germany - Top Quality',
-  description: 'Explore premium anabolic steroids in Germany. Buy online with confidence, top quality guaranteed, and fast shipping across Europe. Achieve your fitness goals today!',
+  title: 'Anabolika online kaufen in Deutschland - Höchste Qualität',
+  description: 'Entdecken Sie hochwertige Anabolika in Deutschland. Sicher online bestellen, garantierte Top-Qualität und schneller Versand innerhalb Europas. Erreichen Sie jetzt Ihre Fitnessziele!',
   keywords: 'buy anabolic steroids, steroids, oral steroids, Testosterone, post cycle therapy, Serm, anabolic hub, buy steroids',
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Buy Anabolic Steroids Online in Germany - Top Quality',
-    description: 'Explore premium anabolic steroids in Germany. Buy online with confidence, top quality guaranteed, and fast shipping across Europe. Achieve your fitness goals today!',
+    title: 'Anabolika online kaufen in Deutschland - Höchste Qualität',
+    description: 'Entdecken Sie hochwertige Anabolika in Deutschland. Sicher online bestellen, garantierte Top-Qualität und schneller Versand innerhalb Europas. Erreichen Sie jetzt Ihre Fitnessziele!',
     url: 'https://anabolichub.com/',
     site_name: 'Anabolic Hub',
     images: [
@@ -31,14 +31,14 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Buy Anabolic Steroids Online in Germany - Top Quality',
-    description: 'Explore premium anabolic steroids in Germany. Buy online with confidence, top quality guaranteed, and fast shipping across Europe. Achieve your fitness goals today!',
+    title: 'Anabolika online kaufen in Deutschland - Höchste Qualität',
+    description: 'Entdecken Sie hochwertige Anabolika in Deutschland. Sicher online bestellen, garantierte Top-Qualität und schneller Versand innerhalb Europas. Erreichen Sie jetzt Ihre Fitnessziele!',
     creator: 'Admin',
   },
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -47,6 +47,10 @@ export const metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+  alternates: {
+    canonical: `/`,
   },
 };
 
@@ -81,7 +85,7 @@ const orgSchema = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="de-DE">
         <head>
           <Script
             id="bnreadcrumb-schema"

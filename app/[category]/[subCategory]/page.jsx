@@ -12,7 +12,7 @@ async function getArticle(subCategory) {
 }
 
 export async function generateMetadata({ params }) {
-  const {subCategory} = await params
+  const {subCategory,category} = await params
   const { article } = await getArticle(subCategory)
   const productData = await getProducts(subCategory)
   if (!productData || !productData.product || productData.product.length === 0) {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: new URL(`/${article.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
+      url: new URL(`/${category}/${subCategory}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
       type: 'article',
       article: {
         publishedTime: article.createdAt,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
     alternates: {
-      canonical: `/${article.slug}`,
+      canonical: `/${category}/${subCategory}`,
     },
   }
 }
