@@ -13,8 +13,6 @@ export async function POST(req) {
         if (!userId || !addressData) {
             return NextResponse.json({ message: 'User ID and address data are required' }, { status: 400 });
         }
-        console.log(addressData);
-        
         let address;
         let existingAddress = null;
         if(userId !== 'guest') existingAddress  = await Address.findOne({ userId: userId });
