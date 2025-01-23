@@ -63,11 +63,11 @@ export function ViewOrderDetails() {
     }, [orderId]);
 
     if (!orderId) {
-        return <p className='text-center my-5'>Order ID is missing.</p>;
+        return <p className='text-center my-5'>Die Bestell -ID fehlt.</p>;
     }
 
     if (loading) {
-        return <p className='text-center my-5'>Loading order details...</p>;
+        return <p className='text-center my-5'>Auftragsdetails laden...</p>;
     }
 
     if (error) {
@@ -75,29 +75,29 @@ export function ViewOrderDetails() {
     }
 
     if (!orderDetails) {
-        return <p className='text-center my-5'>Order Not found</p>
+        return <p className='text-center my-5'>Ich kann die Bestellung nicht finden</p>
     }
 
     return (
         <div className="container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-0">
 
             {
-                orderDetails.paymentStatus === 'pending' ? <InformationBar className={'bg-primary'} text={'Our customer advisor will send you bank details for payment within 2 hours of placing order. Your order will only confirm after successfull payment.'} /> : ''
+                orderDetails.paymentStatus === 'pending' ? <InformationBar className={'bg-primary'} text={'Unser Kundenberater sendet Ihnen eine Bankdaten, die Sie innerhalb von 2 Stunden nach Ausgabe der Bestellung bezahlt. Ihre Bestellung wird erst nach erfolgreicher Zahlung bestätigt.'} /> : ''
             }
             <div className="rounded-lg shadow-md overflow-hidden bg-white p-6 md:p-8 lg:p-10">
                 <div className="border-b border-gray-200 pb-6 mb-6">
-                    <h2 className="text-2xl font-semibold text-gray-800 tracking-wide">Order Details</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800 tracking-wide">Detaillierte Informationen</h2>
                     <p className="text-sm text-gray-500 mt-1">Order ID: {orderDetails.orderId} | Placed on: {formattedDate}</p>
                 </div>
 
-                <div className="md:flex md:space-x-12 mb-8"> {/* Flex container for address and status */}
-                    <div className="md:w-1/2"> {/* Shipping Address - takes half width on medium screens */}
-                        <h3 className="text-lg font-medium text-gray-800 mb-3">Shipping Address</h3>
+                <div className="md:flex md:space-x-12 mb-8">
+                    <div className="md:w-1/2"> 
+                        <h3 className="text-lg font-medium text-gray-800 mb-3">Einkommensadresse</h3>
                         <ul className="text-gray-600 space-y-1">
                             <li><strong>Name:</strong> {orderDetails.shippingAddress.name}</li>
-                            <li><strong>Email:</strong> {orderDetails.shippingAddress.email}</li>
-                            <li><strong>Phone:</strong> {orderDetails.shippingAddress.phone}</li>
-                            <li><strong>Address:</strong> {orderDetails.shippingAddress.address}, {orderDetails.shippingAddress.city}, {orderDetails.shippingAddress.country} {orderDetails.shippingAddress.zipCode}</li>
+                            <li><strong>E-Mail:</strong> {orderDetails.shippingAddress.email}</li>
+                            <li><strong>Telefon:</strong> {orderDetails.shippingAddress.phone}</li>
+                            <li><strong>Adresse:</strong> {orderDetails.shippingAddress.address}, {orderDetails.shippingAddress.city}, {orderDetails.shippingAddress.country} {orderDetails.shippingAddress.zipCode}</li>
                         </ul>
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0"> {/* Order Status - takes half width on medium screens */}
