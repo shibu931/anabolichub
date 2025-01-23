@@ -13,12 +13,12 @@ async function CheckoutPage() {
     return (
         <div className="container xl:w-[1280px] mx-auto pt-5 px-2 lg:px-0">
             <Breadcrumbs />
-            <h1 className="text-3xl text-center uppercase font-bold mt-4">Checkout</h1>
+            <h1 className="text-3xl text-center uppercase font-bold mt-4">Überprüfen</h1>
             <hr className='my-4' />
-            {!userId && <p className='mb-4 font-medium'>Already Have a Account? <Link className='link' href="/login">Log In</Link> </p>}
+            {!userId && <p className='mb-4 font-medium'>Es gibt bereits ein Konto? <Link className='link' href="/login">Log In</Link> </p>}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="col-span-1">
-                    <h2 className='text-xl font-semibold uppercase mb-4'>Shipping Address</h2>
+                    <h2 className='text-xl font-semibold uppercase mb-4'>Einkommensadresse</h2>
                     <AddressForm address={address} />
                 </div>
                 <div>

@@ -24,7 +24,7 @@ const CheckoutOrderSummary = () => {
   let totalAmount = deliveryCharges + productTotal
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Order Summary</h2>
+      <h2 className="text-xl font-bold mb-4">Abstrakt bestellen</h2>
       <ul className="divide-y divide-gray-300">
         {cart?.item?.map((item, index) => (
           <li key={index} className="py-4 flex items-center space-x-4">
@@ -43,7 +43,7 @@ const CheckoutOrderSummary = () => {
       </ul>
       <div className="border-t border-gray-300 mt-4 pt-4 space-y-2">
         <div className="flex justify-between text-sm">
-          <span>Product Total</span>
+          <span>Gesamtprodukt</span>
           <span>{productTotal.toFixed(2)}€</span>
         </div>
         {/* <div className="flex justify-between text-sm">
@@ -51,11 +51,11 @@ const CheckoutOrderSummary = () => {
           <span className='text-green-600'>-{couponDiscount.toFixed(2)}</span>
         </div> */}
         <div className="flex justify-between text-sm">
-          <span>Delivery Charges</span>
+          <span>Liefergebühr</span>
           <span>{deliveryCharges.toFixed(2)}€</span>
         </div>
         <div className="border-t border-gray-300 mt-2 pt-2 flex justify-between font-medium text-lg">
-          <span>Total Amount</span>
+          <span>Pauschalbetrag</span>
           <span>{totalAmount.toFixed(2)}€</span>
         </div>
       </div>

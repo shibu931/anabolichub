@@ -69,7 +69,7 @@ const CheckoutForm = ({ address }) => {
           <input 
             type="text" 
             name="name" 
-            placeholder="Enter Your Name Here" 
+            placeholder="Geben Sie hier Ihren Namen ein" 
             className="input-field" 
             value={formData.name} 
             onChange={handleChange}
@@ -84,7 +84,7 @@ const CheckoutForm = ({ address }) => {
           <input 
             type="email" 
             name="email" 
-            placeholder="Enter Your Email Here" 
+            placeholder="Geben Sie hier Ihre E -Mail ein" 
             className="input-field" 
             value={formData.email} 
             onChange={handleChange}
@@ -99,7 +99,7 @@ const CheckoutForm = ({ address }) => {
           <input 
             type="number" 
             name="phone" 
-            placeholder="Enter Your Phone Number" 
+            placeholder="Geben Sie Ihre Telefonnummer ein" 
             className="input-field" 
             value={formData.phone} 
             onChange={handleChange}
@@ -114,7 +114,7 @@ const CheckoutForm = ({ address }) => {
           <input 
             type="number" 
             name="zipCode" 
-            placeholder="Enter Your Postal Code" 
+            placeholder="Geben Sie Ihre Postleitzahl ein" 
             className="input-field" 
             value={formData.zipCode} 
             onChange={handleChange}
@@ -131,14 +131,14 @@ const CheckoutForm = ({ address }) => {
             className="textarea textarea-bordered w-full rounded-none hover:border-primary/25 hover:outline-primary/25" 
             value={formData.address} 
             onChange={handleChange}
-            placeholder="Enter Your Complete Address Here" 
+            placeholder="Geben Sie hier Ihre vollständige Adresse ein" 
             required
           ></textarea>
         </label>
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Select Your Country</span>
+            <span className="label-text">Wählen Sie Ihr Land</span>
           </div>
           <select 
             name="country" 
@@ -185,7 +185,7 @@ const CheckoutForm = ({ address }) => {
           <input 
             type="text" 
             name="city" 
-            placeholder="Enter Your City" 
+            placeholder="Betreten Sie Ihre Stadt" 
             className="input-field" 
             value={formData.city} 
             onChange={handleChange}
@@ -194,7 +194,7 @@ const CheckoutForm = ({ address }) => {
         </label>
 
         <div className="col-span-2">
-          <button type='submit' disabled={loading} className='btn btn-primary w-full rounded-none text-base font-bold'>{loading ? 'Processing':'Place Order'}</button>
+          <button type='submit' disabled={loading} className='btn btn-primary w-full rounded-none text-base font-bold'>{loading ? 'Verfahren':'Befehl'}</button>
         </div>
         {errorMsg && <p className="text-red-500">{errorMsg}</p>}
       </div>
