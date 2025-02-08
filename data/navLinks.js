@@ -347,7 +347,7 @@ export const navLinks = [
     {
         icon: SexIcon,
         isSubCategory: false,
-        title: 'BEWERTUNGEN',
+        title: 'Kundenmeinung',
         slug: '/reviews'
     },
     {

@@ -7,12 +7,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useToast } from "@/hooks/use-toast"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Reviews from '../ReviewsPage/Reviews'
 
-const productLayout = ({product}) => {
+const productLayout = ({ product,article }) => {
     const { toast } = useToast()
-    const { addToCart} = useCart();
+    const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1)
     const [mainImage, setMainImage] = useState(null)
+    const [reviews,setReviews] = useState([])
+
 
     const changeQuantity = (type) => {
         if (type === 'increase') {
@@ -21,32 +25,38 @@ const productLayout = ({product}) => {
             setQuantity(quantity - 1)
         }
     }
-    function handleAddToCart(){
-        if(quantity >= 1){
-          const item= {
-            product:product?.productId,
-            name:product?.productName,
-            image:product?.productImage[0].thumb,
-            price:product?.productPrice,
-            quantity:quantity,
-            slug:product?.slug
-          }
-          addToCart(item)
-          toast({
-            className:'bg-primary text-base-100',
-            title: "Product Added to Cart",
-          })
-        }else{
-          toast({
-            className:'bg-primary text-base-100',
-            title: "Something Went Wrong!",
-            description: "Product adding to cart failed"
-          })
+    function handleAddToCart() {
+        if (quantity >= 1) {
+            const item = {
+                product: product?.productId,
+                name: product?.productName,
+                image: product?.productImage[0].thumb,
+                price: product?.productPrice,
+                quantity: quantity,
+                slug: product?.slug
+            }
+            addToCart(item)
+            toast({
+                className: 'bg-primary text-base-100',
+                title: "Product Added to Cart",
+            })
+        } else {
+            toast({
+                className: 'bg-primary text-base-100',
+                title: "Something Went Wrong!",
+                description: "Product adding to cart failed"
+            })
         }
     }
-    useEffect(()=>{
+    async function fecthReviews(){
+        const res = await fetch(`/api/review?productId=${product.productId}&page=1&limit=10`)
+        const data = await res.json()
+        setReviews(data.reviews)        
+    } 
+    useEffect(() => {
         setMainImage(product?.productImage[0].large)
-    },[])
+        fecthReviews()
+    }, [])
     return (
         <div>
             <div className="grid lg:grid-cols-2 gap-10 mt-5">
@@ -66,7 +76,7 @@ const productLayout = ({product}) => {
                     <p className='font-semibold text-2xl mt-4'>Price: <span className='text-2xl text-green-700 font-extrabold'>{product?.productPrice}</span></p>
                     <hr className='my-4' />
                     <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Description</p>
-                    {product?.shortDescription && <p className='my-4 mb-5' dangerouslySetInnerHTML={{__html:product?.shortDescription}}></p>}
+                    {product?.shortDescription && <p className='my-4 mb-5' dangerouslySetInnerHTML={{ __html: product?.shortDescription }}></p>}
                     <div className="my-2"></div>
                     <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Information</p>
                     <ul className='mt-3 mb-5'>
@@ -113,6 +123,24 @@ const productLayout = ({product}) => {
 
                 </div>
             </div>
+
+            {/* Reviews */}
+
+            <Tabs defaultValue="article" className="w-full mt-8">
+                <TabsList>
+                    <TabsTrigger className="text-white bg-neutral" value="article">Description</TabsTrigger>
+                    <TabsTrigger className="text-white bg-neutral" value="review">Kundenmeinungen</TabsTrigger>
+                </TabsList>
+                <TabsContent value="article">
+                    {
+                        article && <ArticlePage article={article} />
+                    }
+                </TabsContent>
+                <TabsContent value="review">
+                    <Reviews reviews={reviews} productId={product.productId} slug={product.slug}/>
+                </TabsContent>
+            </Tabs>
+
         </div>
     )
 }

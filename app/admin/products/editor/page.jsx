@@ -256,8 +256,15 @@ const page = () => {
                     <Editor data={productData} id={'shortDescription'} setData={setProductData} contentKey='shortDescription' />
                 </div>
                 <div className="col-span-3">
-                    <label htmlFor="Description" className="block text-gray-700 font-bold mb-2">Description</label>
-                    <Editor data={productData} id={'Description'} setData={setProductData} contentKey='description' />
+                    <label htmlFor="Description" className="block text-gray-700 font-bold mb-2">Meta Description</label>
+                    <textarea
+                        className="textarea textarea-bordered w-full h-32 mb-4"
+                        id='Description'
+                        value={productData?.description}
+                        onChange={handleChange}
+                        placeholder="Meta Description"
+                    />
+                    {/* <Editor data={productData} id={'Description'} setData={setProductData} contentKey='description' /> */}
                 </div>
                 <div className="col-span-1">
                     <label htmlFor="slug" className="block text-gray-700 font-bold mb-2">Product Slug</label>

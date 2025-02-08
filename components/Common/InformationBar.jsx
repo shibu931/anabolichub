@@ -13,7 +13,7 @@ const InformationBar = ({icon,text,className}) => {
                 alt={icon}
             />
         }
-            <p className='text-base-100 font-medium text-center'>{text}</p>
+            <h2 className='text-base-100 font-medium text-center'>{text}</h2>
         </div>
     )
 }

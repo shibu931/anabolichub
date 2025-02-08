@@ -1,4 +1,3 @@
-import ArticlePage from '@/components/Common/ArticlePage'
 import Breadcrumbs from '@/components/Common/Breadcrumbs'
 import ProductLayout from '@/components/ProductPage/ProductLayout'
 import Head from 'next/head'
@@ -8,10 +7,16 @@ async function getProduct(productSlug) {
     return productData.json()
 }
 
+async function getArticle(slug) {
+    const data = await fetch(`${process.env.DOMAIN_URL}/api/article?slug=${slug}`)
+    return data.json()
+}
+
 export async function generateMetadata({ params }) {
-    const { product } = await getProduct(params.productSlug);
+    const {productSlug} = await params
+    const { product } = await getProduct(productSlug);
     const title = `${product.productName} - ${product.brandName}`;
-    const description = product.shortDescription;
+    const description = product.description;
     const imageUrl = product.productImage[0]?.large || product.productImage[0]?.thumb || '/default-og-image.jpg';
     return {
         title: title,
@@ -47,7 +52,9 @@ export async function generateMetadata({ params }) {
 }
 
 const page = async ({ params }) => {
-    const { product } = await getProduct(params.productSlug);
+    const {productSlug} = await params
+    const { product } = await getProduct(productSlug);
+    const { article } = await getArticle(productSlug)
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -61,7 +68,7 @@ const page = async ({ params }) => {
         },
         offers: {
             "@type": "Offer",
-            url: new URL(`/products/${product.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
+            url: new URL(`/product/${product.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
             priceCurrency: product.productPrice.replace(/[^$]/g, ''),
             price: product.productPrice.replace(/[$,]/g, ''),
             availability: "https://schema.org/InStock",
@@ -71,7 +78,7 @@ const page = async ({ params }) => {
         "@context": "https://schema.org",
         "@type": "Product",
         name: product?.productName,
-        description: product?.shortDescription,
+        description: product?.description,
         image: product.productImage[0]?.large,
         brand: {
             "@type": "Brand",
@@ -101,12 +108,7 @@ const page = async ({ params }) => {
             <main className='container xl:w-[1280px] mx-auto mt-5 px-4 lg:px-10'>
                 <Breadcrumbs slug={product?.subCategory} endSlug={product?.productName} />
 
-                <ProductLayout product={product} />
-                <div className="mt-5">
-                    {
-                        product?.description && <ArticlePage article={product?.description} />
-                    }
-                </div>
+                <ProductLayout product={product} article={article ? article.content : null}/>
             </main>
         </>
     )

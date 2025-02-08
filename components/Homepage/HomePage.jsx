@@ -11,6 +11,15 @@ import {
 } from "@/components/ui/tabs"
 import Image from 'next/image'
 import Link from 'next/link'
+import ReviewCard from '../ReviewsPage/ReviewCard'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const HomePage = ({ data }) => {
 
@@ -114,6 +123,42 @@ const HomePage = ({ data }) => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mt-5 px-5 lg:px-0">
+        <InformationBar text="Kundenmeinungen zu unserem Shop" className='bg-primary' />
+        <div className="mt-5">
+          {
+            data.reviews.length != 0 ?
+              <Swiper
+                modules={[Autoplay, Navigation, Pagination]}
+                spaceBetween={50}
+                slidesPerView={4}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+                navigation
+                pagination={{ clickable: true }}
+              >
+                {
+                  data.reviews?.map((item) => (
+                    item?.reviews.map((review,index) => (
+                      <SwiperSlide key={index}>
+                        <ReviewCard productSlug={item.slug} review={review} />
+                      </SwiperSlide>
+                    ))
+                  ))
+                }
+              </Swiper>
+
+              :
+              <div className='sm:col-span-2 flex items-center justify-center'>
+                <p className='text-lg font-semibold'>No Reviews.</p>
+              </div>
+          }
         </div>
       </section>
     </>

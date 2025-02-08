@@ -18,9 +18,9 @@ function DialogBox() {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] bg-white rounded-none focus-visible:outline-none">
                 <DialogHeader>
-                    <DialogTitle>Ask a Question</DialogTitle>
+                    <DialogTitle>Eine Frage stellen</DialogTitle>
                     <DialogDescription>
-                        Send your question to us. Our representative will answer to your question through email.
+                        Senden Sie uns Ihre Frage. Unser Vertreter wird Ihre Frage per E -Mail beantworten.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4">
@@ -30,28 +30,28 @@ function DialogBox() {
                             <div className="label">
                                 <span className="label-text">Name</span>
                             </div>
-                            <input type="text" placeholder="Enter Your Name Here" className="input h-9 input-bordered w-full text-sm rounded-none max-w-xs hover:border-primary/25 hover:outline-primary/25" />
+                            <input type="text" placeholder="Geben Sie hier Ihren Namen ein" className="input h-9 input-bordered w-full text-sm rounded-none max-w-xs hover:border-primary/25 hover:outline-primary/25" />
                         </label>
 
                         {/* Email */}
                         <label className="form-control w-full col-span-1">
                             <div className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text">E-Mail</span>
                             </div>
-                            <input type="email" placeholder="Enter Your Email Here" className="input h-9 input-bordered w-full text-sm rounded-none max-w-xs hover:border-primary/25 hover:outline-primary/25" />
+                            <input type="email" placeholder="Geben Sie hier Ihre E -Mail ein" className="input h-9 input-bordered w-full text-sm rounded-none max-w-xs hover:border-primary/25 hover:outline-primary/25" />
                         </label>
 
                         {/* Address */}
                         <label className="form-control w-full col-span-1">
                             <div className="label">
-                                <span className="label-text">Question</span>
+                                <span className="label-text">Frage</span>
                             </div>
-                            <textarea className="textarea textarea-bordered w-full rounded-none hover:border-primary/25 hover:outline-primary/25" placeholder="Enter Your Question Here"></textarea>
+                            <textarea className="textarea textarea-bordered w-full rounded-none hover:border-primary/25 hover:outline-primary/25" placeholder="Geben Sie hier Ihr Problem ein"></textarea>
                         </label>
                     </form>
                 </div>
                 <DialogFooter>
-                    <button type="submit" className="btn btn-primary rounded-none text-sm text-white py-0 font-semibold h-10 min-h-10">Send Question</button>
+                    <button type="submit" className="btn btn-primary rounded-none text-sm text-white py-0 font-semibold h-10 min-h-10">Problem senden</button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

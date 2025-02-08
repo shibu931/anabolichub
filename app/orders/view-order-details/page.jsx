@@ -101,24 +101,24 @@ export function ViewOrderDetails() {
                         </ul>
                     </div>
                     <div className="md:w-1/2 mt-4 md:mt-0"> {/* Order Status - takes half width on medium screens */}
-                        <h3 className="text-lg font-medium text-gray-800 mb-3">Order Status</h3>
+                        <h3 className="text-lg font-medium text-gray-800 mb-3">Bestellstatus</h3>
                         <div className="text-gray-600 space-y-1">
-                            <p>Payment Status: <span className={`font-medium ${orderDetails.paymentStatus === 'paid' ? 'text-green-500' : orderDetails.paymentStatus === 'failed' ? 'text-red-500' : 'text-yellow-500'}`}>{orderDetails.paymentStatus}</span></p>
-                            <p>Shipping Status: {orderDetails.shippingStatus}</p>
-                            <p>Order Status: {orderDetails.orderStatus}</p>
+                            <p>Zahlungsstatus: <span className={`font-medium ${orderDetails.paymentStatus === 'paid' ? 'text-green-500' : orderDetails.paymentStatus === 'failed' ? 'text-red-500' : 'text-yellow-500'}`}>{orderDetails.paymentStatus}</span></p>
+                            <p>Transportstatus: {orderDetails.shippingStatus}</p>
+                            <p>Bestellstatus: {orderDetails.orderStatus}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="mb-8">
-                    <h3 className="text-lg font-medium text-gray-800 mb-3">Order Items</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-3">Bestellprojekt</h3>
                     <div className="overflow-x-auto">
                         <table className="w-full table-auto border-collapse border border-gray-300">
                             <thead>
                                 <tr className="bg-gray-50 text-gray-700">
-                                    <th className="px-4 py-3 border border-gray-300 text-left font-medium">Product</th>
-                                    <th className="px-4 py-3 border border-gray-300 text-left font-medium">Quantity</th>
-                                    <th className="px-4 py-3 border border-gray-300 text-right font-medium">Price</th>
+                                    <th className="px-4 py-3 border border-gray-300 text-left font-medium">Produkt</th>
+                                    <th className="px-4 py-3 border border-gray-300 text-left font-medium">Menge</th>
+                                    <th className="px-4 py-3 border border-gray-300 text-right font-medium">Preis</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -37,8 +37,11 @@ export default async function Home() {
   const oralSteroids = await fetch('http://localhost:3000/api/products?type=category&category=orale-steroiden&limit=4');
   const Peptide = await fetch('http://localhost:3000/api/products?type=category&category=peptide&limit=5');
   const injectibleSteroids = await fetch('http://localhost:3000/api/products?type=category&category=injizierbare-steroide&limit=4');
-
+  const reviewsData = await fetch(`http://localhost:3000/api/review`)
+  const {reviews} = await reviewsData.json();
+  
   const data = {
+    reviews:reviews,
     latestProducts: await latestProducts.json(),
     bestSellingProducts: await bestSellingProducts.json(),
     oralSteroids: await oralSteroids.json(),
