@@ -33,6 +33,7 @@ export async function GET(req) {
             return NextResponse.json({
                 status: 204,
                 message: 'No reviews found',
+                reviews:[],
                 ok: false,
             });
         }
