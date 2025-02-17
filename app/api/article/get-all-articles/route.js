@@ -45,7 +45,6 @@ export async function GET(req) {
       ogImage:article.ogImage,
       metaDescription:article.metaDescription
     }));
-    console.log(formattedArticles);
 
 
     return NextResponse.json({
