@@ -20,6 +20,7 @@ import * as LucideReact from 'lucide-react';
 import { handleImageUpload } from '@/lib/utils';
 
 const Editor = ({ data, setData, contentKey = 'content' }) => {
+
   const [isSticky, setIsSticky] = useState(false); // State to track sticky behavior
   const toolbarRef = useRef(null);
   useEffect(() => {
@@ -40,7 +41,12 @@ const Editor = ({ data, setData, contentKey = 'content' }) => {
       Italic,
       Underline,
       Strike,
-      Link,
+      Link.configure({
+        HTMLAttributes: {
+          rel: 'blank', // Set your default rel value here
+          target: '_blank', // Set your default target value here
+        },
+      }),
       Heading.configure({
         HTMLAttributes: {
           class: 'mt-4',
@@ -59,7 +65,7 @@ const Editor = ({ data, setData, contentKey = 'content' }) => {
     ],
     content: data?.[contentKey] || '',
     onUpdate: ({ editor }) => {
-        setData(prev => ({ ...prev, [contentKey]: editor.getHTML() }));
+      setData(prev => ({ ...prev, [contentKey]: editor.getHTML() }));
     },
     editorProps: {
       attributes: {
@@ -121,11 +127,10 @@ const Editor = ({ data, setData, contentKey = 'content' }) => {
   };
 
   return (
-<div className='relative'>
+    <div className='relative'>
       <div
-        className={`p-2 border border-gray-200 bg-base-100 flex flex-wrap space-x-2 space-y-2 ${
-          isSticky ? 'fixed top-0 left-0 right-0 z-10' : ''
-        }`}
+        className={`p-2 border border-gray-200 bg-base-100 flex flex-wrap space-x-2 space-y-2 ${isSticky ? 'fixed top-0 left-0 right-0 z-10' : ''
+          }`}
         ref={toolbarRef} // Assign ref to toolbar element
       >
         {tools.map((tool) => {

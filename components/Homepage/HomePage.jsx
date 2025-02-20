@@ -134,19 +134,29 @@ const HomePage = ({ data }) => {
               <Swiper
                 modules={[Autoplay, Navigation, Pagination]}
                 spaceBetween={50}
-                slidesPerView={4}
+                slidesPerView={1}
                 autoplay={{
                   delay: 4000,
-                  disableOnInteraction: false,
+                  disableOnInteraction: true,
                 }}
                 loop={true}
                 navigation
-                pagination={{ clickable: true }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                  },
+                }}
+                pagination={false}
               >
                 {
                   data.reviews?.map((item) => (
                     item?.reviews.map((review,index) => (
-                      <SwiperSlide key={index}>
+                      <SwiperSlide className='h-full' key={index}>
                         <ReviewCard productSlug={item.slug} review={review} />
                       </SwiperSlide>
                     ))
