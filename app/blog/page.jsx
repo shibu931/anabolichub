@@ -4,7 +4,7 @@ import ArticleCard from '@/components/Common/ArticleCard'
 import { useState, useEffect } from 'react';
 
 async function getArticles(page = 1, limit = 10) { // Added page and limit parameters
-  const data = await fetch(`${process.env.DOMAIN_URL}/api/article/get-all-articles?type=blog&page=${page}&limit=${limit}`);
+  const data = await fetch(`/api/article/get-all-articles?type=blog&page=${page}&limit=${limit}`);
   return data.json();
 }
 
