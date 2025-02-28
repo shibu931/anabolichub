@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
 import { CartProvider } from '.././context/CartContext'
 import Script from "next/script";
+import Loading from "@/components/Common/Loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -122,6 +123,7 @@ export default function RootLayout({ children }) {
             <Footer />
             <Toaster />
           </CartProvider>
+          
         </body>
       </html>
     </ClerkProvider>

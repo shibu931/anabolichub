@@ -15,6 +15,8 @@ async function getArticle(slug) {
 export async function generateMetadata({ params }) {
     const {productSlug} = await params
     const { product } = await getProduct(productSlug);
+    console.log("Product ",product);
+    
     const title = `${product.productName} - ${product.brandName}`;
     const description = product.description;
     const imageUrl = product.productImage[0]?.large || product.productImage[0]?.thumb || '/default-og-image.jpg';

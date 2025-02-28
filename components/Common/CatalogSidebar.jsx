@@ -41,13 +41,13 @@ const CatalogSidebar = () => {
             <AccordionItem value={sibling.title} key={sibling.title}>
               <li key={sibling.slug} className="mb-2 p-2 border border-gray-200">
                 <AccordionTrigger className="sibling-title flex justify-between items-center cursor-pointer py-1">
-                  <Link href={sibling.slug ? sibling.slug :'#'} className="sibling-link text-gray-800 hover:text-primary">{sibling.title}</Link>
+                  <Link href={sibling.slug ? '/'+sibling.slug :'#'} className="sibling-link text-gray-800 hover:text-primary">{sibling.title}</Link>
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="sub-list list-none pl-6 m-0">
                     {sibling.links.map(siblingLink => (
                       <li key={siblingLink.slug}>
-                        <Link href={sibling.slug ? sibling.slug :'#'} className="sub-link text-sm block py-1 text-gray-700 hover:text-primary">{siblingLink.title}</Link>
+                        <Link href={siblingLink.slug ? siblingLink.slug :'#'} className="sub-link text-sm block py-1 text-gray-700 hover:text-primary">{siblingLink.title}</Link>
                       </li>
                     ))}
                   </ul>
