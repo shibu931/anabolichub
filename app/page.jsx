@@ -302,15 +302,15 @@ export default async function Home() {
           <h3>Ihre Zukunft beginnt jetzt</h3>
           <p>Die Entscheidung, Anabolika Kaufen Online oder Anabolika Kaufen zu wollen, ist mehr als nur ein Kauf – es ist ein Versprechen an sich selbst, das Beste aus Ihrem Potenzial herauszuholen. Bei Anabolic Hub finden Sie die Unterstützung, die Sie brauchen, um diesen Weg erfolgreich zu gehen. Unsere Anabolic Steroids und anabolen Präparate sind darauf ausgelegt, Ihnen zu helfen, in jedem Aspekt Ihres Trainings und Ihrer Regeneration zu brillieren.</p>
 
+        <hr />
+        <p>Mit Anabolic Hub haben Sie den idealen Partner gefunden, wenn es darum geht, Anabolika Kaufen oder Anabolika Kaufen Online zu wollen. Wir freuen uns darauf, Sie auf Ihrer Reise zu unterstützen und Ihnen dabei zu helfen, Ihre Ziele zu verwirklichen – mit den besten Anabolika, den fortschrittlichsten anabolen Produkten und den effektivsten Anabolic Steroids, die Sie auf dem Markt finden können.</p>
+        <blockquote className="ml-2 lg:ml-6 mb-4 border-l-4 border-gray-300 pl-4 italic text-gray-700">Beginnen Sie noch heute Ihre Erfolgsgeschichte – entdecken, engagieren und transformieren Sie Ihr Trainingsleben mit Anabolic Hub.</blockquote>
         <h2>Häufig gestellte Fragen (FAQ)</h2>
 
         <p className="font-bold !mb-1 text-xl">1. Was ist AnabolicHub.com?</p>
         <p>AnabolicHub.com ist eine vertrauenswürdige Online-Plattform, die Bodybuilding-, Fitness- und Gesundheitsbegeisterten zuverlässige Informationen, Ressourcen und hochwertige Produkte anbietet. Wir haben uns auf anabole Nahrungsergänzungsmittel, Trainingstipps und fachkundige Beratung spezialisiert, um Ihnen dabei zu helfen, Ihre Fitnessziele sicher und effektiv zu erreichen.</p>
         <p>Erleben Sie die Synergie von modernster Forschung, erstklassigen Anabolika und persönlicher Beratung. Starten Sie noch heute mit Ihrem Erfolgskonzept und nutzen Sie die Vorteile, die Ihnen ein gezielt abgestimmtes Sortiment an anabolen Produkten bietet. Denn bei uns steht nicht nur der Verkauf von Anabolika im Mittelpunkt – wir begleiten Sie auf Ihrem Weg zu einem gesünderen, stärkeren und erfolgreicheren Ich.</p>
 
-        <hr />
-        <p>Mit Anabolic Hub haben Sie den idealen Partner gefunden, wenn es darum geht, Anabolika Kaufen oder Anabolika Kaufen Online zu wollen. Wir freuen uns darauf, Sie auf Ihrer Reise zu unterstützen und Ihnen dabei zu helfen, Ihre Ziele zu verwirklichen – mit den besten Anabolika, den fortschrittlichsten anabolen Produkten und den effektivsten Anabolic Steroids, die Sie auf dem Markt finden können.</p>
-        <blockquote className="ml-2 lg:ml-6 mb-4 border-l-4 border-gray-300 pl-4 italic text-gray-700">Beginnen Sie noch heute Ihre Erfolgsgeschichte – entdecken, engagieren und transformieren Sie Ihr Trainingsleben mit Anabolic Hub.</blockquote>
 
         <p className="font-bold !mb-1 text-xl">2. Sind die Produkte auf AnabolicHub.com sicher in der Anwendung?</p>
         <p>Ja, alle auf AnabolicHub.com angebotenen Produkte stammen von renommierten Herstellern und unterliegen strengen Qualitätskontrollen, um Sicherheit und Wirksamkeit zu gewährleisten. Wir bieten außerdem detaillierte Nutzungsrichtlinien an und empfehlen Ihnen, vor Beginn einer neuen Nahrungsergänzungsmittelkur einen Arzt zu konsultieren.</p>
