@@ -96,6 +96,9 @@ const ProductSchema = new mongoose.Schema({
   },
   sales:{
     type:Number
+  },
+  relatedProducts:{
+    type:[Number]
   }
 }, {
   timestamps: true, 

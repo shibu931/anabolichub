@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useToast } from "@/hooks/use-toast"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Reviews from '../ReviewsPage/Reviews'
+import ProductCarousel from './ProductCarousel'
 
 const productLayout = ({ product,article }) => {
     const { toast } = useToast()
@@ -16,7 +17,6 @@ const productLayout = ({ product,article }) => {
     const [quantity, setQuantity] = useState(1)
     const [mainImage, setMainImage] = useState(null)
     const [reviews,setReviews] = useState([])
-
 
     const changeQuantity = (type) => {
         if (type === 'increase') {
@@ -124,8 +124,9 @@ const productLayout = ({ product,article }) => {
                 </div>
             </div>
 
-            {/* Reviews */}
+            {product.relatedProducts.length !=0 && <ProductCarousel relatedProducts={product.relatedProducts}/>}
 
+            {/* Reviews */}
             <Tabs defaultValue="article" className="w-full mt-8">
                 <TabsList>
                     <TabsTrigger className="text-white bg-neutral" value="article">Description</TabsTrigger>

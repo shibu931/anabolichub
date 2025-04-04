@@ -55,7 +55,7 @@ const NavMenu = ({ open = null, setOpen }) => {
                                                         if (open) setOpen(!open);
                                                         closeDetailsTab();
                                                     }}
-                                                        href={link.slug} className='focus:text-primary'>{link.title}</Link></li>
+                                                        href={link.slug} className='focus:text-primary py-1.5'>{link.title}</Link></li>
                                                 ))
                                             }
                                         </ul>

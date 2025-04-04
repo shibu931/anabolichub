@@ -55,14 +55,14 @@ const ProductCard = ({ product }) => {
           {product?.info}
         </span>
       )}
-      <div className="w-full product-img-card overflow-hidden">
+      <div className="w-full h-[200px] product-img-card overflow-hidden">
         <Link href={`/product/${product?.slug}`}>
           <Image
             src={product?.productImage[0].thumb}
             width={200}
             height={300}
             alt={product?.productName}
-            className='w-full h-full object-cover'
+            className='w-full h-full object-contain'
           />
         </Link>
       </div>

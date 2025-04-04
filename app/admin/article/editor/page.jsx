@@ -103,9 +103,8 @@ const ContentEditor = () => {
     };
 
     useEffect(()=>{
-        console.log(contentData);
-        
-},[contentData])
+        console.log(contentData); 
+    },[contentData])
 
     if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
     if (error) return <div className="text-red-500 text-center my-10">Error: {error}</div>;

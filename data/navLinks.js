@@ -44,6 +44,10 @@ export const navLinks = [
                         title: 'Primobolan',
                         slug: '/orale-steroiden/primobolan'
                     },
+                    {
+                        title: 'Salbutamol',
+                        slug: '/orale-steroiden/salbutamol'
+                    },
                 ]
             },
             {
@@ -89,6 +93,10 @@ export const navLinks = [
                         slug: '/injizierbare-steroide/drostanolone-propionate'
                     },
                     {
+                        title: "Dihydroboldenone Cypionate",
+                        slug: "/injizierbare-steroide/dihydroboldenone-cypionate",
+                    },
+                    {
                         title: 'Nandrolon Propionat (NPP)',
                         slug: '/injizierbare-steroide/nandrolone-phenylpropionate'
                     },
@@ -107,16 +115,44 @@ export const navLinks = [
                     {
                         title: "Trenbolon Acetat",
                         slug: "/injizierbare-steroide/trenbolone-acetate"
-                    }
+                    },
+                    {
+                        title: "CUT MIX",
+                        slug: "/injizierbare-steroide/cut-mix"
+                    },
+                    {
+                        title: "BULK MIX",
+                        slug: "/injizierbare-steroide/bulk-mix"
+                    },
+                    {
+                        title: "Parabolan",
+                        slug: "/injizierbare-steroide/parabolan",
+                    },
+                    {
+                        title: "Tri Trenbolone",
+                        slug: "/injizierbare-steroide/tri-trenbolone",
+                    },
+                    {
+                        title: "Methadienone Oil Injection",
+                        slug: "/injizierbare-steroide/methadienone-oil-injection",
+                    },
+                    {
+                        title: "Trestolone Acetate",
+                        slug: "/injizierbare-steroide/trestolone-acetate",
+                    },
+                    {
+                        title: "Stanozolol Oil Injection",
+                        slug: "/injizierbare-steroide/stanozolol-oil-injection",
+                    },
                 ]
             }
         ]
     },
     {
         icon: HGHIcon,
-        isSubCategory:false,
-        title:'HGH',
-        slug:'/wachstumshormone'
+        isSubCategory: false,
+        title: 'HGH',
+        slug: '/wachstumshormone'
     },
     {
         icon: PCTIcon,
@@ -145,7 +181,7 @@ export const navLinks = [
                     },
                     {
                         title: 'Pregnyl 5000 i.u. HCG',
-                        slug: '/product/pregnyl-5000-i.u.-hcg'
+                        slug: '/pct/pregnyl-5000-iu'
                     },
                     {
                         title: 'Arimidex (Anastrozol)',
@@ -199,6 +235,10 @@ export const navLinks = [
                     {
                         title: 'HGH Fragment 176-191',
                         slug: '/peptide/hgh-fragment'
+                    },
+                    {
+                        title: "GHRP-6 + CJC-1295 MIX",
+                        slug: "/peptide/ghrp-6+cjc-1295-mix",
                     },
                 ]
             },
@@ -339,6 +379,14 @@ export const navLinks = [
                     {
                         title: "Sema-G 2mg",
                         slug: "/product/sema-g-2-mg",
+                    },
+                    {
+                        title: "Sema+Cagri Pen 2 + 2 MG",
+                        slug: "/product/sema+cagri-pen-2+2mg",
+                    },
+                    {
+                        title: "Retatrutide 4Mg Pen",
+                        slug: "/product/retatrutide-4mg-pen",
                     },
                 ]
             },
