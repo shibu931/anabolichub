@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Reviews from '../ReviewsPage/Reviews'
 import ProductCarousel from './ProductCarousel'
+import ArticlePage from '../Common/ArticlePage'
 
 const productLayout = ({ product,article }) => {
     const { toast } = useToast()
@@ -112,7 +113,7 @@ const productLayout = ({ product,article }) => {
                         <p><strong>Categories: </strong>
                             {
                                 product?.subCategory?.map((item, index) => (
-                                    <Link key={index} href={`/${item.href}`}>{item.title}, </Link>
+                                    <Link key={index} rel="nofollow" href={`/${item.href}`}>{item.title}, </Link>
                                 ))
                             }
                         </p>

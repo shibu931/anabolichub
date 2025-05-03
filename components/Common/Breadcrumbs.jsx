@@ -17,7 +17,7 @@ const Breadcrumbs = ({slug,endSlug}) => {
                 <li className="text-black font-medium"><Link href="/">Home</Link></li>
                 {
                     breadcrumb.map((link,index)=>(
-                        <li key={index} className="text-black font-medium"><Link href={`/${link.href.replace('/','')}`}>{link.label ? link.label : link.title}</Link></li>
+                        <li key={index} className="text-black font-medium"><Link rel="nofollow" href={`/${link.href.replace('/','')}`}>{link.label ? link.label : link.title}</Link></li>
                     ))
                 }
                 {
