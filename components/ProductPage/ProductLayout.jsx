@@ -135,7 +135,7 @@ const productLayout = ({ product,article }) => {
                 </TabsList>
                 <TabsContent value="article">
                     {
-                        article && <ArticlePage article={article} />
+                        article && <ArticlePage content={article} />
                     }
                 </TabsContent>
                 <TabsContent value="review">

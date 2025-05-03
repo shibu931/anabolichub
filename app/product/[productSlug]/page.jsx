@@ -56,6 +56,7 @@ const page = async ({ params }) => {
     const {productSlug} = await params
     const { product } = await getProduct(productSlug);
     const { article } = await getArticle(productSlug)
+    console.log("Article ",article)
     const productSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
