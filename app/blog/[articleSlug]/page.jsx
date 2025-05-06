@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
         openGraph: {
             title: article.metaTitle,
             description: article.metaDescription,
-            url: new URL(`/content/${article.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
+            url: new URL(`/blog/${article.slug}`, process.env.NEXT_PUBLIC_BASE_URL).toString(),
             type: 'article',
             article: {
                 publishedTime: article.createdAt,
