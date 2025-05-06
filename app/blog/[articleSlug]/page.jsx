@@ -63,7 +63,7 @@ export async function generateMetadata({ params }) {
         },
         metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
         alternates: {
-            canonical: `/content/${article.slug}`,
+            canonical: `/blog/${article.slug}`,
         },
         other: {
             'script': [
