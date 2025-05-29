@@ -30,95 +30,78 @@ const uspData = [
   }
 ];
 
-const [
-  latestRes,
-  bestSellingRes,
-  oralSteroidsRes,
-  peptideRes,
-  injectableSteroidsRes,
-  reviewsRes
-] = await Promise.all([
-  fetch('http://localhost:3000/api/products/bulkProducts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slugs: [
-      "anubis-testosteron-enanthat-250-mg-1-x-10ml",
-      "anubis-sustanon-250-mg-1-x-10-ml",
-      "anubis-testosteron-propionat-100-mg-1-x-10ml",
-      "testogel-axiron",
-      "semaglutid-4-mg"
-    ] }),
-  }),
-  fetch('http://localhost:3000/api/products/bulkProducts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slugs: [
-      "anubis-testosteron-enanthat-250-mg-1-x-10ml",
-      "semaglutid-4-mg",
-      "endogenic-dianabol-10-mg-100-tabletten",
-      "retatrutide-4mg-pen",
-      "endogenic-enantest-testosteron-enantat"
-    ] }),
-  }),
-  fetch('http://localhost:3000/api/products/bulkProducts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slugs: [   
-    "endogenic---anavar-10-mg-100-tabletten",
-    "endogenic-dianabol-10-mg-100-tabletten",
-    "endogenic-turinabol-10-mg-100-tabletten",
-    "endogenic-winstrol-10-mg-100-tabletten"] }),
-  }),
-  fetch('http://localhost:3000/api/products/bulkProducts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slugs: [
-      "endogenic-bpc-157-10-mg-60-kapseln",
-      "endogenic-tb-500-5-mg",
-      "endogenic-bpc-157-10-mg",
-      "endogenic-igf-1-10-x-100mcg"
-    ] }),
-  }),
-  fetch('http://localhost:3000/api/products/bulkProducts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ slugs: [
-      "endogenic-enantest-testosteron-enantat",
-      "endogenic-cyptest-testosteron-cypionate",
-      "endogenic-primobolone",
-      "endogenic-enantren-trenbolone-enantate"
-    ] }),
-  }),
-  fetch('http://localhost:3000/api/review') // GET still fine here
-]);
-
 export default async function Home() {
 
-  const [
-    latestProducts,
-    bestSellingProducts,
-    oralSteroids,
-    Peptide,
-    injectibleSteroids,
-    reviewsJson
-  ] = await Promise.all([
-    latestRes.json(),
-    bestSellingRes.json(),
-    oralSteroidsRes.json(),
-    peptideRes.json(),
-    injectableSteroidsRes.json(),
-    reviewsRes.json()
-  ]);
-
-  console.log("Latest Products:", latestProducts);
+  const latestRes = await fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      slugs: [
+        "anubis-testosteron-enanthat-250-mg-1-x-10ml",
+        "anubis-sustanon-250-mg-1-x-10-ml",
+        "anubis-testosteron-propionat-100-mg-1-x-10ml",
+        "testogel-axiron",
+        "semaglutid-4-mg"
+      ]
+    }),
+  })
+  const bestSellingRes = await fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      slugs: [
+        "anubis-testosteron-enanthat-250-mg-1-x-10ml",
+        "semaglutid-4-mg",
+        "endogenic-dianabol-10-mg-100-tabletten",
+        "retatrutide-4mg-pen",
+        "endogenic-enantest-testosteron-enantat"
+      ]
+    }),
+  })
+  const oralSteroidsRes = await fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      slugs: [
+        "endogenic---anavar-10-mg-100-tabletten",
+        "endogenic-dianabol-10-mg-100-tabletten",
+        "endogenic-turinabol-10-mg-100-tabletten",
+        "endogenic-winstrol-10-mg-100-tabletten"]
+    }),
+  })
+  const peptideRes = await fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      slugs: [
+        "endogenic-bpc-157-10-mg-60-kapseln",
+        "endogenic-tb-500-5-mg",
+        "endogenic-bpc-157-10-mg",
+        "endogenic-igf-1-10-x-100mcg"
+      ]
+    }),
+  })
+  const injectableSteroidsRes = await fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      slugs: [
+        "endogenic-enantest-testosteron-enantat",
+        "endogenic-cyptest-testosteron-cypionate",
+        "endogenic-primobolone",
+        "endogenic-enantren-trenbolone-enantate"
+      ]
+    }),
+  })
+  const reviewsRes = await fetch('http://localhost:3000/api/review')
 
   const data = {
-    reviews: reviewsJson.reviews,
-    latestProducts,
-    bestSellingProducts,
-    oralSteroids,
-    Peptide,
-    injectibleSteroids
+    reviews: reviewsRes.json(),
+    latestProducts: latestRes.json(),
+    bestSellingProducts: bestSellingRes.json(),
+    oralSteroids: oralSteroidsRes.json(),
+    Peptide: peptideRes.json(),
+    injectibleSteroids : injectableSteroidsRes.json(),
   };
 
   return (

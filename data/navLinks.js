@@ -110,11 +110,11 @@ export const navLinks = [
                     },
                     {
                         title:"Winstrol Stanazolol Injektion",
-                        slug:"/winstrol-stanazolol-injektion"
+                        slug:"/injizierbare-steroide//winstrol-stanazolol-injektion"
                     },
                     {
                         title:"Methandienone Injecteerbare",
-                        slug:"/methandienone-injecteerbare"
+                        slug:"/injizierbare-steroide//methandienone-injecteerbare"
                     }
                     // {
                     //     title: "CUT MIX",
