@@ -1,6 +1,29 @@
 import Breadcrumbs from '@/components/Common/Breadcrumbs'
 import React from 'react'
 
+export const generateMetadata = () => {
+  return {
+    title: 'Kontaktieren Sie uns',
+    description: 'Kontaktieren Sie uns bei Fragen oder für Unterstützung.',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+    alternates: {
+      canonical: '/contact-us',
+    },
+    openGraph: {
+      title: 'Kontaktieren Sie uns',
+      description: 'Kontaktieren Sie uns bei Fragen oder für Unterstützung.',
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact-us`,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Kontaktieren Sie uns',
+      description: 'Kontaktieren Sie uns bei Fragen oder für Unterstützung.',
+    },
+  }
+}
+
+
 const page = () => {
   return (
     <main className='container xl:w-[1280px] mx-auto px-4 lg:px-0'>

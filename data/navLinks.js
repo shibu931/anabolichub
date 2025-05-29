@@ -35,19 +35,7 @@ export const navLinks = [
                     {
                         title: 'Anapolon (Oxymetholone)',
                         slug: '/orale-steroiden/oxymetholon'
-                    },
-                    {
-                        title: 'Clenbuterol',
-                        slug: '/orale-steroiden/clenbuterol'
-                    },
-                    {
-                        title: 'Primobolan',
-                        slug: '/orale-steroiden/primobolan'
-                    },
-                    {
-                        title: 'Salbutamol',
-                        slug: '/orale-steroiden/salbutamol'
-                    },
+                    }
                 ]
             },
             {
@@ -73,6 +61,10 @@ export const navLinks = [
                     {
                         title: 'Testosteron Propionat',
                         slug: '/testosteron/testosteron-propionat'
+                    },
+                    {
+                        title: 'TestoGel',
+                        slug: '/testosteron/testogel'
                     }
                 ]
             },
@@ -117,33 +109,41 @@ export const navLinks = [
                         slug: "/injizierbare-steroide/trenbolone-acetate"
                     },
                     {
-                        title: "CUT MIX",
-                        slug: "/injizierbare-steroide/cut-mix"
+                        title:"Winstrol Stanazolol Injektion",
+                        slug:"/winstrol-stanazolol-injektion"
                     },
                     {
-                        title: "BULK MIX",
-                        slug: "/injizierbare-steroide/bulk-mix"
-                    },
-                    {
-                        title: "Parabolan",
-                        slug: "/injizierbare-steroide/parabolan",
-                    },
-                    {
-                        title: "Tri Trenbolone",
-                        slug: "/injizierbare-steroide/tri-trenbolone",
-                    },
-                    {
-                        title: "Methadienone Oil Injection",
-                        slug: "/injizierbare-steroide/methadienone-oil-injection",
-                    },
-                    {
-                        title: "Trestolone Acetate",
-                        slug: "/injizierbare-steroide/trestolone-acetate",
-                    },
-                    {
-                        title: "Stanozolol Oil Injection",
-                        slug: "/injizierbare-steroide/stanozolol-oil-injection",
-                    },
+                        title:"Methandienone Injecteerbare",
+                        slug:"/methandienone-injecteerbare"
+                    }
+                    // {
+                    //     title: "CUT MIX",
+                    //     slug: "/injizierbare-steroide/cut-mix"
+                    // },
+                    // {
+                    //     title: "BULK MIX",
+                    //     slug: "/injizierbare-steroide/bulk-mix"
+                    // },
+                    // {
+                    //     title: "Parabolan",
+                    //     slug: "/injizierbare-steroide/parabolan",
+                    // },
+                    // {
+                    //     title: "Tri Trenbolone",
+                    //     slug: "/injizierbare-steroide/tri-trenbolone",
+                    // },
+                    // {
+                    //     title: "Methadienone Oil Injection",
+                    //     slug: "/injizierbare-steroide/methadienone-oil-injection",
+                    // },
+                    // {
+                    //     title: "Trestolone Acetate",
+                    //     slug: "/injizierbare-steroide/trestolone-acetate",
+                    // },
+                    // {
+                    //     title: "Stanozolol Oil Injection",
+                    //     slug: "/injizierbare-steroide/stanozolol-oil-injection",
+                    // },
                 ]
             }
         ]
@@ -337,60 +337,61 @@ export const navLinks = [
     },
     {
         icon: FatBurnerIcon,
-        isSubCategory: true,
+        isSubCategory: false,
         title: 'Fatburner',
-        category: [
-            {
-                title: 'Fatburner',
-                slug: "fatburner",
-                links: [
-                    {
-                        title: "Sibutramin 100 Tabletten 20mg/tab",
-                        slug: "/product/sibutramin-(meridia)-20-mg",
-                    },
-                    {
-                        title: "Tiromel T3 100 Tabletten 25mcg/tab",
-                        slug: "/product/tiromel-t3-25-mcg",
-                    },
-                    {
-                        title: "5-Amino-1MQ 50mg 30 Tabletten",
-                        slug: "/product/5-amino-1mq-50-mg-30-tabletten",
-                    },
-                    {
-                        title: "Yohimbine HCL Endogenic",
-                        slug: "/product/endogenic-yohimbine-hcl",
-                    },
-                    {
-                        title: "Yohimbin Endogenic in Kapseln",
-                        slug: "/product/yohimbin-endogenic-in-kapseln",
-                    },
-                    {
-                        title: "Semaglutid BioAmino Labs",
-                        slug: "/product/semaglutid-(ozempic)-ohne-rezept",
-                    },
-                    {
-                        title: "Swiss Pharma Sibutramine 25mg 30 Tab",
-                        slug: "/product/swiss-pharma-sibutramine-25-mg-30-tab",
-                    },
-                    {
-                        title: "Semaglutid 4mg BioAmino Labs",
-                        slug: "/product/semaglutid-4-mg",
-                    },
-                    {
-                        title: "Sema-G 2mg",
-                        slug: "/product/sema-g-2-mg",
-                    },
-                    {
-                        title: "Sema+Cagri Pen 2 + 2 MG",
-                        slug: "/product/sema+cagri-pen-2+2mg",
-                    },
-                    {
-                        title: "Retatrutide 4Mg Pen",
-                        slug: "/product/retatrutide-4mg-pen",
-                    },
-                ]
-            },
-        ]
+        slug: '/fatburner'
+        // category: [
+        //     {
+        //         title: 'Fatburner',
+        //         slug: "fatburner",
+        //         links: [
+        //             {
+        //                 title: "Sibutramin 100 Tabletten 20mg/tab",
+        //                 slug: "/product/sibutramin-(meridia)-20-mg",
+        //             },
+        //             {
+        //                 title: "Tiromel T3 100 Tabletten 25mcg/tab",
+        //                 slug: "/product/tiromel-t3-25-mcg",
+        //             },
+        //             {
+        //                 title: "5-Amino-1MQ 50mg 30 Tabletten",
+        //                 slug: "/product/5-amino-1mq-50-mg-30-tabletten",
+        //             },
+        //             {
+        //                 title: "Yohimbine HCL Endogenic",
+        //                 slug: "/product/endogenic-yohimbine-hcl",
+        //             },
+        //             {
+        //                 title: "Yohimbin Endogenic in Kapseln",
+        //                 slug: "/product/yohimbin-endogenic-in-kapseln",
+        //             },
+        //             {
+        //                 title: "Semaglutid BioAmino Labs",
+        //                 slug: "/product/semaglutid-(ozempic)-ohne-rezept",
+        //             },
+        //             {
+        //                 title: "Swiss Pharma Sibutramine 25mg 30 Tab",
+        //                 slug: "/product/swiss-pharma-sibutramine-25-mg-30-tab",
+        //             },
+        //             {
+        //                 title: "Semaglutid 4mg BioAmino Labs",
+        //                 slug: "/product/semaglutid-4-mg",
+        //             },
+        //             {
+        //                 title: "Sema-G 2mg",
+        //                 slug: "/product/sema-g-2-mg",
+        //             },
+        //             {
+        //                 title: "Sema+Cagri Pen 2 + 2 MG",
+        //                 slug: "/product/sema+cagri-pen-2+2mg",
+        //             },
+        //             {
+        //                 title: "Retatrutide 4Mg Pen",
+        //                 slug: "/product/retatrutide-4mg-pen",
+        //             },
+        //         ]
+        //     },
+        // ]
     },
     {
         icon: SexIcon,

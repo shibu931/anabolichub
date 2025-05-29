@@ -57,7 +57,7 @@ const HomePage = ({ data }) => {
       <section className="mt-5 px-5 lg:px-0">
         <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-8 gap-y-4 sm:gap-x-4">
           <div className="col-span-6">
-            <InformationBar text="INJECTABLE STEROIDS" className='bg-primary' />
+            <InformationBar text="INJIZIERBARE STEROIDE" className='bg-primary' />
             <div className="grid grid-cols-2 lg:grid-cols-4 mt-5 gap-2 lg:gap-x-4">
               {data.injectibleSteroids.products.map((item, index) => (
                 <ProductCard product={item} key={index} />
@@ -86,7 +86,7 @@ const HomePage = ({ data }) => {
       </section>
 
       <section className="mt-5 px-5 lg:px-0">
-        <InformationBar text="PEPTIDES" className='bg-primary' />
+        <InformationBar text="PEPTIDEN" className='bg-primary' />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mt-5 gap-2 lg:gap-x-4">
           {data.Peptide.products.map((item, index) => (
             <ProductCard product={item} key={index} />
@@ -116,7 +116,7 @@ const HomePage = ({ data }) => {
           </div>
 
           <div className="col-span-6">
-            <InformationBar text="ORAL STEROIDS" className='bg-primary' />
+            <InformationBar text="ORALE STEROIDE" className='bg-primary' />
             <div className="grid grid-cols-2 lg:grid-cols-4 mt-5 gap-2 lg:gap-x-4">
               {data.oralSteroids.products.map((item, index) => (
                 <ProductCard product={item} key={index} />

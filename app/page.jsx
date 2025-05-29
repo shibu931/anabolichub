@@ -30,25 +30,96 @@ const uspData = [
   }
 ];
 
+const [
+  latestRes,
+  bestSellingRes,
+  oralSteroidsRes,
+  peptideRes,
+  injectableSteroidsRes,
+  reviewsRes
+] = await Promise.all([
+  fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slugs: [
+      "anubis-testosteron-enanthat-250-mg-1-x-10ml",
+      "anubis-sustanon-250-mg-1-x-10-ml",
+      "anubis-testosteron-propionat-100-mg-1-x-10ml",
+      "testogel-axiron",
+      "semaglutid-4-mg"
+    ] }),
+  }),
+  fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slugs: [
+      "anubis-testosteron-enanthat-250-mg-1-x-10ml",
+      "semaglutid-4-mg",
+      "endogenic-dianabol-10-mg-100-tabletten",
+      "retatrutide-4mg-pen",
+      "endogenic-enantest-testosteron-enantat"
+    ] }),
+  }),
+  fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slugs: [   
+    "endogenic---anavar-10-mg-100-tabletten",
+    "endogenic-dianabol-10-mg-100-tabletten",
+    "endogenic-turinabol-10-mg-100-tabletten",
+    "endogenic-winstrol-10-mg-100-tabletten"] }),
+  }),
+  fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slugs: [
+      "endogenic-bpc-157-10-mg-60-kapseln",
+      "endogenic-tb-500-5-mg",
+      "endogenic-bpc-157-10-mg",
+      "endogenic-igf-1-10-x-100mcg"
+    ] }),
+  }),
+  fetch('http://localhost:3000/api/products/bulkProducts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ slugs: [
+      "endogenic-enantest-testosteron-enantat",
+      "endogenic-cyptest-testosteron-cypionate",
+      "endogenic-primobolone",
+      "endogenic-enantren-trenbolone-enantate"
+    ] }),
+  }),
+  fetch('http://localhost:3000/api/review') // GET still fine here
+]);
+
 export default async function Home() {
 
-  const latestProducts = await fetch('http://localhost:3000/api/products?type=latest&limit=5');
-  const bestSellingProducts = await fetch('http://localhost:3000/api/products?type=best-selling&limit=5');
-  const oralSteroids = await fetch('http://localhost:3000/api/products?type=category&category=orale-steroiden&limit=4');
-  const Peptide = await fetch('http://localhost:3000/api/products?type=category&category=peptide&limit=5');
-  const injectibleSteroids = await fetch('http://localhost:3000/api/products?type=category&category=injizierbare-steroide&limit=4');
-  const reviewsData = await fetch(`http://localhost:3000/api/review`)
-  const {reviews} = await reviewsData.json();
-  
-  const data = {
-    reviews:reviews,
-    latestProducts: await latestProducts.json(),
-    bestSellingProducts: await bestSellingProducts.json(),
-    oralSteroids: await oralSteroids.json(),
-    Peptide: await Peptide.json(),
-    injectibleSteroids: await injectibleSteroids.json(),
-  }
+  const [
+    latestProducts,
+    bestSellingProducts,
+    oralSteroids,
+    Peptide,
+    injectibleSteroids,
+    reviewsJson
+  ] = await Promise.all([
+    latestRes.json(),
+    bestSellingRes.json(),
+    oralSteroidsRes.json(),
+    peptideRes.json(),
+    injectableSteroidsRes.json(),
+    reviewsRes.json()
+  ]);
 
+  console.log("Latest Products:", latestProducts);
+
+  const data = {
+    reviews: reviewsJson.reviews,
+    latestProducts,
+    bestSellingProducts,
+    oralSteroids,
+    Peptide,
+    injectibleSteroids
+  };
 
   return (
     <main className="container xl:w-[1280px] mx-auto mt-5">
@@ -265,11 +336,11 @@ export default async function Home() {
         <h3>Erfolgsgeschichten aus erster Hand</h3>
         <p>Zahlreiche Kunden, die Anabolika Kaufen oder Anabolika Kaufen Online über AnabolicHub.com bestellt haben, berichten von signifikanten Erfolgen. Einer unserer Kunden berichtet:</p>
         <blockquote className="ml-2 lg:ml-6 mb-4 border-l-4 border-gray-300 pl-4 italic text-gray-700">
-        „Dank der hochwertigen Anabolika, die ich Anabolika kaufen online konnte, habe ich in kurzer Zeit enorme Fortschritte im Muskelaufbau erzielt. Die anabolen Produkte haben meine Trainingsleistung gesteigert und meine Regeneration beschleunigt – ich kann AnabolicHub.com und ihre Anabolic Steroids nur empfehlen.“
+          „Dank der hochwertigen Anabolika, die ich Anabolika kaufen online konnte, habe ich in kurzer Zeit enorme Fortschritte im Muskelaufbau erzielt. Die anabolen Produkte haben meine Trainingsleistung gesteigert und meine Regeneration beschleunigt – ich kann AnabolicHub.com und ihre Anabolic Steroids nur empfehlen.“
         </blockquote>
         <p>Ein weiterer Nutzer ergänzt:</p>
         <blockquote className="ml-2 lg:ml-6 mb-4 border-l-4 border-gray-300 pl-4 italic text-gray-700">
-        „Ich war anfangs skeptisch, Anabolika kaufen zu wollen. Doch die transparente Beratung und die exakte Anleitung haben mir geholfen, anabole Präparate gezielt einzusetzen. Heute bin ich fitter und stärker als je zuvor.“</blockquote>
+          „Ich war anfangs skeptisch, Anabolika kaufen zu wollen. Doch die transparente Beratung und die exakte Anleitung haben mir geholfen, anabole Präparate gezielt einzusetzen. Heute bin ich fitter und stärker als je zuvor.“</blockquote>
         <p>Diese Erfolgsgeschichten zeigen, dass, wenn Anabolika Kaufen Online und Anabolika Kaufen in einem vertrauenswürdigen Umfeld erfolgen, großartige Ergebnisse erzielt werden können. Wir sind stolz darauf, ein wichtiger Partner auf dem Weg zu Ihrem Erfolg zu sein.</p>
 
         <hr />
@@ -295,12 +366,12 @@ export default async function Home() {
         <p>Zögern Sie nicht länger: Besuchen Sie unsere Website, informieren Sie sich über die neuesten Anabolika und wählen Sie das passende anabole Produkt für sich aus. Egal, ob Sie Anabolika kaufen oder Anabolika kaufen online – Ihre Entscheidung für Qualität und Innovation wird sich in Ihren Erfolgen widerspiegeln.</p>
 
         <h3>Fazit</h3>
-          <p>Anabolic Hub steht für Qualität, Innovation und umfassende Beratung rund um Anabolika und anabole Produkte. Unsere Anabolic Steroids und ergänzenden Präparate bieten Ihnen die nötige Unterstützung, um Ihre sportlichen Ziele zu erreichen und gleichzeitig Ihre Gesundheit zu fördern. Mit unserem transparenten Bestellprozess, der diskreten Lieferung und der engagierten Beratung können Sie sicher Anabolika kaufen – und das mit dem Wissen, dass Sie stets auf erstklassige Anabolika und fundierte Informationen zurückgreifen können.</p>
-          <p>Unser Anspruch ist es, Ihnen nicht nur Produkte, sondern ein ganzheitliches Konzept anzubieten, das Ihre Fitnessreise von der Planung bis zur Erholung begleitet. Die Verbindung von hochwertiger Technologie, wissenschaftlicher Forschung und persönlicher Beratung macht uns zu einem der führenden Anbieter in der Welt der anabolen Produkte und Anabolic Steroids. Wir laden Sie ein, Teil unserer Community zu werden und gemeinsam neue Maßstäbe im Sport und Bodybuilding zu setzen.</p>
-          <p>Wenn Sie also bereit sind, Ihre Ziele zu erreichen, vertrauen Sie auf Anabolic Hub – Ihrem zuverlässigen Partner, wenn es darum geht, Anabolika Kaufen und Anabolika Kaufen Online zu wollen. Machen Sie den ersten Schritt in Richtung einer starken, gesunden und leistungsfähigen Zukunft – mit den besten Anabolika und anabolen Produkten, die der Markt zu bieten hat.</p>
-          <hr />
-          <h3>Ihre Zukunft beginnt jetzt</h3>
-          <p>Die Entscheidung, Anabolika Kaufen Online oder Anabolika Kaufen zu wollen, ist mehr als nur ein Kauf – es ist ein Versprechen an sich selbst, das Beste aus Ihrem Potenzial herauszuholen. Bei Anabolic Hub finden Sie die Unterstützung, die Sie brauchen, um diesen Weg erfolgreich zu gehen. Unsere Anabolic Steroids und anabolen Präparate sind darauf ausgelegt, Ihnen zu helfen, in jedem Aspekt Ihres Trainings und Ihrer Regeneration zu brillieren.</p>
+        <p>Anabolic Hub steht für Qualität, Innovation und umfassende Beratung rund um Anabolika und anabole Produkte. Unsere Anabolic Steroids und ergänzenden Präparate bieten Ihnen die nötige Unterstützung, um Ihre sportlichen Ziele zu erreichen und gleichzeitig Ihre Gesundheit zu fördern. Mit unserem transparenten Bestellprozess, der diskreten Lieferung und der engagierten Beratung können Sie sicher Anabolika kaufen – und das mit dem Wissen, dass Sie stets auf erstklassige Anabolika und fundierte Informationen zurückgreifen können.</p>
+        <p>Unser Anspruch ist es, Ihnen nicht nur Produkte, sondern ein ganzheitliches Konzept anzubieten, das Ihre Fitnessreise von der Planung bis zur Erholung begleitet. Die Verbindung von hochwertiger Technologie, wissenschaftlicher Forschung und persönlicher Beratung macht uns zu einem der führenden Anbieter in der Welt der anabolen Produkte und Anabolic Steroids. Wir laden Sie ein, Teil unserer Community zu werden und gemeinsam neue Maßstäbe im Sport und Bodybuilding zu setzen.</p>
+        <p>Wenn Sie also bereit sind, Ihre Ziele zu erreichen, vertrauen Sie auf Anabolic Hub – Ihrem zuverlässigen Partner, wenn es darum geht, Anabolika Kaufen und Anabolika Kaufen Online zu wollen. Machen Sie den ersten Schritt in Richtung einer starken, gesunden und leistungsfähigen Zukunft – mit den besten Anabolika und anabolen Produkten, die der Markt zu bieten hat.</p>
+        <hr />
+        <h3>Ihre Zukunft beginnt jetzt</h3>
+        <p>Die Entscheidung, Anabolika Kaufen Online oder Anabolika Kaufen zu wollen, ist mehr als nur ein Kauf – es ist ein Versprechen an sich selbst, das Beste aus Ihrem Potenzial herauszuholen. Bei Anabolic Hub finden Sie die Unterstützung, die Sie brauchen, um diesen Weg erfolgreich zu gehen. Unsere Anabolic Steroids und anabolen Präparate sind darauf ausgelegt, Ihnen zu helfen, in jedem Aspekt Ihres Trainings und Ihrer Regeneration zu brillieren.</p>
 
         <hr />
         <p>Mit Anabolic Hub haben Sie den idealen Partner gefunden, wenn es darum geht, Anabolika Kaufen oder Anabolika Kaufen Online zu wollen. Wir freuen uns darauf, Sie auf Ihrer Reise zu unterstützen und Ihnen dabei zu helfen, Ihre Ziele zu verwirklichen – mit den besten Anabolika, den fortschrittlichsten anabolen Produkten und den effektivsten Anabolic Steroids, die Sie auf dem Markt finden können.</p>

@@ -86,7 +86,7 @@ const orgSchema = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="de-DE">
+      <html lang="de-DE" translate="no"> 
         <head>
           <Script
             id="bnreadcrumb-schema"

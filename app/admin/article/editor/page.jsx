@@ -31,6 +31,7 @@ const ContentEditor = () => {
             setLoading(true);
             try {
                 const res = await fetch(`/api/article?slug=${slug}`);
+                console.log("Fetching content for slug:", slug);
                 if (!res.ok) {
                     const errorData = await res.json();
                     throw new Error(errorData.error || `HTTP error! status: ${res.status}`);

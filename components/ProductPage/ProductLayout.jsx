@@ -12,12 +12,12 @@ import Reviews from '../ReviewsPage/Reviews'
 import ProductCarousel from './ProductCarousel'
 import ArticlePage from '../Common/ArticlePage'
 
-const productLayout = ({ product,article }) => {
+const productLayout = ({ product, article }) => {
     const { toast } = useToast()
     const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1)
     const [mainImage, setMainImage] = useState(null)
-    const [reviews,setReviews] = useState([])
+    const [reviews, setReviews] = useState([])
 
     const changeQuantity = (type) => {
         if (type === 'increase') {
@@ -49,11 +49,11 @@ const productLayout = ({ product,article }) => {
             })
         }
     }
-    async function fecthReviews(){
+    async function fecthReviews() {
         const res = await fetch(`/api/review?productId=${product.productId}&page=1&limit=10`)
         const data = await res.json()
-        setReviews(data.reviews)        
-    } 
+        setReviews(data.reviews)
+    }
     useEffect(() => {
         setMainImage(product?.productImage[0].large)
         fecthReviews()
@@ -79,45 +79,45 @@ const productLayout = ({ product,article }) => {
                     <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Description</p>
                     {product?.shortDescription && <p className='my-4 mb-5' dangerouslySetInnerHTML={{ __html: product?.shortDescription }}></p>}
                     <div className="my-2"></div>
-                    <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Information</p>
+                    <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Informatie</p>
                     <ul className='mt-3 mb-5'>
-                        <li className='mb-2'><strong>Dispatch:</strong>Delivery time up to 2 working days (DPD), up to 4 working days (DHL)</li>
-                        <li className='mb-2'><strong>Shipping:</strong>DHL, DPD, DHL Packstation</li>
-                        <li className='mb-2'><strong>Shipping costs:</strong>17 €</li>
-                        <li className='mb-2'><strong>Payment methods:</strong>Wire transfer</li>
+                        <li className='mb-2'><strong>Verzending:</strong> Levertijd tot 2 werkdagen (DPD), tot 4 werkdagen (DHL)</li>
+                        <li className='mb-2'><strong>Verzendmethode:</strong> DHL, DPD, DHL Packstation</li>
+                        <li className='mb-2'><strong>Verzendkosten:</strong> 17 €</li>
+                        <li className='mb-2'><strong>Betaalmethoden:</strong> Wire Transfer</li>
                     </ul>
-                    <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Quantity</p>
+                    <p className='uppercase bg-primary inline px-2 py-1 text-white text-sm font-semibold'>Hoeveelheid</p>
                     <div className='flex mt-4'>
                         <input type="number" className='border border-black/50 w-12 text-lg px-2 py-0 focus:outline-none inline-block text-center' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                         <div className='flex flex-col'>
                             <button type='button' onClick={() => changeQuantity('increase')} className='text-white bg-gray-800 hover:bg-primary hover:cursor-pointer'><ChevronUp /></button>
                             <button type='button' onClick={() => changeQuantity('decrease')} disabled={quantity <= 1} className='text-white bg-gray-800 hover:bg-primary disabled:bg-neutral/75 hover:cursor-pointer'><ChevronDown /></button>
                         </div>
-                        <button type='button' onClick={() => handleAddToCart()} className='btn btn-primary rounded-none font-extrabold ms-2'>ADD TO CART</button>
+                        <button type='button' onClick={() => handleAddToCart()} className='btn btn-primary rounded-none font-extrabold ms-2'>In winkelwagen</button>
                     </div>
 
                     <div className='flex mt-6 items-center'>
                         <div className='bg-black/90 rounded-full p-3 flex items-center justify-center me-4'>
                             <CourierIcon className={'w-10'} />
                         </div>
-                        <p className='text-neutral leading-6 font-medium'>We carry out orders throughout the European Union! We ship products immediately after payment (1 business day)</p>
+                        <p className='text-neutral leading-6 font-medium'>Wij leveren bestellingen in de hele Europese Unie! We verzenden producten direct na betaling (1 werkdag)</p>
                     </div>
                     <div className='flex mt-4 items-center'>
                         <div className='bg-black/90 rounded-full p-3 flex items-center justify-center me-4'>
                             <CommerceIcon className={'w-10'} />
                         </div>
-                        <p className='text-neutral leading-6 font-medium'>Our products are securely packaged and protected from damage. We respect your anonymity – no one will know what you order</p>
+                        <p className='text-neutral leading-6 font-medium'>Onze producten zijn veilig verpakt en beschermd tegen schade. Wij respecteren uw anonimiteit – niemand zal weten wat u bestelt</p>
                     </div>
 
                     <div className="mt-6 mb-4">
-                        <p><strong>Categories: </strong>
+                        <p><strong>Categorieën: </strong>
                             {
                                 product?.subCategory?.map((item, index) => (
                                     <Link key={index} rel="nofollow" href={`/${item.href}`}>{item.title}, </Link>
                                 ))
                             }
                         </p>
-                        <small className='text-neutral'>Check what our <Link href={'/'}>steroid shop</Link> offer</small>
+                        <small className='text-neutral'>Bekijk wat onze <Link href={'/'}>steroïdenwinkel</Link> te bieden heeft</small>
                     </div>
 
                     <hr className='border-b-2 border-black/25' />
@@ -125,12 +125,12 @@ const productLayout = ({ product,article }) => {
                 </div>
             </div>
 
-            {product.relatedProducts.length !=0 && <ProductCarousel relatedProducts={product.relatedProducts}/>}
+            {product.relatedProducts.length != 0 && <ProductCarousel relatedProducts={product.relatedProducts} />}
 
             {/* Reviews */}
             <Tabs defaultValue="article" className="w-full mt-8">
                 <TabsList>
-                    <TabsTrigger className="text-white bg-neutral" value="article">Description</TabsTrigger>
+                    <TabsTrigger className="text-white bg-neutral" value="article">Beschrijving</TabsTrigger>
                     <TabsTrigger className="text-white bg-neutral" value="review">Kundenmeinungen</TabsTrigger>
                 </TabsList>
                 <TabsContent value="article">
@@ -139,7 +139,7 @@ const productLayout = ({ product,article }) => {
                     }
                 </TabsContent>
                 <TabsContent value="review">
-                    <Reviews reviews={reviews} productId={product.productId} slug={product.slug}/>
+                    <Reviews reviews={reviews} productId={product.productId} slug={product.slug} />
                 </TabsContent>
             </Tabs>
 
