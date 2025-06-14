@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     const {productSlug} = await params
     const { product } = await getProduct(productSlug);
     
-    const title = `${product.productName} | Anabolichub`;
+    const title = `Kopen ${product.productName} | Anabolichub`;
     const description = product.description;
     const imageUrl = product.productImage[0]?.large || product.productImage[0]?.thumb || '/default-og-image.jpg';
     return {
